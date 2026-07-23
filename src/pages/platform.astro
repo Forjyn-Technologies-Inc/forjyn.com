@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
+import KeyTakeaways from '../components/sections/KeyTakeaways.astro';
 import {
 	onboardingCapabilities,
 	roles,
@@ -23,9 +24,16 @@ import {
 	sectionNav,
 } from '../data/platform';
 
-const title = 'Forjyn Platform | Deal Flow, Due Diligence, AI and Ecosystem Management';
+const title = 'Forjyn Platform: Deal Flow & Diligence';
 const description =
-	'Explore Forjyn’s platform capabilities, including intelligent deal discovery, startup profiles, due diligence rooms, compliance, events, payments, analytics, communications, and administration.';
+	'Explore Forjyn platform tools for deal discovery, startup profiles, due diligence rooms, compliance, events, analytics, and administration.';
+
+const platformTakeaways = [
+	'One platform covers discovery, matching, diligence, events, and administration.',
+	'Role-based workspaces serve startups, investors, partners, and operators.',
+	'AI assists evaluation without replacing human investment judgment.',
+	'Security and auditability are built into sensitive deal workflows.',
+] as const;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -39,6 +47,8 @@ const description =
 			<a href="/signup" class="btn-secondary">Sign Up Now</a>
 		</Fragment>
 	</PageHero>
+
+	<KeyTakeaways items={platformTakeaways} />
 
 	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page">

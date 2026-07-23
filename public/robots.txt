@@ -5,3 +5,4 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://forjyn.com/sitemap-index.xml
+Sitemap: https://forjyn.com/sitemap-0.xml

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
+import KeyTakeaways from '../components/sections/KeyTakeaways.astro';
 import {
 	startupProfileAreas,
 	matchingAreas,
@@ -16,9 +17,16 @@ import {
 	serviceCategories,
 } from '../data/solutions';
 
-const title = 'Solutions for Startups, Investors and Ecosystem Partners | Forjyn';
+const title = 'Forjyn Solutions for Startups & Investors';
 const description =
-	'Explore Forjyn solutions for startup fundraising, investor deal discovery, due diligence, ecosystem management, events, compliance, and intelligent matching.';
+	'Explore Forjyn solutions for startup fundraising, investor deal discovery, due diligence, ecosystem management, and intelligent matching.';
+
+const solutionsTakeaways = [
+	'Startups get investment-ready profiles, matching, analytics, and diligence tools.',
+	'Investors get personalized discovery, scoring, pipelines, and secure collaboration.',
+	'Ecosystem partners manage communities, referrals, events, and reporting in one place.',
+	'Service providers and enterprises can plug into the same connected network.',
+] as const;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -41,6 +49,8 @@ const description =
 				<a href="#service-providers" class="hover:text-cloud">Service Providers</a>
 			</nav>
 	</PageHero>
+
+	<KeyTakeaways items={solutionsTakeaways} />
 
 	<section id="startups" class="scroll-mt-24 bg-graphite py-20 sm:py-24">
 		<div class="container-page">

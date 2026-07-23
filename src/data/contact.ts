@@ -88,7 +88,7 @@ export const contactFaqs = [
 ] as const;
 
 export const contactSeo = {
-	title: 'Contact Forjyn Technologies | Book a Demo',
+	title: 'Contact Forjyn Technologies | Demo',
 	description:
-		'Contact Forjyn Technologies to book a platform demonstration, ask about startup or investor accounts, explore ecosystem partnerships, or receive account support.',
+		'Contact Forjyn Technologies to book a platform demo, ask about startup or investor accounts, explore ecosystem partnerships, or get support.',
 } as const;

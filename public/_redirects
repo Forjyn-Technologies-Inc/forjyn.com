@@ -1,0 +1,2 @@
+# Help crawlers that request /sitemap.xml find the Astro-generated index.
+/sitemap.xml /sitemap-index.xml 301

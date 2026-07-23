@@ -1,0 +1,34 @@
+---
+/**
+ * Term/definition pairs for AEO/GEO — semantic <dl>/<dt>/<dd> markup.
+ */
+export interface TermDefinition {
+	term: string;
+	definition: string;
+}
+
+interface Props {
+	title?: string;
+	lede?: string;
+	items: readonly TermDefinition[];
+}
+
+const { title = 'Key Terms', lede, items } = Astro.props;
+---
+
+<section class="bg-midnight py-16 sm:py-20" aria-labelledby="term-definitions-heading">
+	<div class="container-page max-w-3xl">
+		<h2 id="term-definitions-heading" class="section-heading">{title}</h2>
+		{lede && <p class="section-lede">{lede}</p>}
+		<dl class="mt-10 space-y-6">
+			{
+				items.map((item) => (
+					<div class="border-t border-line pt-5">
+						<dt class="font-display text-lg font-semibold text-cloud">{item.term}</dt>
+						<dd class="mt-2 text-sm leading-relaxed text-slate sm:text-base">{item.definition}</dd>
+					</div>
+				))
+			}
+		</dl>
+	</div>
+</section>

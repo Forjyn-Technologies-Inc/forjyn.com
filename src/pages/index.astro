@@ -2,14 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CapabilityList from '../components/sections/CapabilityList.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
+import KeyTakeaways from '../components/sections/KeyTakeaways.astro';
+import TermDefinitions from '../components/sections/TermDefinitions.astro';
 import {
 	homeAiCapabilities,
 	homeAudiences,
 	homeDealPreview,
 	homeDiligenceFeatures,
 	homeEventCapabilities,
+	homeGlossary,
 	homeInvestorCapabilities,
 	homeJourney,
+	homeKeyTakeaways,
 	homeSecurityCapabilities,
 	homeStartupCapabilities,
 } from '../data/home';
@@ -98,6 +102,8 @@ import {
 		</div>
 	</section>
 
+	<KeyTakeaways items={homeKeyTakeaways} />
+
 	<section class="bg-midnight py-20 sm:py-24">
 		<div class="container-page max-w-3xl">
 			<h2 class="section-heading">Innovation Moves Quickly. Your Technology Should Too.</h2>
@@ -121,6 +127,12 @@ import {
 			</div>
 		</div>
 	</section>
+
+	<TermDefinitions
+		title="Key Terms"
+		lede="Clear definitions for the core concepts behind Forjyn’s deal flow platform."
+		items={homeGlossary}
+	/>
 
 	<section class="border-y border-line bg-graphite py-20 sm:py-24">
 		<div class="container-page">

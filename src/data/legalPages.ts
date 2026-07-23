@@ -15,7 +15,7 @@ export const legalPages: LegalPage[] = [
 		title: 'Privacy Policy',
 		seoTitle: 'Privacy Policy | Forjyn Technologies',
 		seoDescription:
-			'How Forjyn Technologies Inc. collects, uses, and protects personal information on forjyn.com and related services.',
+			'Learn how Forjyn Technologies collects, uses, and protects personal information on forjyn.com and related marketing services.',
 		updated: 'July 23, 2026',
 		sections: [
 			{
@@ -74,7 +74,7 @@ export const legalPages: LegalPage[] = [
 		title: 'Terms of Use',
 		seoTitle: 'Terms of Use | Forjyn Technologies',
 		seoDescription:
-			'Terms governing use of the Forjyn Technologies website and related marketing materials.',
+			'Read the Forjyn Technologies Terms of Use governing access to forjyn.com, demos, accounts, and related marketing services.',
 		updated: 'July 23, 2026',
 		sections: [
 			{
@@ -127,7 +127,8 @@ export const legalPages: LegalPage[] = [
 		eyebrow: 'Legal',
 		title: 'Cookie Policy',
 		seoTitle: 'Cookie Policy | Forjyn Technologies',
-		seoDescription: 'How Forjyn Technologies uses cookies and similar technologies on forjyn.com.',
+		seoDescription:
+			'Learn how Forjyn Technologies uses essential and analytics cookies on forjyn.com to secure the site and improve visitor experience.',
 		updated: 'July 23, 2026',
 		sections: [
 			{
@@ -162,7 +163,8 @@ export const legalPages: LegalPage[] = [
 		eyebrow: 'Legal',
 		title: 'Acceptable Use Policy',
 		seoTitle: 'Acceptable Use Policy | Forjyn Technologies',
-		seoDescription: 'Rules for acceptable use of Forjyn websites and services.',
+		seoDescription:
+			'Review Forjyn’s Acceptable Use Policy for prohibited conduct, security expectations, and responsible use of our websites and services.',
 		updated: 'July 23, 2026',
 		sections: [
 			{
@@ -198,7 +200,7 @@ export const legalPages: LegalPage[] = [
 		title: 'Security',
 		seoTitle: 'Security | Forjyn Technologies',
 		seoDescription:
-			'Overview of Forjyn’s approach to protecting information on our website and platform.',
+			'Understand Forjyn Technologies security principles for protecting sensitive company, identity, and investment-related information.',
 		updated: 'July 23, 2026',
 		sections: [
 			{
@@ -227,7 +229,7 @@ export const legalPages: LegalPage[] = [
 		title: 'Investment Disclaimer',
 		seoTitle: 'Investment Disclaimer | Forjyn Technologies',
 		seoDescription:
-			'Important disclaimer regarding Forjyn Technologies and investment-related information.',
+			'Read Forjyn’s investment disclaimer: platform information is organizational only and is not investment, legal, or financial advice.',
 		updated: 'July 23, 2026',
 		sections: [
 			{
@@ -248,7 +250,8 @@ export const legalPages: LegalPage[] = [
 		eyebrow: 'Legal',
 		title: 'Accessibility',
 		seoTitle: 'Accessibility | Forjyn Technologies',
-		seoDescription: 'Forjyn’s commitment to an accessible website experience.',
+		seoDescription:
+			'Learn about Forjyn Technologies’ commitment to accessibility on forjyn.com and how to request assistance with digital content.',
 		updated: 'July 23, 2026',
 		sections: [
 			{

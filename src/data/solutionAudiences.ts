@@ -19,7 +19,7 @@ export const solutionAudiencePages: SolutionAudiencePage[] = [
 		lede: 'Organize your story, get discovered by relevant investors, understand engagement, and manage due diligence in one secure workspace.',
 		seoTitle: 'Startup Solutions | Forjyn Technologies',
 		seoDescription:
-			'Forjyn startup tools for investor-ready profiles, AI-supported feedback, matching, analytics, and due diligence.',
+			'Forjyn startup solutions help founders build investor-ready profiles, get matched, track engagement, and manage due diligence securely.',
 		anchor: 'startups',
 		highlights: [
 			'Guided startup profile builder',
@@ -39,7 +39,7 @@ export const solutionAudiencePages: SolutionAudiencePage[] = [
 		lede: 'Personalized deal discovery, compatibility scoring, pipeline organization, and collaborative due diligence.',
 		seoTitle: 'Investor Solutions | Forjyn Technologies',
 		seoDescription:
-			'Forjyn investor tools for mobile-first discovery, matching scores, deal pipelines, and due diligence.',
+			'Forjyn investor solutions deliver personalized deal discovery, matching scores, pipeline tools, and private due diligence collaboration.',
 		anchor: 'investors',
 		highlights: [
 			'Mobile-first startup discovery',
@@ -59,7 +59,7 @@ export const solutionAudiencePages: SolutionAudiencePage[] = [
 		lede: 'Support founders, coordinate programs and events, manage referrals, and understand ecosystem activity.',
 		seoTitle: 'Ecosystem Partner Solutions | Forjyn Technologies',
 		seoDescription:
-			'Forjyn tools for accelerators, incubators, universities, and innovation organizations.',
+			'Forjyn ecosystem partner tools help accelerators, incubators, and universities manage communities, referrals, events, and reporting.',
 		anchor: 'ecosystem',
 		highlights: [
 			'Community and membership management',
@@ -79,7 +79,7 @@ export const solutionAudiencePages: SolutionAudiencePage[] = [
 		lede: 'Connect your expertise—legal, accounting, talent, technology, and more—to founders who need support.',
 		seoTitle: 'Service Provider Solutions | Forjyn Technologies',
 		seoDescription:
-			'Forjyn solutions for professionals and firms supporting startups across legal, finance, talent, and growth.',
+			'Forjyn service provider solutions connect legal, finance, talent, and growth experts with startups that need trusted support.',
 		anchor: 'service-providers',
 		highlights: [
 			'Visibility to relevant startups',
@@ -98,7 +98,7 @@ export const solutionAudiencePages: SolutionAudiencePage[] = [
 		lede: 'Support multiple teams, programs, communities, or chapters with customized permissions, reporting, and implementation support.',
 		seoTitle: 'Enterprise Solutions | Forjyn Technologies',
 		seoDescription:
-			'Enterprise Forjyn configurations for large innovation organizations and multi-program ecosystems.',
+			'Forjyn enterprise configurations support multi-program innovation organizations with custom roles, reporting, and implementation help.',
 		anchor: 'ecosystem',
 		highlights: [
 			'Multi-team and multi-program support',

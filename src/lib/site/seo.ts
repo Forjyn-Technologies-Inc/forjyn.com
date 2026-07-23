@@ -2,9 +2,9 @@
 export const siteOrigin = 'https://forjyn.com';
 
 export const defaultSeo = {
-	title: 'Forjyn Technologies | Intelligent Deal Flow for Startups and Investors',
+	title: 'Forjyn Deal Flow for Startups & Investors',
 	description:
-		'Forjyn connects startups, investors, ecosystem partners, and service providers through an intelligent platform for deal discovery, fundraising, due diligence, events, and ecosystem collaboration.',
+		'Forjyn is an intelligent deal flow platform connecting startups, investors, and ecosystem partners for discovery, due diligence, and fundraising.',
 	themeColor: '#0B1020',
 	/** Prefer PNG for social crawlers that do not handle SVG well. */
 	ogImagePath: '/web-app-manifest-512x512.png',
