@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
 
 const title = 'Forjyn Platform | Deal Flow, Due Diligence, AI and Ecosystem Management';
 const description =
@@ -286,36 +288,16 @@ const sectionNav = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<section class="page-hero">
-		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
-		<div class="page-hero-inner max-w-3xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">Platform</p>
-			<div class="accent-line mt-4 max-w-24"></div>
-			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-				Everything Your Innovation Ecosystem Needs in One Platform
-			</h1>
-			<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
-				From account creation and deal discovery to compliance, due diligence, events, communications,
-				and analytics, Forjyn centralizes the workflows that help startup ecosystems operate.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center gap-3">
-				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
-				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
-				<a href="/login" class="text-sm font-medium text-slate underline-offset-4 hover:text-cloud hover:underline"
-					>Log In</a
-				>
-			</div>
-			<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate" aria-label="Platform sections">
-				{
-					sectionNav.map((item) => (
-						<a href={item.href} class="hover:text-cloud">
-							{item.label}
-						</a>
-					))
-				}
-			</nav>
-		</div>
-	</section>
+	<PageHero
+		eyebrow="Platform"
+		title="Everything Your Innovation Ecosystem Needs in One Platform"
+		lede="From account creation and deal discovery to compliance, due diligence, events, communications, and analytics, Forjyn centralizes the workflows that help startup ecosystems operate."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+	</PageHero>
 
 	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page">
@@ -687,20 +669,16 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section class="bg-midnight py-20 sm:py-24">
-		<div class="container-page max-w-3xl text-center">
-			<h2 class="section-heading">Experience the Forjyn Platform</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate">
-				See how intelligent technology can simplify discovery, evaluation, collaboration, and ecosystem
-				growth.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-				<a href="/signup" class="btn-secondary">Sign Up Now</a>
-			</div>
-			<p class="mt-4 text-sm text-slate/80">
-				Existing user? <a href="/login" class="link-accent">Log In</a>
-			</p>
-		</div>
-	</section>
+	<CtaBand
+		title="Experience the Forjyn Platform"
+		lede="See how intelligent technology can simplify discovery, evaluation, collaboration, and ecosystem growth."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+		<p class="mt-4 text-sm text-slate/80">
+			Existing user? <a href="/login" class="link-accent">Log In</a>
+		</p>
+	</CtaBand>
 </BaseLayout>

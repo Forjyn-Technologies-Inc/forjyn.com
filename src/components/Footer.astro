@@ -1,92 +1,48 @@
 ---
-const platformLinks = [
-	{ label: 'Platform Overview', href: '/platform' },
-	{ label: 'Startup Tools', href: '/platform#startup-tools' },
-	{ label: 'Investor Tools', href: '/platform#investor-tools' },
-	{ label: 'Due Diligence', href: '/platform#due-diligence' },
-	{ label: 'AI Evaluations', href: '/platform#ai' },
-	{ label: 'Events', href: '/platform#events' },
-	{ label: 'Security', href: '/platform#security' },
-	{ label: 'Integrations', href: '/platform#integrations' },
-];
+import BrandLogo from './BrandLogo.astro';
+import { footerColumns } from '../lib/site/nav';
+import { investmentDisclaimer } from '../data/legal';
 
-const solutionsLinks = [
-	{ label: 'For Startups', href: '/solutions/startups' },
-	{ label: 'For Investors', href: '/solutions/investors' },
-	{ label: 'For Ecosystem Partners', href: '/solutions/ecosystem' },
-	{ label: 'For Service Providers', href: '/solutions/service-providers' },
-	{ label: 'Enterprise Solutions', href: '/solutions/enterprise' },
-];
+interface Props {
+	/** Show the “Ready to Join” CTA card. */
+	showCta?: boolean;
+	/** Copyright year override. */
+	year?: number;
+}
 
-const companyLinks = [
-	{ label: 'About', href: '/about' },
-	{ label: 'Contact', href: '/contact' },
-	{ label: 'Book a Demo', href: '/contact#demo' },
-	{ label: 'Careers', href: '/careers' },
-	{ label: 'News', href: '/news' },
-	{ label: 'Partnerships', href: '/partnerships' },
-];
-
-const accountLinks = [
-	{ label: 'Sign Up', href: '/signup' },
-	{ label: 'Log In', href: '/login' },
-	{ label: 'Forgot Password', href: '/forgot-password' },
-	{ label: 'Support', href: '/support' },
-];
-
-const legalLinks = [
-	{ label: 'Privacy Policy', href: '/legal/privacy' },
-	{ label: 'Terms of Use', href: '/legal/terms' },
-	{ label: 'Cookie Policy', href: '/legal/cookies' },
-	{ label: 'Acceptable Use Policy', href: '/legal/acceptable-use' },
-	{ label: 'Security', href: '/legal/security' },
-	{ label: 'Investment Disclaimer', href: '/legal/investment-disclaimer' },
-	{ label: 'Accessibility', href: '/legal/accessibility' },
-];
-
-const linkColumns = [
-	{ title: 'Platform', links: platformLinks },
-	{ title: 'Solutions', links: solutionsLinks },
-	{ title: 'Company', links: companyLinks },
-	{ title: 'Account', links: accountLinks },
-	{ title: 'Legal', links: legalLinks },
-];
+const { showCta = true, year = 2026 } = Astro.props;
 ---
 
 <footer class="border-t border-line bg-midnight text-slate">
 	<div class="container-page py-14 sm:py-16">
 		<div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
 			<div class="max-w-md">
-				<a href="/" class="inline-flex items-center gap-3" aria-label="Forjyn Technologies home">
-					<img
-						src="/logo.svg"
-						alt=""
-						width="36"
-						height="36"
-						class="h-9 w-9 rounded-md object-contain"
-						decoding="async"
-					/>
-					<span class="font-display text-2xl font-semibold tracking-tight text-cloud">
-						Forjyn Technologies Inc.
-					</span>
+				<a href="/" class="inline-flex" aria-label="Forjyn Technologies home">
+					<BrandLogo size={36} wordmark="full" class="gap-3" />
 				</a>
 				<p class="mt-3 text-sm leading-relaxed text-slate">
 					Connecting startups, investors, ecosystem partners, and service providers through
 					intelligent technology.
 				</p>
 			</div>
-			<div class="card-surface p-6 sm:min-w-[20rem]">
-				<p class="font-display text-lg font-semibold text-cloud">Ready to Join Forjyn?</p>
-				<div class="mt-4 flex flex-wrap gap-3">
-					<a href="/signup" class="btn-secondary">Sign Up Now</a>
-					<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-				</div>
-			</div>
+			{
+				showCta && (
+					<div class="card-surface p-6 sm:min-w-[20rem]">
+						<p class="font-display text-lg font-semibold text-cloud">Ready to Join Forjyn?</p>
+						<div class="mt-4 flex flex-wrap gap-3">
+							<slot name="cta">
+								<a href="/signup" class="btn-secondary">Sign Up Now</a>
+								<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+							</slot>
+						</div>
+					</div>
+				)
+			}
 		</div>
 
 		<div class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
 			{
-				linkColumns.map((column) => (
+				footerColumns.map((column) => (
 					<div>
 						<p class="text-xs font-semibold uppercase tracking-[0.14em] text-emerald">
 							{column.title}
@@ -113,37 +69,10 @@ const linkColumns = [
 				Investment Disclaimer
 			</p>
 			<div class="mt-4 max-w-4xl space-y-3 text-xs leading-relaxed text-slate/85 sm:text-[0.8125rem]">
-				<p>
-					Forjyn Technologies Inc. provides technology and information-management tools for
-					startups, investors, ecosystem organizations, and other platform users.
-				</p>
-				<p>
-					Unless expressly stated otherwise, Forjyn is not a securities dealer, investment fund,
-					investment adviser, financial adviser, broker, crowdfunding portal, legal adviser,
-					accounting firm, or financial institution.
-				</p>
-				<p>
-					Information, scores, matches, evaluations, profiles, reports, and AI-generated outputs
-					made available through the platform are provided for informational and organizational
-					purposes only. They do not constitute investment, legal, tax, accounting, financial, or
-					other professional advice.
-				</p>
-				<p>
-					Nothing on the platform is an offer, recommendation, endorsement, solicitation, or
-					guarantee concerning any company, security, investment, transaction, or outcome.
-				</p>
-				<p>
-					Users are responsible for conducting their own independent due diligence and obtaining
-					advice from qualified professionals before making business, investment, legal, financial,
-					or tax decisions.
-				</p>
-				<p>
-					Investment opportunities involve risk, including the possible loss of the entire amount
-					invested.
-				</p>
+				{investmentDisclaimer.map((paragraph) => <p>{paragraph}</p>)}
 			</div>
 			<p class="mt-8 text-sm text-slate/70">
-				© 2026 Forjyn Technologies Inc. All rights reserved.
+				© {year} Forjyn Technologies Inc. All rights reserved.
 			</p>
 		</div>
 	</div>

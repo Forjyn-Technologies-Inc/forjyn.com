@@ -1,0 +1,99 @@
+---
+import {
+	contactInterests,
+	contactOrgSizes,
+	contactOrgTypes,
+} from '../../data/contact';
+---
+
+<form
+	class="rounded-2xl border border-line bg-graphite p-6 sm:p-8"
+	method="post"
+	action="/api/contact"
+	data-contact-form
+>
+	<input type="hidden" name="type" value="demo" />
+	<div class="grid gap-4 sm:grid-cols-2">
+		<div>
+			<label class="form-label" for="demo-first-name">First Name</label>
+			<input class="form-input" id="demo-first-name" name="firstName" type="text" required />
+		</div>
+		<div>
+			<label class="form-label" for="demo-last-name">Last Name</label>
+			<input class="form-input" id="demo-last-name" name="lastName" type="text" required />
+		</div>
+		<div>
+			<label class="form-label" for="demo-email">Work Email</label>
+			<input class="form-input" id="demo-email" name="email" type="email" required />
+		</div>
+		<div>
+			<label class="form-label" for="demo-phone"
+				>Phone Number <span class="font-normal text-slate/60">(Optional)</span></label
+			>
+			<input class="form-input" id="demo-phone" name="phone" type="tel" />
+		</div>
+		<div>
+			<label class="form-label" for="demo-org">Organization</label>
+			<input class="form-input" id="demo-org" name="organization" type="text" required />
+		</div>
+		<div>
+			<label class="form-label" for="demo-title">Job Title</label>
+			<input class="form-input" id="demo-title" name="jobTitle" type="text" />
+		</div>
+		<div>
+			<label class="form-label" for="demo-org-type">Organization Type</label>
+			<select class="form-input" id="demo-org-type" name="organizationType" required>
+				<option value="">Select one</option>
+				{contactOrgTypes.map((type) => <option value={type}>{type}</option>)}
+			</select>
+		</div>
+		<div>
+			<label class="form-label" for="demo-org-size">Organization Size</label>
+			<select class="form-input" id="demo-org-size" name="organizationSize">
+				<option value="">Select one</option>
+				{contactOrgSizes.map((size) => <option value={size}>{size}</option>)}
+			</select>
+		</div>
+	</div>
+
+	<fieldset class="mt-5">
+		<legend class="form-label">What are you interested in?</legend>
+		<div class="mt-2 grid gap-2 sm:grid-cols-2">
+			{
+				contactInterests.map((item) => (
+					<label class="flex items-start gap-2 text-sm text-slate">
+						<input class="form-check mt-0.5" type="checkbox" name="interests" value={item} />
+						{item}
+					</label>
+				))
+			}
+		</div>
+	</fieldset>
+
+	<div class="mt-5">
+		<label class="form-label" for="demo-users">How many users do you expect?</label>
+		<input class="form-input" id="demo-users" name="expectedUsers" type="text" />
+	</div>
+
+	<div class="mt-5">
+		<label class="form-label" for="demo-goals">Tell us about your goals</label>
+		<textarea
+			class="form-input min-h-28"
+			id="demo-goals"
+			name="goals"
+			placeholder="Tell us about your organization, current workflows, platform requirements, and what you would like to improve."
+		></textarea>
+	</div>
+
+	<button type="submit" class="btn-primary mt-6">Request a Demo</button>
+	<p
+		class="mt-4 text-sm leading-relaxed data-[state=error]:text-error data-[state=success]:text-success"
+		data-form-status
+		aria-live="polite"
+	>
+	</p>
+	<p class="mt-2 text-xs leading-relaxed text-slate">
+		After submission, a member of our team will review the information and contact you using the
+		details provided.
+	</p>
+</form>

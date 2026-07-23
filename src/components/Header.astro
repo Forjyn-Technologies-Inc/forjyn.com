@@ -1,48 +1,32 @@
 ---
-const navLinks = [
-	{ label: 'Home', href: '/' },
-	{ label: 'Solutions', href: '/solutions' },
-	{ label: 'Platform', href: '/platform' },
-	{ label: 'Pricing', href: '/pricing' },
-	{ label: 'About', href: '/about' },
-	{ label: 'Contact', href: '/contact' },
-];
+import BrandLogo from './BrandLogo.astro';
+import { isActivePath, primaryNav } from '../lib/site/nav';
 
-const pathname = Astro.url.pathname;
+interface Props {
+	/** Override pathname for active-link detection (defaults to current URL). */
+	pathname?: string;
+}
+
+const { pathname = Astro.url.pathname } = Astro.props;
 ---
 
 <header class="sticky top-0 z-50 border-b border-line bg-midnight/90 backdrop-blur-md">
 	<div class="container-page">
 		<div class="flex h-16 items-center justify-between gap-4 lg:h-[4.25rem]">
-			<a href="/" class="group flex items-center gap-2.5 shrink-0" aria-label="Forjyn Technologies home">
-				<img
-					src="/logo.svg"
-					alt=""
-					width="32"
-					height="32"
-					class="h-8 w-8 rounded-md object-contain"
-					decoding="async"
-				/>
-				<span class="font-display text-lg font-semibold tracking-tight text-cloud">
-					Forjyn <span class="font-medium text-slate">Technologies</span>
-				</span>
+			<a href="/" class="group shrink-0" aria-label="Forjyn Technologies home">
+				<BrandLogo size={32} wordmark="short" />
 			</a>
 
 			<nav class="hidden items-center gap-1 xl:flex" aria-label="Primary">
 				{
-					navLinks.map((link) => {
-						const isActive =
-							link.href === '/'
-								? pathname === '/'
-								: pathname.startsWith(link.href);
+					primaryNav.map((link) => {
+						const isActive = isActivePath(pathname, link.href);
 						return (
 							<a
 								href={link.href}
 								class:list={[
 									'rounded-brand px-3 py-2 text-sm font-medium transition',
-									isActive
-										? 'text-emerald'
-										: 'text-slate hover:text-cloud',
+									isActive ? 'text-emerald' : 'text-slate hover:text-cloud',
 								]}
 								aria-current={isActive ? 'page' : undefined}
 							>
@@ -54,9 +38,11 @@ const pathname = Astro.url.pathname;
 			</nav>
 
 			<div class="hidden items-center gap-2 md:flex">
-				<a href="/login" class="btn-ghost">Log In</a>
-				<a href="/signup" class="btn-secondary">Sign Up Now</a>
-				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+				<slot name="actions">
+					<a href="/login" class="btn-ghost">Log In</a>
+					<a href="/signup" class="btn-secondary">Sign Up Now</a>
+					<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+				</slot>
 			</div>
 
 			<details class="relative xl:hidden">
@@ -73,7 +59,7 @@ const pathname = Astro.url.pathname;
 				>
 					<nav class="flex flex-col gap-0.5" aria-label="Mobile">
 						{
-							navLinks.map((link) => (
+							primaryNav.map((link) => (
 								<a
 									href={link.href}
 									class="rounded-brand px-3 py-2.5 text-sm font-medium text-cloud hover:bg-midnight hover:text-emerald"
@@ -84,9 +70,11 @@ const pathname = Astro.url.pathname;
 						}
 					</nav>
 					<div class="mt-3 flex flex-col gap-2 border-t border-line pt-3">
-						<a href="/login" class="btn-ghost justify-center">Log In</a>
-						<a href="/signup" class="btn-secondary justify-center">Sign Up Now</a>
-						<a href="/contact#demo" class="btn-primary justify-center">Book a Demo</a>
+						<slot name="mobile-actions">
+							<a href="/login" class="btn-ghost justify-center">Log In</a>
+							<a href="/signup" class="btn-secondary justify-center">Sign Up Now</a>
+							<a href="/contact#demo" class="btn-primary justify-center">Book a Demo</a>
+						</slot>
 					</div>
 				</div>
 			</details>

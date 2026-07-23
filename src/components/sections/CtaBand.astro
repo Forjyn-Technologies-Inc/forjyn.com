@@ -1,0 +1,65 @@
+---
+interface Props {
+	title: string;
+	lede?: string;
+	/** Visual surface variant. */
+	surface?: 'midnight' | 'graphite';
+	/** Center content (default true). */
+	centered?: boolean;
+	class?: string;
+}
+
+const {
+	title,
+	lede,
+	surface = 'midnight',
+	centered = true,
+	class: className,
+} = Astro.props;
+
+const surfaceClass = surface === 'midnight' ? 'bg-midnight text-cloud' : 'bg-graphite';
+---
+
+<section class:list={['relative overflow-hidden py-20 sm:py-24', surfaceClass, className]}>
+	{
+		surface === 'midnight' && (
+			<div
+				class="pointer-events-none absolute inset-0 bg-hero-glow opacity-70"
+				aria-hidden="true"
+			/>
+		)
+	}
+	<div
+		class:list={[
+			'container-page relative max-w-3xl',
+			centered && 'text-center',
+		]}
+	>
+		<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
+		{
+			lede && (
+				<p
+					class:list={[
+						'mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg',
+						centered && 'mx-auto',
+					]}
+				>
+					{lede}
+				</p>
+			)
+		}
+		{
+			Astro.slots.has('actions') && (
+				<div
+					class:list={[
+						'mt-8 flex flex-wrap gap-3',
+						centered && 'items-center justify-center',
+					]}
+				>
+					<slot name="actions" />
+				</div>
+			)
+		}
+		<slot />
+	</div>
+</section>

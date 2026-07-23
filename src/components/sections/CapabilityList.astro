@@ -1,0 +1,25 @@
+---
+interface Props {
+	items: readonly string[];
+	/** Tailwind class for the bullet color (default emerald). */
+	dotClass?: string;
+	class?: string;
+}
+
+const {
+	items,
+	dotClass = 'bg-emerald',
+	class: className = 'mt-5 grid gap-3 sm:grid-cols-2',
+} = Astro.props;
+---
+
+<ul class={className}>
+	{
+		items.map((item) => (
+			<li class="capability-item">
+				<span class:list={['capability-dot', dotClass]} aria-hidden="true" />
+				{item}
+			</li>
+		))
+	}
+</ul>

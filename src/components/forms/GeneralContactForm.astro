@@ -1,0 +1,62 @@
+---
+import { contactRoles, contactSubjects } from '../../data/contact';
+---
+
+<form
+	class="rounded-2xl border border-line bg-midnight p-6 sm:p-8"
+	method="post"
+	action="/api/contact"
+	data-contact-form
+>
+	<input type="hidden" name="type" value="general" />
+	<div class="grid gap-4 sm:grid-cols-2">
+		<div>
+			<label class="form-label" for="contact-name">Name</label>
+			<input class="form-input" id="contact-name" name="name" type="text" required />
+		</div>
+		<div>
+			<label class="form-label" for="contact-email">Email</label>
+			<input class="form-input" id="contact-email" name="email" type="email" required />
+		</div>
+		<div class="sm:col-span-2">
+			<label class="form-label" for="contact-org">Organization</label>
+			<input class="form-input" id="contact-org" name="organization" type="text" />
+		</div>
+	</div>
+
+	<fieldset class="mt-5">
+		<legend class="form-label">I am a:</legend>
+		<div class="mt-2 grid gap-2 sm:grid-cols-2">
+			{
+				contactRoles.map((role) => (
+					<label class="flex items-center gap-2 text-sm text-slate">
+						<input class="form-check" type="radio" name="role" value={role} required />
+						{role}
+					</label>
+				))
+			}
+		</div>
+	</fieldset>
+
+	<div class="mt-5">
+		<label class="form-label" for="contact-subject">Subject</label>
+		<select class="form-input" id="contact-subject" name="subject" required>
+			<option value="">Select one</option>
+			{contactSubjects.map((subject) => <option value={subject}>{subject}</option>)}
+		</select>
+	</div>
+
+	<div class="mt-5">
+		<label class="form-label" for="contact-message">Message</label>
+		<textarea class="form-input min-h-28" id="contact-message" name="message" required
+		></textarea>
+	</div>
+
+	<button type="submit" class="btn-primary mt-6">Submit Message</button>
+	<p
+		class="mt-4 text-sm leading-relaxed data-[state=error]:text-error data-[state=success]:text-success"
+		data-form-status
+		aria-live="polite"
+	>
+	</p>
+</form>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
 
 const title = 'Sign Up | Forjyn Technologies';
 const description =
@@ -34,20 +35,11 @@ const selectedRole = Astro.url.searchParams.get('role');
 ---
 
 <BaseLayout title={title} description={description}>
-	<section class="page-hero">
-		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
-		<div class="page-hero-inner max-w-3xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">Create Account</p>
-			<div class="accent-line mt-4 max-w-24"></div>
-			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-				Join the Forjyn Ecosystem
-			</h1>
-			<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
-				Create your account and gain access to intelligent tools designed to help startups grow and
-				investors discover stronger opportunities.
-			</p>
-		</div>
-	</section>
+	<PageHero
+		eyebrow="Create Account"
+		title="Join the Forjyn Ecosystem"
+		lede="Create your account and gain access to intelligent tools designed to help startups grow and investors discover stronger opportunities."
+	/>
 
 	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page">

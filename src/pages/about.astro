@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+import CapabilityList from '../components/sections/CapabilityList.astro';
 
 const title = 'About Forjyn Technologies | Connecting the Innovation Ecosystem';
 const description =
@@ -89,24 +92,16 @@ const approach = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<section class="page-hero">
-		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
-		<div class="page-hero-inner max-w-3xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">About</p>
-			<div class="accent-line mt-4 max-w-24"></div>
-			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-				Building the Infrastructure Behind Better Innovation
-			</h1>
-			<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
-				Forjyn Technologies Inc. develops intelligent software that connects the people, opportunities,
-				and organizations responsible for startup growth.
-			</p>
-			<div class="mt-8 flex flex-wrap gap-3">
-				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
-				<a href="/platform" class="btn-secondary-on-dark">Explore the Platform</a>
-			</div>
-		</div>
-	</section>
+	<PageHero
+		eyebrow="About"
+		title="Building the Infrastructure Behind Better Innovation"
+		lede="Forjyn Technologies Inc. develops intelligent software that connects the people, opportunities, and organizations responsible for startup growth."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/platform" class="btn-secondary">Explore the Platform</a>
+		</Fragment>
+	</PageHero>
 
 	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page max-w-3xl">
@@ -190,16 +185,7 @@ const approach = [
 	<section class="border-y border-line bg-midnight py-20 sm:py-24">
 		<div class="container-page">
 			<h2 class="section-heading">What We Build</h2>
-			<ul class="capability-list mt-8">
-				{
-					whatWeBuild.map((item) => (
-						<li class="capability-item">
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList items={whatWeBuild} class="capability-list mt-8" />
 		</div>
 	</section>
 
@@ -266,20 +252,16 @@ const approach = [
 		</div>
 	</section>
 
-	<section class="bg-midnight py-20 sm:py-24">
-		<div class="container-page max-w-3xl text-center">
-			<h2 class="section-heading">Help Build a More Connected Innovation Ecosystem</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate">
-				Join Forjyn as a startup or investor, or speak with our team about bringing the platform to your
-				organization.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-				<a href="/signup" class="btn-secondary">Sign Up Now</a>
-			</div>
-			<p class="mt-4 text-sm text-slate/80">
-				<a href="/login" class="link-accent">Log In</a>
-			</p>
-		</div>
-	</section>
+	<CtaBand
+		title="Help Build a More Connected Innovation Ecosystem"
+		lede="Join Forjyn as a startup or investor, or speak with our team about bringing the platform to your organization."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+		<p class="mt-4 text-sm text-slate/80">
+			<a href="/login" class="link-accent">Log In</a>
+		</p>
+	</CtaBand>
 </BaseLayout>

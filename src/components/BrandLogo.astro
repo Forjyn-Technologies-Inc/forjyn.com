@@ -1,0 +1,47 @@
+---
+/**
+ * Brand mark from /public. Public SVG paths keep width/height explicit;
+ * raster content images should use astro:assets Image when added.
+ */
+interface Props {
+	/** Pixel size of the mark. */
+	size?: number;
+	/** Show adjacent wordmark text. */
+	showWordmark?: boolean;
+	/** Short = “Forjyn Technologies”; full = “Forjyn Technologies Inc.” */
+	wordmark?: 'short' | 'full';
+	class?: string;
+}
+
+const {
+	size = 32,
+	showWordmark = true,
+	wordmark = 'short',
+	class: className,
+} = Astro.props;
+
+const label =
+	wordmark === 'full' ? 'Forjyn Technologies Inc.' : 'Forjyn Technologies';
+---
+
+<span class:list={['inline-flex items-center gap-2.5', className]}>
+	<img
+		src="/logo.svg"
+		alt=""
+		width={size}
+		height={size}
+		class="rounded-md object-contain"
+		style={`width:${size}px;height:${size}px`}
+		decoding="async"
+	/>
+	{
+		showWordmark &&
+			(wordmark === 'full' ? (
+				<span class="font-display text-2xl font-semibold tracking-tight text-cloud">{label}</span>
+			) : (
+				<span class="font-display text-lg font-semibold tracking-tight text-cloud">
+					Forjyn <span class="font-medium text-slate">Technologies</span>
+				</span>
+			))
+	}
+</span>

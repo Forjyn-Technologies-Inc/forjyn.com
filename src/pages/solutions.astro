@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
 
 const title = 'Solutions for Startups, Investors and Ecosystem Partners | Forjyn';
 const description =
@@ -149,34 +151,25 @@ const serviceCategories = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<section class="page-hero">
-		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
-		<div class="page-hero-inner max-w-3xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">Solutions</p>
-			<div class="accent-line mt-4 max-w-24"></div>
-			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-				Technology Built Around the People Driving Innovation
-			</h1>
-			<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
-				Forjyn gives startups, investors, and ecosystem partners distinct tools while connecting them
-				through one shared platform.
-			</p>
-			<p class="mt-4 text-sm leading-relaxed text-slate">
-				Each user receives an experience tailored to their role, goals, permissions, and
-				responsibilities.
-			</p>
-			<div class="mt-8 flex flex-wrap gap-3">
-				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
-				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
-			</div>
-			<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate" aria-label="Solutions sections">
+	<PageHero
+		eyebrow="Solutions"
+		title="Technology Built Around the People Driving Innovation"
+		lede="Forjyn gives startups, investors, and ecosystem partners distinct tools while connecting them through one shared platform."
+	>
+		<p class="mt-4 text-sm leading-relaxed text-slate">
+			Each user receives an experience tailored to their role, goals, permissions, and responsibilities.
+		</p>
+		<div class="mt-8 flex flex-wrap gap-3">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</div>
+		<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate" aria-label="Solutions sections">
 				<a href="#startups" class="hover:text-cloud">Startups</a>
 				<a href="#investors" class="hover:text-cloud">Investors</a>
 				<a href="#ecosystem" class="hover:text-cloud">Ecosystem Partners</a>
 				<a href="#service-providers" class="hover:text-cloud">Service Providers</a>
 			</nav>
-		</div>
-	</section>
+	</PageHero>
 
 	<section id="startups" class="scroll-mt-24 bg-graphite py-20 sm:py-24">
 		<div class="container-page">
@@ -537,20 +530,16 @@ const serviceCategories = [
 		</div>
 	</section>
 
-	<section class="bg-midnight py-20 sm:py-24">
-		<div class="container-page max-w-3xl text-center">
-			<h2 class="section-heading">One Platform. Different Roles. Shared Growth.</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate">
-				Every Forjyn experience is designed around the user while contributing to a stronger, more
-				connected innovation ecosystem.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-				<a href="/signup" class="btn-secondary">Sign Up Now</a>
-			</div>
-			<p class="mt-4 text-sm text-slate/80">
-				<a href="/login" class="link-accent">Log In</a>
-			</p>
-		</div>
-	</section>
+	<CtaBand
+		title="One Platform. Different Roles. Shared Growth."
+		lede="Every Forjyn experience is designed around the user while contributing to a stronger, more connected innovation ecosystem."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+		<p class="mt-4 text-sm text-slate/80">
+			<a href="/login" class="link-accent">Log In</a>
+		</p>
+	</CtaBand>
 </BaseLayout>

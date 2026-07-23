@@ -1,140 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const audiences = [
-	{
-		title: 'For Startups',
-		body: 'Build a complete company profile, present your opportunity professionally, receive AI-supported evaluations, monitor investor engagement, and manage due diligence from one secure workspace.',
-		href: '/solutions/startups',
-		linkLabel: 'Explore Startup Solutions',
-	},
-	{
-		title: 'For Investors',
-		body: 'Discover startups based on your preferences, review opportunities efficiently, manage your deal pipeline, collaborate during due diligence, and track your investment activity.',
-		href: '/solutions/investors',
-		linkLabel: 'Explore Investor Solutions',
-	},
-	{
-		title: 'For Ecosystem Partners',
-		body: 'Manage startup communities, create referrals, coordinate events, support founders, communicate with stakeholders, and understand ecosystem activity through centralized reporting.',
-		href: '/solutions/ecosystem',
-		linkLabel: 'Explore Ecosystem Solutions',
-	},
-];
-
-const journey = [
-	{
-		title: 'Discover',
-		body: 'Explore startup opportunities through a mobile-first discovery experience built around investor preferences.',
-	},
-	{
-		title: 'Match',
-		body: 'Connect startups and investors using compatibility scoring based on relevant factors such as sector, stage, location, check size, and investment interests.',
-	},
-	{
-		title: 'Evaluate',
-		body: 'Use structured company profiles, supporting documents, platform analytics, and AI-assisted evaluations to understand opportunities more clearly.',
-	},
-	{
-		title: 'Collaborate',
-		body: 'Bring investors, founders, administrators, and ecosystem stakeholders into secure due diligence environments.',
-	},
-	{
-		title: 'Grow',
-		body: 'Track engagement, participate in events, manage relationships, and access the connections required to move forward.',
-	},
-];
-
-const investorCapabilities = [
-	'Mobile-first startup discovery',
-	'Like, pass, and priority-interest actions',
-	'Personalized investment preferences',
-	'Compatibility and matching scores',
-	'Detailed startup profiles',
-	'Pitch videos and presentation materials',
-	'Opportunity shortlists',
-	'Mutual matches',
-	'Portfolio and commitment tracking',
-	'Private due diligence collaboration',
-];
-
-const startupCapabilities = [
-	'Guided startup profile builder',
-	'Market and company information',
-	'Pitch deck and document uploads',
-	'Pitch video library',
-	'AI-supported company evaluation',
-	'Investor interest and matching',
-	'Profile engagement analytics',
-	'Due diligence document management',
-	'Secure investor collaboration',
-	'Investment-readiness support',
-];
-
-const aiCapabilities = [
-	{
-		title: 'Startup Evaluations',
-		body: 'Structured assessments help startups understand the completeness and credibility of their profiles.',
-	},
-	{
-		title: 'Intelligent Matching',
-		body: 'Startup and investor information is compared to identify potential alignment.',
-	},
-	{
-		title: 'Due Diligence Assistance',
-		body: 'AI-generated summaries can help users review large volumes of information and identify areas requiring further investigation.',
-	},
-	{
-		title: 'Document Insights',
-		body: 'Uploaded materials can be analyzed to support review and information organization.',
-	},
-	{
-		title: 'Opportunity Scoring',
-		body: 'Platform signals can help investors and administrators identify startups that meet selected criteria.',
-	},
-];
-
-const diligenceFeatures = [
-	'Private deal-specific rooms',
-	'Structured document checklists',
-	'Secure file uploads',
-	'Document version management',
-	'Investor and founder collaboration',
-	'Administrative notes and context',
-	'AI-assisted summaries',
-	'Credibility and completeness insights',
-	'Role-based access permissions',
-	'Activity and audit records',
-];
-
-const eventCapabilities = [
-	'Event calendar',
-	'Online registration',
-	'Participant management',
-	'QR code or token-based check-in',
-	'Automated reminders',
-	'In-app notifications',
-	'Email communications',
-	'Attendance tracking',
-	'Hybrid and in-person event support',
-];
-
-const securityCapabilities = [
-	'AES-256-GCM field-level encryption',
-	'Secure document storage',
-	'Role-based access control',
-	'Multi-factor authentication',
-	'Protected administrative functions',
-	'Secure session management',
-	'Append-only audit logs',
-	'Checksummed activity records',
-	'Server-side permission enforcement',
-	'Compliance review workflows',
-];
+import CapabilityList from '../components/sections/CapabilityList.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+import {
+	homeAiCapabilities,
+	homeAudiences,
+	homeDealPreview,
+	homeDiligenceFeatures,
+	homeEventCapabilities,
+	homeInvestorCapabilities,
+	homeJourney,
+	homeSecurityCapabilities,
+	homeStartupCapabilities,
+} from '../data/home';
 ---
 
 <BaseLayout>
-	{/* Hero */}
+	{/* Hero — unique homepage composition; not PageHero */}
 	<section class="relative overflow-hidden bg-midnight text-cloud">
 		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
 		<div
@@ -157,8 +39,8 @@ const securityCapabilities = [
 					intelligent technology platform.
 				</p>
 				<div class="mt-8 flex flex-wrap items-center gap-3">
-					<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
-					<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+					<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+					<a href="/signup" class="btn-secondary">Sign Up Now</a>
 				</div>
 				<p class="mt-5 text-sm text-slate">
 					Existing user?
@@ -186,11 +68,7 @@ const securityCapabilities = [
 					</div>
 					<div class="mt-5 space-y-3">
 						{
-							[
-								{ name: 'Northline Robotics', meta: 'Series A · Climate Tech', score: '96' },
-								{ name: 'Lattice Health', meta: 'Seed · Healthtech', score: '91' },
-								{ name: 'Orbit Freight', meta: 'Pre-Seed · Logistics', score: '88' },
-							].map((item) => (
+							homeDealPreview.map((item) => (
 								<div class="flex items-center justify-between rounded-xl border border-line bg-midnight px-4 py-3 transition hover:shadow-glow">
 									<div>
 										<p class="text-sm font-semibold text-cloud">{item.name}</p>
@@ -220,7 +98,6 @@ const securityCapabilities = [
 		</div>
 	</section>
 
-	{/* Platform introduction */}
 	<section class="bg-midnight py-20 sm:py-24">
 		<div class="container-page max-w-3xl">
 			<h2 class="section-heading">Innovation Moves Quickly. Your Technology Should Too.</h2>
@@ -245,7 +122,6 @@ const securityCapabilities = [
 		</div>
 	</section>
 
-	{/* Audience overview */}
 	<section class="border-y border-line bg-graphite py-20 sm:py-24">
 		<div class="container-page">
 			<div class="max-w-2xl">
@@ -253,7 +129,7 @@ const securityCapabilities = [
 			</div>
 			<div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
 				{
-					audiences.map((item) => (
+					homeAudiences.map((item) => (
 						<div class="border-t border-line pt-6">
 							<h3 class="font-display text-xl font-semibold text-cloud">{item.title}</h3>
 							<p class="mt-3 text-sm leading-relaxed text-slate sm:text-base">{item.body}</p>
@@ -267,7 +143,6 @@ const securityCapabilities = [
 		</div>
 	</section>
 
-	{/* Core value / journey */}
 	<section class="bg-graphite/50 py-20 sm:py-24">
 		<div class="container-page">
 			<div class="max-w-2xl">
@@ -278,7 +153,7 @@ const securityCapabilities = [
 			</div>
 			<ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
 				{
-					journey.map((step, index) => (
+					homeJourney.map((step, index) => (
 						<li class="relative">
 							<span class="font-display text-sm font-semibold text-emerald">
 								{String(index + 1).padStart(2, '0')}
@@ -292,7 +167,6 @@ const securityCapabilities = [
 		</div>
 	</section>
 
-	{/* Investor discovery */}
 	<section class="bg-midnight py-20 text-cloud sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
 			<div>
@@ -313,28 +187,17 @@ const securityCapabilities = [
 						express interest, and build a more organized investment pipeline.
 					</p>
 				</div>
-				<a href="/signup?role=investor" class="btn-primary-on-dark mt-8">Join as an Investor</a>
+				<a href="/signup?role=investor" class="btn-primary mt-8">Join as an Investor</a>
 			</div>
 			<div>
 				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">
 					Key Investor Capabilities
 				</p>
-				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
-					{
-						investorCapabilities.map((item) => (
-							<li class="flex gap-2.5 text-sm text-slate">
-								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" aria-hidden="true"
-								/>
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={homeInvestorCapabilities} />
 			</div>
 		</div>
 	</section>
 
-	{/* Startup growth */}
 	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
 			<div>
@@ -359,21 +222,11 @@ const securityCapabilities = [
 				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">
 					Key Startup Capabilities
 				</p>
-				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
-					{
-						startupCapabilities.map((item) => (
-							<li class="flex gap-2.5 text-sm text-slate">
-								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={homeStartupCapabilities} />
 			</div>
 		</div>
 	</section>
 
-	{/* AI */}
 	<section class="border-y border-line bg-midnight py-20 sm:py-24">
 		<div class="container-page">
 			<div class="max-w-2xl">
@@ -389,7 +242,7 @@ const securityCapabilities = [
 			</div>
 			<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 				{
-					aiCapabilities.map((item) => (
+					homeAiCapabilities.map((item) => (
 						<div class="border-t border-line pt-5">
 							<h3 class="font-display text-lg font-semibold text-cloud">{item.title}</h3>
 							<p class="mt-2 text-sm leading-relaxed text-slate">{item.body}</p>
@@ -408,7 +261,6 @@ const securityCapabilities = [
 		</div>
 	</section>
 
-	{/* Due diligence */}
 	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
 			<div>
@@ -427,21 +279,11 @@ const securityCapabilities = [
 				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">
 					Due Diligence Features
 				</p>
-				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
-					{
-						diligenceFeatures.map((item) => (
-							<li class="flex gap-2.5 text-sm text-slate">
-								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-azure" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={homeDiligenceFeatures} dotClass="bg-azure" />
 			</div>
 		</div>
 	</section>
 
-	{/* Ecosystem */}
 	<section class="bg-graphite py-20 text-cloud sm:py-24">
 		<div class="container-page max-w-3xl">
 			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -466,7 +308,6 @@ const securityCapabilities = [
 		</div>
 	</section>
 
-	{/* Events */}
 	<section class="bg-midnight py-20 sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
 			<div>
@@ -480,21 +321,11 @@ const securityCapabilities = [
 				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">
 					Event Capabilities
 				</p>
-				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
-					{
-						eventCapabilities.map((item) => (
-							<li class="flex gap-2.5 text-sm text-slate">
-								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={homeEventCapabilities} />
 			</div>
 		</div>
 	</section>
 
-	{/* Security */}
 	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
 			<div>
@@ -511,40 +342,23 @@ const securityCapabilities = [
 				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">
 					Security Capabilities
 				</p>
-				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
-					{
-						securityCapabilities.map((item) => (
-							<li class="flex gap-2.5 text-sm text-slate">
-								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={homeSecurityCapabilities} dotClass="bg-violet" />
 			</div>
 		</div>
 	</section>
 
-	{/* Final CTA */}
-	<section class="relative overflow-hidden bg-midnight py-20 text-cloud sm:py-24">
-		<div class="pointer-events-none absolute inset-0 bg-hero-glow opacity-70" aria-hidden="true"></div>
-		<div class="container-page relative max-w-3xl text-center">
-			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-				Better Connections Create Better Companies
-			</h2>
-			<p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
-				Join a platform designed to help startups grow, investors discover opportunities, and
-				innovation communities work together.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
-				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
-			</div>
-			<p class="mt-5 text-sm text-slate">
-				<a href="/login" class="font-medium text-emerald underline-offset-4 hover:underline"
-					>Log In to Your Account</a
-				>
-			</p>
-		</div>
-	</section>
+	<CtaBand
+		title="Better Connections Create Better Companies"
+		lede="Join a platform designed to help startups grow, investors discover opportunities, and innovation communities work together."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+		<p class="mt-5 text-sm text-slate">
+			<a href="/login" class="font-medium text-emerald underline-offset-4 hover:underline"
+				>Log In to Your Account</a
+			>
+		</p>
+	</CtaBand>
 </BaseLayout>

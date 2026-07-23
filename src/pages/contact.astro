@@ -1,112 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const title = 'Contact Forjyn Technologies | Book a Demo';
-const description =
-	'Contact Forjyn Technologies to book a platform demonstration, ask about startup or investor accounts, explore ecosystem partnerships, or receive account support.';
-
-const orgTypes = [
-	'Startup',
-	'Investor',
-	'Angel Group',
-	'Venture Capital Firm',
-	'Family Office',
-	'Accelerator',
-	'Incubator',
-	'University',
-	'Government Organization',
-	'Economic Development Organization',
-	'Corporate Innovation Team',
-	'Service Provider',
-	'Other',
-];
-
-const orgSizes = ['1–10', '11–50', '51–200', '201–500', '501+', 'Not applicable'];
-
-const interests = [
-	'Startup profiles',
-	'Investor deal discovery',
-	'Intelligent matching',
-	'Due diligence',
-	'AI evaluations',
-	'Events',
-	'Compliance',
-	'Membership management',
-	'Ecosystem management',
-	'Communications',
-	'Analytics',
-	'Enterprise platform',
-	'Partnership opportunities',
-];
-
-const contactRoles = [
-	'Startup',
-	'Investor',
-	'Ecosystem Partner',
-	'Service Provider',
-	'Media Contact',
-	'Other',
-];
-
-const subjects = [
-	'Account question',
-	'Platform question',
-	'Partnership',
-	'Sales inquiry',
-	'Technical support',
-	'Billing',
-	'Compliance',
-	'Media',
-	'Other',
-];
-
-const faqs = [
-	{
-		q: 'Can startups create an account directly?',
-		a: 'Yes. Startups can select the startup role during registration and begin building their company profile.',
-	},
-	{
-		q: 'Can investors sign up directly?',
-		a: 'Yes. Investors can create an account and complete their profile. Verification may be required before accessing restricted opportunities.',
-	},
-	{
-		q: 'How do ecosystem partners access the platform?',
-		a: 'Ecosystem partners can request a demonstration or contact the Forjyn team to discuss organizational access. Alternatively, they can make an account and get started right away.',
-	},
-	{
-		q: 'Can Forjyn support multiple programs or chapters?',
-		a: 'Enterprise configurations may support multiple teams, programs, communities, or chapters with customized permissions and reporting.',
-	},
-	{
-		q: 'Does Forjyn provide technical support?',
-		a: 'Yes. Support options depend on the user’s plan and customer agreement.',
-	},
-	{
-		q: 'Can we integrate Forjyn with our existing systems?',
-		a: 'Integration options can be discussed during a platform demonstration or implementation consultation.',
-	},
-];
+import PageHero from '../components/sections/PageHero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+import DemoRequestForm from '../components/forms/DemoRequestForm.astro';
+import GeneralContactForm from '../components/forms/GeneralContactForm.astro';
+import ContactFormScripts from '../components/forms/ContactFormScripts.astro';
+import { contactFaqs, contactSeo } from '../data/contact';
 ---
 
-<BaseLayout title={title} description={description}>
-	<section class="page-hero">
-		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
-		<div class="page-hero-inner max-w-3xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">Contact</p>
-			<div class="accent-line mt-4 max-w-24"></div>
-			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-				Let’s Build Better Innovation Infrastructure
-			</h1>
-			<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
-				Whether you are raising capital, investing in startups, managing an innovation community, or
-				supporting founders, we would be pleased to learn more about your goals.
-			</p>
-			<div class="mt-8 flex flex-wrap gap-3">
-				<a href="#demo" class="btn-primary-on-dark">Book a Demo</a>
-				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
-			</div>
-		</div>
-	</section>
+<BaseLayout title={contactSeo.title} description={contactSeo.description}>
+	<PageHero
+		eyebrow="Contact"
+		title="Let’s Build Better Innovation Infrastructure"
+		lede="Whether you are raising capital, investing in startups, managing an innovation community, or supporting founders, we would be pleased to learn more about your goals."
+	>
+		<Fragment slot="actions">
+			<a href="#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+	</PageHero>
 
 	<section class="bg-graphite py-16 sm:py-20">
 		<div class="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -160,95 +72,7 @@ const faqs = [
 					can be tailored to your organization and user type.
 				</p>
 			</div>
-			<form
-				class="rounded-2xl border border-line bg-graphite p-6 sm:p-8"
-				method="post"
-				action="/api/contact"
-				data-contact-form
-			>
-				<input type="hidden" name="type" value="demo" />
-				<div class="grid gap-4 sm:grid-cols-2">
-					<div>
-						<label class="form-label" for="demo-first-name">First Name</label>
-						<input class="form-input" id="demo-first-name" name="firstName" type="text" required />
-					</div>
-					<div>
-						<label class="form-label" for="demo-last-name">Last Name</label>
-						<input class="form-input" id="demo-last-name" name="lastName" type="text" required />
-					</div>
-					<div>
-						<label class="form-label" for="demo-email">Work Email</label>
-						<input class="form-input" id="demo-email" name="email" type="email" required />
-					</div>
-					<div>
-						<label class="form-label" for="demo-phone">Phone Number <span class="font-normal text-slate/60">(Optional)</span></label>
-						<input class="form-input" id="demo-phone" name="phone" type="tel" />
-					</div>
-					<div>
-						<label class="form-label" for="demo-org">Organization</label>
-						<input class="form-input" id="demo-org" name="organization" type="text" required />
-					</div>
-					<div>
-						<label class="form-label" for="demo-title">Job Title</label>
-						<input class="form-input" id="demo-title" name="jobTitle" type="text" />
-					</div>
-					<div>
-						<label class="form-label" for="demo-org-type">Organization Type</label>
-						<select class="form-input" id="demo-org-type" name="organizationType" required>
-							<option value="">Select one</option>
-							{orgTypes.map((type) => <option value={type}>{type}</option>)}
-						</select>
-					</div>
-					<div>
-						<label class="form-label" for="demo-org-size">Organization Size</label>
-						<select class="form-input" id="demo-org-size" name="organizationSize">
-							<option value="">Select one</option>
-							{orgSizes.map((size) => <option value={size}>{size}</option>)}
-						</select>
-					</div>
-				</div>
-
-				<fieldset class="mt-5">
-					<legend class="form-label">What are you interested in?</legend>
-					<div class="mt-2 grid gap-2 sm:grid-cols-2">
-						{
-							interests.map((item) => (
-								<label class="flex items-start gap-2 text-sm text-slate">
-									<input class="form-check mt-0.5" type="checkbox" name="interests" value={item} />
-									{item}
-								</label>
-							))
-						}
-					</div>
-				</fieldset>
-
-				<div class="mt-5">
-					<label class="form-label" for="demo-users">How many users do you expect?</label>
-					<input class="form-input" id="demo-users" name="expectedUsers" type="text" />
-				</div>
-
-				<div class="mt-5">
-					<label class="form-label" for="demo-goals">Tell us about your goals</label>
-					<textarea
-						class="form-input min-h-28"
-						id="demo-goals"
-						name="goals"
-						placeholder="Tell us about your organization, current workflows, platform requirements, and what you would like to improve."
-					></textarea>
-				</div>
-
-				<button type="submit" class="btn-primary mt-6">Request a Demo</button>
-				<p
-					class="mt-4 text-sm leading-relaxed data-[state=error]:text-error data-[state=success]:text-success"
-					data-form-status
-					aria-live="polite"
-				>
-				</p>
-				<p class="mt-2 text-xs leading-relaxed text-slate">
-					After submission, a member of our team will review the information and contact you using the
-					details provided.
-				</p>
-			</form>
+			<DemoRequestForm />
 		</div>
 	</section>
 
@@ -258,63 +82,7 @@ const faqs = [
 				<h2 class="section-heading">Send Us a Message</h2>
 				<p class="section-lede">General inquiries, partnerships, media, and support requests.</p>
 			</div>
-			<form
-				class="rounded-2xl border border-line bg-midnight p-6 sm:p-8"
-				method="post"
-				action="/api/contact"
-				data-contact-form
-			>
-				<input type="hidden" name="type" value="general" />
-				<div class="grid gap-4 sm:grid-cols-2">
-					<div>
-						<label class="form-label" for="contact-name">Name</label>
-						<input class="form-input" id="contact-name" name="name" type="text" required />
-					</div>
-					<div>
-						<label class="form-label" for="contact-email">Email</label>
-						<input class="form-input" id="contact-email" name="email" type="email" required />
-					</div>
-					<div class="sm:col-span-2">
-						<label class="form-label" for="contact-org">Organization</label>
-						<input class="form-input" id="contact-org" name="organization" type="text" />
-					</div>
-				</div>
-
-				<fieldset class="mt-5">
-					<legend class="form-label">I am a:</legend>
-					<div class="mt-2 grid gap-2 sm:grid-cols-2">
-						{
-							contactRoles.map((role) => (
-								<label class="flex items-center gap-2 text-sm text-slate">
-									<input class="form-check" type="radio" name="role" value={role} required />
-									{role}
-								</label>
-							))
-						}
-					</div>
-				</fieldset>
-
-				<div class="mt-5">
-					<label class="form-label" for="contact-subject">Subject</label>
-					<select class="form-input" id="contact-subject" name="subject" required>
-						<option value="">Select one</option>
-						{subjects.map((subject) => <option value={subject}>{subject}</option>)}
-					</select>
-				</div>
-
-				<div class="mt-5">
-					<label class="form-label" for="contact-message">Message</label>
-					<textarea class="form-input min-h-28" id="contact-message" name="message" required></textarea>
-				</div>
-
-				<button type="submit" class="btn-primary mt-6">Submit Message</button>
-				<p
-					class="mt-4 text-sm leading-relaxed data-[state=error]:text-error data-[state=success]:text-success"
-					data-form-status
-					aria-live="polite"
-				>
-				</p>
-			</form>
+			<GeneralContactForm />
 		</div>
 	</section>
 
@@ -342,7 +110,7 @@ const faqs = [
 			<h2 class="section-heading">Contact FAQ</h2>
 			<div class="mt-10 space-y-6">
 				{
-					faqs.map((faq) => (
+					contactFaqs.map((faq) => (
 						<details class="group border-b border-line pb-5">
 							<summary class="cursor-pointer list-none font-display text-lg font-semibold text-cloud [&::-webkit-details-marker]:hidden">
 								<span class="flex items-center justify-between gap-4">
@@ -358,41 +126,21 @@ const faqs = [
 		</div>
 	</section>
 
-	<section class="bg-midnight py-20 text-cloud sm:py-24">
-		<div class="container-page max-w-3xl text-center">
-			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-				Start Building Better Connections
-			</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate">
-				Join Forjyn today or schedule a personalized demonstration to see how the platform can support
-				your innovation community.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-				<a href="#demo" class="btn-primary-on-dark">Book a Demo</a>
-				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
-			</div>
-			<p class="mt-4 text-sm text-slate">
-				Existing user?
-				<a href="/login" class="ml-1 font-medium text-emerald underline-offset-4 hover:underline"
-					>Log In</a
-				>
-			</p>
-		</div>
-	</section>
-	<script is:inline>
-		// Prevent native POST navigation before the module handler binds.
-		document.addEventListener(
-			'submit',
-			(event) => {
-				const target = event.target;
-				if (target instanceof HTMLFormElement && target.hasAttribute('data-contact-form')) {
-					event.preventDefault();
-				}
-			},
-			true,
-		);
-	</script>
-	<script>
-		import '../scripts/contactForms.ts';
-	</script>
+	<CtaBand
+		title="Start Building Better Connections"
+		lede="Join Forjyn today or schedule a personalized demonstration to see how the platform can support your innovation community."
+	>
+		<Fragment slot="actions">
+			<a href="#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+		<p class="mt-4 text-sm text-slate">
+			Existing user?
+			<a href="/login" class="ml-1 font-medium text-emerald underline-offset-4 hover:underline"
+				>Log In</a
+			>
+		</p>
+	</CtaBand>
+
+	<ContactFormScripts />
 </BaseLayout>

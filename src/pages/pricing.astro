@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+import CapabilityList from '../components/sections/CapabilityList.astro';
 
 const title = 'Forjyn Pricing | Startup and Investor Platform Plans';
 const description =
@@ -119,24 +122,16 @@ const faqs = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<section class="page-hero">
-		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
-		<div class="page-hero-inner max-w-3xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">Pricing</p>
-			<div class="accent-line mt-4 max-w-24"></div>
-			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-				Choose the Right Forjyn Experience
-			</h1>
-			<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
-				Start with an account or speak with our team about a platform solution tailored to your
-				organization.
-			</p>
-			<div class="mt-8 flex flex-wrap gap-3">
-				<a href="/signup" class="btn-primary-on-dark">Sign Up Now</a>
-				<a href="/contact#demo" class="btn-secondary-on-dark">Book a Demo</a>
-			</div>
-		</div>
-	</section>
+	<PageHero
+		eyebrow="Pricing"
+		title="Choose the Right Forjyn Experience"
+		lede="Start with an account or speak with our team about a platform solution tailored to your organization."
+	>
+		<Fragment slot="actions">
+			<a href="/signup" class="btn-primary">Sign Up Now</a>
+			<a href="/contact#demo" class="btn-secondary">Book a Demo</a>
+		</Fragment>
+	</PageHero>
 
 	<section class="bg-graphite py-16 sm:py-20">
 		<div class="container-page max-w-3xl">
@@ -144,16 +139,7 @@ const faqs = [
 				Forjyn serves individual startups and investors as well as larger ecosystem organizations.
 			</p>
 			<p class="mt-4 text-sm font-medium text-cloud">Pricing may vary based on:</p>
-			<ul class="capability-list mt-4">
-				{
-					pricingFactors.map((item) => (
-						<li class="capability-item">
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList items={pricingFactors} class="capability-list mt-4" />
 		</div>
 	</section>
 
@@ -321,23 +307,18 @@ const faqs = [
 		</div>
 	</section>
 
-	<section class="bg-midnight py-20 text-cloud sm:py-24">
-		<div class="container-page max-w-3xl text-center">
-			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-				Not Sure Which Plan Fits?
-			</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate">
-				Speak with our team about your goals, users, programs, and platform requirements.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
-				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
-			</div>
-			<p class="mt-4 text-sm text-slate">
-				<a href="/login" class="font-medium text-emerald underline-offset-4 hover:underline"
-					>Log In</a
-				>
-			</p>
-		</div>
-	</section>
+	<CtaBand
+		title="Not Sure Which Plan Fits?"
+		lede="Speak with our team about your goals, users, programs, and platform requirements."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+		</Fragment>
+		<p class="mt-4 text-sm text-slate">
+			<a href="/login" class="font-medium text-emerald underline-offset-4 hover:underline"
+				>Log In</a
+			>
+		</p>
+	</CtaBand>
 </BaseLayout>

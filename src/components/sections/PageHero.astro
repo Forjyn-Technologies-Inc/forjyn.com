@@ -1,0 +1,40 @@
+---
+interface Props {
+	/** Small uppercase label above the title. */
+	eyebrow?: string;
+	/** Primary H1. */
+	title: string;
+	/** Supporting paragraph. */
+	lede?: string;
+	/** Extra classes on the inner container (e.g. max-w-3xl). */
+	innerClass?: string;
+}
+
+const { eyebrow, title, lede, innerClass = 'max-w-3xl' } = Astro.props;
+---
+
+<section class="page-hero">
+	<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+	<div class:list={['page-hero-inner', innerClass]}>
+		{
+			eyebrow && (
+				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">{eyebrow}</p>
+			)
+		}
+		{eyebrow && <div class="accent-line mt-4 max-w-24" />}
+		<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
+		{
+			lede && (
+				<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">{lede}</p>
+			)
+		}
+		{
+			Astro.slots.has('actions') && (
+				<div class="mt-8 flex flex-wrap gap-3">
+					<slot name="actions" />
+				</div>
+			)
+		}
+		<slot />
+	</div>
+</section>
