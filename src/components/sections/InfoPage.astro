@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from './PageHero.astro';
+
+/**
+ * Shared shell for informational pages (company, legal, support).
+ * Extend via slots: default body, optional `actions` under the lede.
+ */
+interface Props {
+	eyebrow: string;
+	title: string;
+	lede?: string;
+	seoTitle: string;
+	seoDescription: string;
+}
+
+const { eyebrow, title, lede, seoTitle, seoDescription } = Astro.props;
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+	<PageHero eyebrow={eyebrow} title={title} lede={lede}>
+		<slot name="actions" slot="actions" />
+	</PageHero>
+	<section class="bg-graphite py-16 sm:py-20">
+		<div class="container-page max-w-3xl space-y-5 text-base leading-relaxed text-slate [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-cloud [&_h2:first-child]:mt-0 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_a]:text-emerald [&_a]:underline-offset-4 hover:[&_a]:underline">
+			<slot />
+		</div>
+	</section>
+	<slot name="after" />
+</BaseLayout>

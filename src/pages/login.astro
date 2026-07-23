@@ -8,11 +8,6 @@ const description =
 
 <BaseLayout title={title} description={description}>
 	<section class="relative overflow-hidden bg-midnight py-16 sm:py-24">
-		<div
-			class="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-midnight/[0.04] to-transparent"
-			aria-hidden="true"
-		>
-		</div>
 		<div class="container-page relative grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
 			<div class="max-w-lg">
 				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">Account Access</p>
@@ -34,66 +29,34 @@ const description =
 			</div>
 
 			<div class="rounded-2xl border border-line bg-graphite p-6 shadow-panel sm:p-8">
-				<form method="post" action="#" class="space-y-4">
-					<div>
-						<label class="form-label" for="login-email">Email Address</label>
-						<input
-							class="form-input"
-							id="login-email"
-							name="email"
-							type="email"
-							autocomplete="email"
-							placeholder="Enter the email address associated with your Forjyn account."
-							required
-						/>
-					</div>
-					<div>
-						<label class="form-label" for="login-password">Password</label>
-						<input
-							class="form-input"
-							id="login-password"
-							name="password"
-							type="password"
-							autocomplete="current-password"
-							placeholder="Enter your password."
-							required
-						/>
-					</div>
-					<div class="flex items-center justify-between gap-3">
-						<label class="flex items-center gap-2 text-sm text-slate">
-							<input class="form-check" type="checkbox" name="remember" />
-							Remember me
-						</label>
-						<a href="/forgot-password" class="link-accent text-sm">Forgot your password?</a>
-					</div>
-					<button type="submit" class="btn-primary w-full">Log In</button>
-				</form>
-
-				<div class="my-6 flex items-center gap-3">
-					<span class="h-px flex-1 bg-midnight/10"></span>
-					<span class="text-xs font-medium uppercase tracking-[0.14em] text-slate/60">or</span>
-					<span class="h-px flex-1 bg-midnight/10"></span>
+				<div class="rounded-xl border border-emerald/25 bg-emerald/10 px-4 py-3 text-sm leading-relaxed text-slate">
+					<p class="font-semibold text-cloud">App login is launching soon</p>
+					<p class="mt-1.5">
+						The Forjyn product login experience is not available on this marketing site yet. Book a
+						demo or contact us to get early access updates.
+					</p>
 				</div>
 
-				<a
-					href="/auth/replit"
-					class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-line bg-midnight px-5 py-2.5 text-sm font-semibold text-cloud transition hover:border-emerald/30 hover:bg-graphite"
-				>
-					Continue with Replit
-				</a>
+				<div class="mt-6 flex flex-col gap-3">
+					<a href="/contact#demo" class="btn-primary w-full justify-center">Book a Demo</a>
+					<a href="/signup" class="btn-secondary w-full justify-center">Express Interest in Signing Up</a>
+				</div>
 
 				<div class="mt-8 border-t border-line pt-6">
 					<h2 class="font-display text-lg font-semibold text-cloud">New to Forjyn?</h2>
 					<p class="mt-2 text-sm leading-relaxed text-slate">
-						Create an account to access startup opportunities, investor connections, intelligent
-						matching, due diligence tools, and other platform resources.
+						Create interest in an account to access startup opportunities, investor connections,
+						intelligent matching, due diligence tools, and other platform resources.
 					</p>
 					<a href="/signup" class="btn-secondary mt-4">Sign Up Now</a>
 				</div>
 
 				<p class="mt-6 text-sm text-slate">
-					Having trouble accessing your account?
-					<a href="/contact" class="link-accent ml-1">Contact Support</a>
+					Having trouble or need account help?
+					<a href="/support" class="link-accent ml-1">Contact Support</a>
+				</p>
+				<p class="mt-2 text-sm text-slate">
+					<a href="/forgot-password" class="link-accent">Forgot password guidance</a>
 				</p>
 			</div>
 		</div>

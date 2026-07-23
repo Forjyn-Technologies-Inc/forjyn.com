@@ -2,152 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
+import {
+	startupProfileAreas,
+	matchingAreas,
+	startupMetrics,
+	investorPreferences,
+	discoveryActions,
+	profileReviewAreas,
+	pipelineStages,
+	verificationSteps,
+	eventTypes,
+	ecosystemMetrics,
+	serviceCategories,
+} from '../data/solutions';
 
 const title = 'Solutions for Startups, Investors and Ecosystem Partners | Forjyn';
 const description =
 	'Explore Forjyn solutions for startup fundraising, investor deal discovery, due diligence, ecosystem management, events, compliance, and intelligent matching.';
-
-const startupProfileAreas = [
-	'Company overview',
-	'Industry and sector',
-	'Product or service',
-	'Customer problem',
-	'Proposed solution',
-	'Market opportunity',
-	'TAM, SAM, and SOM',
-	'Business model',
-	'Revenue model',
-	'Traction and milestones',
-	'Financial performance',
-	'Fundraising information',
-	'Funding history',
-	'Team and advisors',
-	'Competitive landscape',
-	'Technology and intellectual property',
-	'Geographic focus',
-	'Pitch video',
-	'Pitch deck',
-	'Supporting documents',
-];
-
-const matchingAreas = [
-	'Investment stage',
-	'Industry preferences',
-	'Geographic focus',
-	'Typical check size',
-	'Business model',
-	'Company maturity',
-	'Investor interests',
-	'Other platform preferences',
-];
-
-const startupMetrics = [
-	'Profile views',
-	'Investor likes',
-	'Priority interest or super likes',
-	'Matches',
-	'Document engagement',
-	'Discovery activity',
-	'Conversion from profile view to interest',
-];
-
-const investorPreferences = [
-	'Industries',
-	'Sectors',
-	'Investment stage',
-	'Geography',
-	'Check size',
-	'Revenue expectations',
-	'Business model',
-	'Traction',
-	'Impact priorities',
-	'Technology focus',
-	'Founder or team criteria',
-];
-
-const discoveryActions = [
-	'Like',
-	'Pass',
-	'Priority interest',
-	'Undo previous action',
-	'View full company profile',
-	'Save for later review',
-];
-
-const profileReviewAreas = [
-	'Product',
-	'Market',
-	'Traction',
-	'Financials',
-	'Business model',
-	'Team',
-	'Funding',
-	'Cap table information',
-	'Pitch materials',
-	'Supporting documents',
-	'AI-supported evaluations',
-];
-
-const pipelineStages = [
-	'Discovered',
-	'Interested',
-	'Matched',
-	'Initial review',
-	'Due diligence',
-	'Investment committee',
-	'Commitment',
-	'Invested',
-	'Declined',
-	'Monitoring',
-];
-
-const verificationSteps = [
-	'Identity verification',
-	'Know Your Customer checks',
-	'Anti–Money Laundering screening',
-	'Accredited investor confirmation',
-	'Supporting document submission',
-	'Administrative approval',
-];
-
-const eventTypes = [
-	'Pitch events',
-	'Workshops',
-	'Founder sessions',
-	'Investor meetings',
-	'Networking events',
-	'Demo days',
-	'Community programming',
-	'Registrations and attendance',
-];
-
-const ecosystemMetrics = [
-	'Startup registrations',
-	'Investor participation',
-	'Event attendance',
-	'Founder engagement',
-	'Referral activity',
-	'Opportunity progression',
-	'Profile completion',
-	'Investor-startup matches',
-];
-
-const serviceCategories = [
-	'Legal',
-	'Accounting',
-	'Finance',
-	'Marketing',
-	'Sales',
-	'Recruitment',
-	'Technology',
-	'Cybersecurity',
-	'Intellectual property',
-	'Insurance',
-	'Government funding',
-	'Grant writing',
-	'Product development',
-	'Research and commercialization',
-];
 ---
 
 <BaseLayout title={title} description={description}>

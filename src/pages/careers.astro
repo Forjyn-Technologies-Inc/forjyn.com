@@ -1,0 +1,42 @@
+---
+import InfoPage from '../components/sections/InfoPage.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+---
+
+<InfoPage
+	eyebrow="Company"
+	title="Careers at Forjyn"
+	lede="We’re building infrastructure for modern innovation ecosystems. Join us as we grow."
+	seoTitle="Careers | Forjyn Technologies"
+	seoDescription="Explore career opportunities at Forjyn Technologies Inc."
+>
+	<p>
+		Forjyn Technologies Inc. is building intelligent software that connects startups, investors,
+		ecosystem partners, and service providers.
+	</p>
+	<p>
+		We do not have open roles listed on this site at the moment. If you believe your experience could
+		help us, we would still like to hear from you.
+	</p>
+	<ul>
+		<li>Product and platform engineering</li>
+		<li>Design and user experience</li>
+		<li>Customer success and partnerships</li>
+		<li>Go-to-market and ecosystem development</li>
+	</ul>
+	<p>
+		Email
+		<a href="mailto:info@forjyn.com">info@forjyn.com</a>
+		with your background and interests, or
+		<a href="/contact">send us a message</a>.
+	</p>
+
+	<Fragment slot="after">
+		<CtaBand title="Prefer a conversation?" lede="Tell us about your goals and how you’d like to contribute.">
+			<Fragment slot="actions">
+				<a href="/contact" class="btn-primary">Contact Forjyn</a>
+				<a href="/about" class="btn-secondary">About Forjyn</a>
+			</Fragment>
+		</CtaBand>
+	</Fragment>
+</InfoPage>

@@ -1,0 +1,41 @@
+---
+import InfoPage from '../components/sections/InfoPage.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+---
+
+<InfoPage
+	eyebrow="Company"
+	title="Partnerships"
+	lede="Collaborate with Forjyn to strengthen startup communities, investor networks, and innovation programs."
+	seoTitle="Partnerships | Forjyn Technologies"
+	seoDescription="Explore partnership opportunities with Forjyn Technologies Inc."
+>
+	<p>
+		Forjyn partners with accelerators, incubators, universities, economic development organizations,
+		corporate innovation teams, service providers, and other ecosystem builders.
+	</p>
+	<p>Partnership conversations often cover:</p>
+	<ul>
+		<li>Platform licensing and enterprise configuration</li>
+		<li>Community and membership programs</li>
+		<li>Events, referrals, and founder support</li>
+		<li>Integrations and implementation planning</li>
+	</ul>
+	<p>
+		Email
+		<a href="mailto:sales@forjyn.com">sales@forjyn.com</a>
+		or book a demonstration to start the conversation.
+	</p>
+
+	<Fragment slot="after">
+		<CtaBand
+			title="Let’s explore a partnership"
+			lede="Tell us about your organization, community, and platform goals."
+		>
+			<Fragment slot="actions">
+				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+				<a href="mailto:sales@forjyn.com" class="btn-secondary">Email Sales</a>
+			</Fragment>
+		</CtaBand>
+	</Fragment>
+</InfoPage>

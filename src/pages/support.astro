@@ -1,0 +1,44 @@
+---
+import InfoPage from '../components/sections/InfoPage.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+---
+
+<InfoPage
+	eyebrow="Support"
+	title="Account Support"
+	lede="Help with login, onboarding, technical questions, and account issues."
+	seoTitle="Support | Forjyn Technologies"
+	seoDescription="Get support for your Forjyn account, onboarding, and technical questions."
+>
+	<p>
+		For login assistance, onboarding questions, technical support, or account issues, contact our
+		support team.
+	</p>
+	<ul>
+		<li>
+			Email:
+			<a href="mailto:support@forjyn.com">support@forjyn.com</a>
+		</li>
+		<li>
+			General inquiries:
+			<a href="mailto:info@forjyn.com">info@forjyn.com</a>
+		</li>
+		<li>
+			Sales and partnerships:
+			<a href="mailto:sales@forjyn.com">sales@forjyn.com</a>
+		</li>
+	</ul>
+	<p>
+		If you are evaluating the platform, you can also
+		<a href="/contact#demo">request a demonstration</a>.
+	</p>
+
+	<Fragment slot="after">
+		<CtaBand title="Need help now?" lede="Send a message and our team will follow up.">
+			<Fragment slot="actions">
+				<a href="/contact" class="btn-primary">Contact Support</a>
+				<a href="/forgot-password" class="btn-secondary">Forgot Password</a>
+			</Fragment>
+		</CtaBand>
+	</Fragment>
+</InfoPage>

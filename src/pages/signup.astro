@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
+import ContactFormScripts from '../components/forms/ContactFormScripts.astro';
 
 const title = 'Sign Up | Forjyn Technologies';
 const description =
@@ -10,6 +11,7 @@ const roles = [
 	{
 		id: 'startup',
 		title: 'Startup',
+		contactRole: 'Startup',
 		body: 'Build your company profile, showcase your opportunity, receive intelligent platform insights, connect with investors, and manage due diligence.',
 		cta: 'Join as a Startup',
 		href: '/signup?role=startup#continue',
@@ -17,6 +19,7 @@ const roles = [
 	{
 		id: 'investor',
 		title: 'Investor',
+		contactRole: 'Investor',
 		body: 'Discover startups, personalize your deal flow, manage opportunities, collaborate during due diligence, and track investment activity.',
 		cta: 'Join as an Investor',
 		href: '/signup?role=investor#continue',
@@ -24,21 +27,23 @@ const roles = [
 	{
 		id: 'ecosystem',
 		title: 'Ecosystem Partner',
+		contactRole: 'Ecosystem Partner',
 		body: 'Support startups, manage referrals, coordinate programs and events, and strengthen your innovation community.',
 		cta: 'Join as an Ecosystem Partner',
 		href: '/signup?role=ecosystem#continue',
 		note: 'Forjyn may require approval or an invitation for certain ecosystem partner accounts.',
 	},
-];
+] as const;
 
 const selectedRole = Astro.url.searchParams.get('role');
+const selected = roles.find((role) => role.id === selectedRole);
 ---
 
 <BaseLayout title={title} description={description}>
 	<PageHero
 		eyebrow="Create Account"
 		title="Join the Forjyn Ecosystem"
-		lede="Create your account and gain access to intelligent tools designed to help startups grow and investors discover stronger opportunities."
+		lede="Share your details to express interest. Our team will follow up as platform access opens for your role."
 	/>
 
 	<section class="bg-graphite py-20 sm:py-24">
@@ -77,26 +82,46 @@ const selectedRole = Astro.url.searchParams.get('role');
 			</div>
 
 			{
-				selectedRole && (
+				selected && (
 					<div
 						id="continue"
 						class="mt-12 scroll-mt-24 rounded-2xl border border-line bg-midnight p-6 sm:p-8"
 					>
-						<h3 class="font-display text-2xl font-semibold text-cloud">Continue registration</h3>
+						<h3 class="font-display text-2xl font-semibold text-cloud">Express interest</h3>
 						<p class="mt-2 text-sm text-slate">
 							You selected the{' '}
-							<span class="font-semibold text-cloud capitalize">{selectedRole}</span> account type.
-							Complete the form below to create your account.
+							<span class="font-semibold text-cloud">{selected.title}</span> account type. Submit the
+							form and our team will contact you about next steps. Full self-serve registration launches
+							with the Forjyn application.
 						</p>
-						<form class="mt-6 grid gap-4 sm:grid-cols-2" method="post" action="#">
-							<input type="hidden" name="role" value={selectedRole} />
+						<form
+							class="mt-6 grid gap-4 sm:grid-cols-2"
+							method="post"
+							action="/api/contact"
+							data-contact-form
+						>
+							<input type="hidden" name="type" value="general" />
+							<input type="hidden" name="role" value={selected.contactRole} />
+							<input type="hidden" name="subject" value={`Account interest — ${selected.title}`} />
 							<div>
 								<label class="form-label" for="signup-first-name">First Name</label>
-								<input class="form-input" id="signup-first-name" name="firstName" type="text" required />
+								<input
+									class="form-input"
+									id="signup-first-name"
+									name="firstName"
+									type="text"
+									required
+								/>
 							</div>
 							<div>
 								<label class="form-label" for="signup-last-name">Last Name</label>
-								<input class="form-input" id="signup-last-name" name="lastName" type="text" required />
+								<input
+									class="form-input"
+									id="signup-last-name"
+									name="lastName"
+									type="text"
+									required
+								/>
 							</div>
 							<div class="sm:col-span-2">
 								<label class="form-label" for="signup-email">Work Email</label>
@@ -109,23 +134,34 @@ const selectedRole = Astro.url.searchParams.get('role');
 									required
 								/>
 							</div>
-							<div>
-								<label class="form-label" for="signup-password">Password</label>
+							<div class="sm:col-span-2">
+								<label class="form-label" for="signup-organization">Organization</label>
 								<input
 									class="form-input"
-									id="signup-password"
-									name="password"
-									type="password"
-									autocomplete="new-password"
-									required
+									id="signup-organization"
+									name="organization"
+									type="text"
 								/>
 							</div>
-							<div>
-								<label class="form-label" for="signup-organization">Organization</label>
-								<input class="form-input" id="signup-organization" name="organization" type="text" />
-							</div>
 							<div class="sm:col-span-2">
-								<button type="submit" class="btn-primary">Create Account</button>
+								<label class="form-label" for="signup-message">Anything we should know?</label>
+								<textarea
+									class="form-input min-h-24"
+									id="signup-message"
+									name="goals"
+									placeholder="Tell us about your goals, timeline, or team size."
+								></textarea>
+							</div>
+							{/* Hidden combined fields for general contact payload */}
+							<input type="hidden" name="name" id="signup-name" value="" />
+							<input type="hidden" name="message" id="signup-combined-message" value="" />
+							<div class="sm:col-span-2">
+								<button type="submit" class="btn-primary">Submit Interest</button>
+								<p
+									class="mt-4 text-sm leading-relaxed data-[state=error]:text-error data-[state=success]:text-success"
+									data-form-status
+									aria-live="polite"
+								/>
 							</div>
 						</form>
 					</div>
@@ -138,7 +174,7 @@ const selectedRole = Astro.url.searchParams.get('role');
 					<a href="/login" class="link-accent ml-1">Log In</a>
 				</p>
 				<p class="mt-4 text-xs leading-relaxed text-slate/80">
-					By creating an account, you agree to the Forjyn
+					By submitting interest, you agree to the Forjyn
 					<a href="/legal/terms" class="underline-offset-2 hover:underline">Terms of Use</a>
 					and
 					<a href="/legal/privacy" class="underline-offset-2 hover:underline">Privacy Policy</a>.
@@ -150,4 +186,39 @@ const selectedRole = Astro.url.searchParams.get('role');
 			</div>
 		</div>
 	</section>
+
+	<script is:inline>
+		document.addEventListener(
+			'submit',
+			(event) => {
+				const form = event.target;
+				if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-contact-form')) return;
+				const first = form.querySelector('#signup-first-name');
+				const last = form.querySelector('#signup-last-name');
+				const org = form.querySelector('#signup-organization');
+				const goals = form.querySelector('#signup-message');
+				const name = form.querySelector('#signup-name');
+				const message = form.querySelector('#signup-combined-message');
+				if (
+					first instanceof HTMLInputElement &&
+					last instanceof HTMLInputElement &&
+					name instanceof HTMLInputElement &&
+					message instanceof HTMLInputElement
+				) {
+					name.value = `${first.value.trim()} ${last.value.trim()}`.trim();
+					const orgValue = org instanceof HTMLInputElement ? org.value.trim() : '';
+					const goalsValue = goals instanceof HTMLTextAreaElement ? goals.value.trim() : '';
+					message.value = [
+						'Signup interest submitted from forjyn.com/signup.',
+						orgValue ? `Organization: ${orgValue}` : '',
+						goalsValue ? `Notes: ${goalsValue}` : '',
+					]
+						.filter(Boolean)
+						.join('\n');
+				}
+			},
+			true,
+		);
+	</script>
+	<ContactFormScripts />
 </BaseLayout>

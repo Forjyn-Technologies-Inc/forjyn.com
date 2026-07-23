@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import CapabilityList from '../../components/sections/CapabilityList.astro';
+import CtaBand from '../../components/sections/CtaBand.astro';
+import { solutionAudiencePages } from '../../data/solutionAudiences';
+
+export function getStaticPaths() {
+	return solutionAudiencePages.map((page) => ({
+		params: { audience: page.slug },
+		props: { page },
+	}));
+}
+
+interface Props {
+	page: (typeof solutionAudiencePages)[number];
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={page.seoTitle} description={page.seoDescription}>
+	<PageHero eyebrow={page.eyebrow} title={page.title} lede={page.lede}>
+		<Fragment slot="actions">
+			<a href={page.ctaHref} class="btn-primary">{page.ctaLabel}</a>
+			<a href={`/solutions#${page.anchor}`} class="btn-secondary">View full solutions</a>
+		</Fragment>
+	</PageHero>
+
+	<section class="bg-graphite py-16 sm:py-20">
+		<div class="container-page max-w-3xl">
+			<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">Highlights</p>
+			<CapabilityList items={page.highlights} class="mt-6 grid gap-3 sm:grid-cols-2" />
+			<p class="mt-8 text-sm leading-relaxed text-slate">
+				For a deeper walkthrough of workflows, capabilities, and role-specific tools, see the
+				<a href={`/solutions#${page.anchor}`} class="link-accent">Solutions overview</a>
+				or
+				<a href="/platform" class="link-accent">Platform</a>
+				pages.
+			</p>
+		</div>
+	</section>
+
+	<CtaBand
+		title="See Forjyn in Action"
+		lede="Book a personalized demonstration tailored to your organization and goals."
+	>
+		<Fragment slot="actions">
+			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			<a href="/contact" class="btn-secondary">Contact Us</a>
+		</Fragment>
+	</CtaBand>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import InfoPage from '../components/sections/InfoPage.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+---
+
+<InfoPage
+	eyebrow="Company"
+	title="News"
+	lede="Updates, announcements, and stories from Forjyn Technologies."
+	seoTitle="News | Forjyn Technologies"
+	seoDescription="News and announcements from Forjyn Technologies Inc."
+>
+	<p>
+		Our newsroom is coming online. Check back soon for product updates, partnership announcements, and
+		ecosystem stories.
+	</p>
+	<p>
+		For media inquiries, email
+		<a href="mailto:info@forjyn.com">info@forjyn.com</a>
+		or use the contact form with the Media subject.
+	</p>
+
+	<Fragment slot="after">
+		<CtaBand title="Media or partnership inquiry?" lede="We are happy to share more about Forjyn.">
+			<Fragment slot="actions">
+				<a href="/contact" class="btn-primary">Contact Us</a>
+				<a href="/contact#demo" class="btn-secondary">Book a Demo</a>
+			</Fragment>
+		</CtaBand>
+	</Fragment>
+</InfoPage>

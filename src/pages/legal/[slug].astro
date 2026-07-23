@@ -1,0 +1,41 @@
+---
+import InfoPage from '../../components/sections/InfoPage.astro';
+import { legalPages, getLegalPage } from '../../data/legalPages';
+
+export function getStaticPaths() {
+	return legalPages.map((page) => ({
+		params: { slug: page.slug },
+	}));
+}
+
+const { slug } = Astro.params;
+const page = getLegalPage(slug ?? '');
+if (!page) {
+	throw new Error(`Unknown legal page: ${slug}`);
+}
+---
+
+<InfoPage
+	eyebrow={page.eyebrow}
+	title={page.title}
+	lede={`Last updated: ${page.updated}`}
+	seoTitle={page.seoTitle}
+	seoDescription={page.seoDescription}
+>
+	{
+		page.sections.map((section) => (
+			<>
+				<h2>{section.heading}</h2>
+				{section.paragraphs.map((paragraph) => (
+					<p>{paragraph}</p>
+				))}
+			</>
+		))
+	}
+	<p class="pt-4 text-sm text-slate/80">
+		Questions?
+		<a href="/contact">Contact Forjyn</a>
+		or email
+		<a href="mailto:info@forjyn.com">info@forjyn.com</a>.
+	</p>
+</InfoPage>
