@@ -3,12 +3,12 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
 
 /**
- * Brand mark via Astro Image (optimized WebP/AVIF from src/assets).
- * When a wordmark is shown, the image is decorative (empty alt) because
- * the adjacent text already names the brand; otherwise alt is descriptive.
+ * Brand mark via Astro Image (WebP from a display-sized src/assets mark).
+ * Source is 72×72 so 32–36 CSS px marks stay within Lighthouse size budgets at 2x DPR.
+ * When a wordmark is shown, the image is decorative (empty alt).
  */
 interface Props {
-	/** Pixel size of the mark. */
+	/** CSS pixel size of the mark. */
 	size?: number;
 	/** Show adjacent wordmark text. */
 	showWordmark?: boolean;
@@ -37,8 +37,10 @@ const label =
 		alt={showWordmark ? '' : 'Forjyn Technologies logo'}
 		width={size}
 		height={size}
-		densities={[1, 2]}
+		widths={[size, size * 2]}
+		sizes={`${size}px`}
 		format="webp"
+		quality={80}
 		loading={priority ? 'eager' : 'lazy'}
 		fetchpriority={priority ? 'high' : undefined}
 		decoding={priority ? 'sync' : 'async'}

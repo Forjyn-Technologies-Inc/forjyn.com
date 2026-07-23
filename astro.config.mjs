@@ -11,6 +11,9 @@ export default defineConfig({
 	adapter: cloudflare({
 		// Keep static page prerender on Node; API routes still run on Workers.
 		prerenderEnvironment: 'node',
+		// Resize/optimize <Image /> assets at build time (sharp), not via the CF Images binding.
+		// Without this, logo WebPs stayed 192×192 while rendering at 32px.
+		imageService: 'compile',
 	}),
 	build: {
 		// Inline CSS into <style> to eliminate the render-blocking stylesheet round-trip.

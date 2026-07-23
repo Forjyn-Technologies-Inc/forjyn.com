@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CloudflareWebAnalytics from '../components/CloudflareWebAnalytics.astro';
 import {
 	absoluteUrl,
 	defaultSeo,
@@ -22,8 +23,6 @@ interface Props {
 	canonicalPath?: string;
 	/** When true, ask crawlers not to index this page. */
 	noindex?: boolean;
-	/** Preload primary brand mark (homepage / LCP-critical routes). */
-	preloadLogo?: boolean;
 }
 
 const {
@@ -32,7 +31,6 @@ const {
 	ogImage = defaultSeo.ogImagePath,
 	canonicalPath,
 	noindex = false,
-	preloadLogo = false,
 } = Astro.props;
 
 const canonical = absoluteUrl(toCanonicalPath(canonicalPath ?? Astro.url.pathname));
@@ -90,17 +88,6 @@ const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 			type="font/woff2"
 			crossorigin="anonymous"
 		/>
-		{
-			preloadLogo && (
-				<link
-					rel="preload"
-					as="image"
-					href="/web-app-manifest-192x192.png"
-					type="image/png"
-					fetchpriority="high"
-				/>
-			)
-		}
 
 		<script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
 		<script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
@@ -117,5 +104,7 @@ const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 			<slot />
 		</main>
 		<Footer />
+		{/* Idle-deferred RUM — requires CF Web Analytics “JS Snippet installation” mode */}
+		<CloudflareWebAnalytics />
 	</body>
 </html>
