@@ -3,17 +3,22 @@
  * Presentational code must not read secrets directly — depend on this module.
  */
 
-export type EnvBag = Record<string, string | undefined>;
+/** String secrets / public keys. May also carry KV bindings when passed as full Worker env. */
+export type EnvBag = Record<string, unknown>;
 
 const PLACEHOLDER = 'xxxxxxxx';
 
+function asString(value: unknown): string | undefined {
+	return typeof value === 'string' ? value : undefined;
+}
+
 export function readEnv(name: string, runtimeEnv?: EnvBag): string {
 	const value =
-		runtimeEnv?.[name] ??
+		asString(runtimeEnv?.[name]) ??
 		(typeof import.meta !== 'undefined'
-			? (import.meta.env as EnvBag)[name]
+			? asString((import.meta.env as EnvBag)[name])
 			: undefined) ??
-		(typeof process !== 'undefined' ? process.env[name] : undefined);
+		(typeof process !== 'undefined' ? asString(process.env[name]) : undefined);
 
 	if (!value || value.includes(PLACEHOLDER)) {
 		throw new Error(`${name} is not configured`);

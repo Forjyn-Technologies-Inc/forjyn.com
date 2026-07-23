@@ -1,3 +1,33 @@
+/** Prepare signup interest fields before FormData is built. */
+function prepareSignupInterestForm(form: HTMLFormElement): void {
+	const first = form.querySelector('#signup-first-name');
+	const last = form.querySelector('#signup-last-name');
+	const org = form.querySelector('#signup-organization');
+	const goals = form.querySelector('#signup-message');
+	const name = form.querySelector('#signup-name');
+	const message = form.querySelector('#signup-combined-message');
+
+	if (
+		!(first instanceof HTMLInputElement) ||
+		!(last instanceof HTMLInputElement) ||
+		!(name instanceof HTMLInputElement) ||
+		!(message instanceof HTMLInputElement)
+	) {
+		return;
+	}
+
+	name.value = `${first.value.trim()} ${last.value.trim()}`.trim();
+	const orgValue = org instanceof HTMLInputElement ? org.value.trim() : '';
+	const goalsValue = goals instanceof HTMLTextAreaElement ? goals.value.trim() : '';
+	message.value = [
+		'Signup interest submitted from forjyn.com/signup.',
+		orgValue ? `Organization: ${orgValue}` : '',
+		goalsValue ? `Notes: ${goalsValue}` : '',
+	]
+		.filter(Boolean)
+		.join('\n');
+}
+
 export function initContactForms(): void {
 	const forms = document.querySelectorAll<HTMLFormElement>('form[data-contact-form]');
 
@@ -5,6 +35,8 @@ export function initContactForms(): void {
 		form.addEventListener('submit', async (event) => {
 			event.preventDefault();
 			event.stopPropagation();
+
+			prepareSignupInterestForm(form);
 
 			const status = form.querySelector<HTMLElement>('[data-form-status]');
 			const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
@@ -75,7 +107,18 @@ export function initContactForms(): void {
 	});
 }
 
-// Module scripts often run after DOMContentLoaded has already fired.
+// Capture-phase guard as soon as the module runs (deferred modules still beat user clicks).
+document.addEventListener(
+	'submit',
+	(event) => {
+		const target = event.target;
+		if (target instanceof HTMLFormElement && target.hasAttribute('data-contact-form')) {
+			event.preventDefault();
+		}
+	},
+	true,
+);
+
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', initContactForms);
 } else {

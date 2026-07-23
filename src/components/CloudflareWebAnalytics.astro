@@ -5,25 +5,13 @@
  * “Enable with JS Snippet installation” (not automatic injection).
  *
  * Token is public by design (same value Cloudflare injects into HTML).
+ * Script is an external module so CSP can drop script-src 'unsafe-inline'.
  */
 const token =
 	import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN ?? 'c82e7141441e42f3868dc7c4284f4114';
 ---
 
-<script is:inline define:vars={{ token }}>
-	window.addEventListener('load', () => {
-		const inject = () => {
-			if (document.querySelector('script[data-cf-beacon]')) return;
-			const s = document.createElement('script');
-			s.defer = true;
-			s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-			s.setAttribute('data-cf-beacon', JSON.stringify({ token }));
-			document.body.appendChild(s);
-		};
-		if ('requestIdleCallback' in window) {
-			requestIdleCallback(inject, { timeout: 4000 });
-		} else {
-			setTimeout(inject, 1);
-		}
-	});
+<div id="cf-web-analytics" data-token={token} hidden></div>
+<script>
+	import '../scripts/cloudflareWebAnalytics.ts';
 </script>

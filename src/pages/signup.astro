@@ -195,38 +195,5 @@ const selected = roles.find((role) => role.id === selectedRole);
 		</div>
 	</section>
 
-	<script is:inline>
-		document.addEventListener(
-			'submit',
-			(event) => {
-				const form = event.target;
-				if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-contact-form')) return;
-				const first = form.querySelector('#signup-first-name');
-				const last = form.querySelector('#signup-last-name');
-				const org = form.querySelector('#signup-organization');
-				const goals = form.querySelector('#signup-message');
-				const name = form.querySelector('#signup-name');
-				const message = form.querySelector('#signup-combined-message');
-				if (
-					first instanceof HTMLInputElement &&
-					last instanceof HTMLInputElement &&
-					name instanceof HTMLInputElement &&
-					message instanceof HTMLInputElement
-				) {
-					name.value = `${first.value.trim()} ${last.value.trim()}`.trim();
-					const orgValue = org instanceof HTMLInputElement ? org.value.trim() : '';
-					const goalsValue = goals instanceof HTMLTextAreaElement ? goals.value.trim() : '';
-					message.value = [
-						'Signup interest submitted from forjyn.com/signup.',
-						orgValue ? `Organization: ${orgValue}` : '',
-						goalsValue ? `Notes: ${goalsValue}` : '',
-					]
-						.filter(Boolean)
-						.join('\n');
-				}
-			},
-			true,
-		);
-	</script>
 	<ContactFormScripts />
 </BaseLayout>

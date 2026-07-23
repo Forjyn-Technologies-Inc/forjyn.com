@@ -1,6 +1,6 @@
 /**
- * Best-effort per-key rate limiting via the Workers Cache API.
- * Complements Turnstile; not a substitute for Cloudflare dashboard Rate Limiting.
+ * Distributed rate limiting via Cloudflare KV (multi-colo), with Cache API fallback.
+ * Complements Turnstile. KV min expirationTtl is 60s.
  */
 
 export type RateLimitResult = {
@@ -8,7 +8,65 @@ export type RateLimitResult = {
 	retryAfterSec?: number;
 };
 
-export async function enforceRateLimit(input: {
+export type RateLimitKv = {
+	get(key: string): Promise<string | null>;
+	put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
+};
+
+type Counter = {
+	count: number;
+	resetAt: number;
+};
+
+function parseCounter(raw: string | null, now: number, windowSec: number): Counter {
+	const fresh = { count: 0, resetAt: now + windowSec * 1000 };
+	if (!raw) return fresh;
+	try {
+		const parsed = JSON.parse(raw) as Counter;
+		if (
+			typeof parsed.count === 'number' &&
+			typeof parsed.resetAt === 'number' &&
+			parsed.resetAt > now
+		) {
+			return parsed;
+		}
+	} catch {
+		/* reset window */
+	}
+	return fresh;
+}
+
+/** Prefer KV for consistent limits across Cloudflare colos. */
+export async function enforceRateLimitKv(input: {
+	kv: RateLimitKv;
+	key: string;
+	limit: number;
+	windowSec: number;
+}): Promise<RateLimitResult> {
+	const storeKey = `rl:${input.key}`;
+	const now = Date.now();
+	const current = parseCounter(await input.kv.get(storeKey), now, input.windowSec);
+	const nextCount = current.count + 1;
+
+	if (nextCount > input.limit) {
+		return {
+			ok: false,
+			retryAfterSec: Math.max(1, Math.ceil((current.resetAt - now) / 1000)),
+		};
+	}
+
+	const ttlSec = Math.max(60, Math.ceil((current.resetAt - now) / 1000));
+	await input.kv.put(
+		storeKey,
+		JSON.stringify({ count: nextCount, resetAt: current.resetAt } satisfies Counter),
+		{ expirationTtl: ttlSec },
+	);
+
+	return { ok: true };
+}
+
+/** Local/dev fallback when KV is unavailable. */
+export async function enforceRateLimitCache(input: {
 	key: string;
 	limit: number;
 	windowSec: number;
@@ -53,4 +111,25 @@ export async function enforceRateLimit(input: {
 	);
 
 	return { ok: true };
+}
+
+export async function enforceRateLimit(input: {
+	kv?: RateLimitKv | null;
+	key: string;
+	limit: number;
+	windowSec: number;
+}): Promise<RateLimitResult> {
+	if (input.kv) {
+		return enforceRateLimitKv({
+			kv: input.kv,
+			key: input.key,
+			limit: input.limit,
+			windowSec: input.windowSec,
+		});
+	}
+	return enforceRateLimitCache({
+		key: input.key,
+		limit: input.limit,
+		windowSec: input.windowSec,
+	});
 }

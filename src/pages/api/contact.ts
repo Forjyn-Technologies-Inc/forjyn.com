@@ -2,7 +2,6 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { env } from 'cloudflare:workers';
-import type { EnvBag } from '../../lib/config';
 import { FormValidationError } from '../../lib/mail/fieldValidation';
 import { parseContactForm } from '../../lib/mail/parseContactForm';
 import { sendContactEmail } from '../../lib/mail/sendContactEmail';
@@ -70,6 +69,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 			key: `contact:${ip}`,
 			limit: RATE_LIMIT,
 			windowSec: RATE_WINDOW_SEC,
+			kv: env.SESSION,
 		});
 		if (!rate.ok) {
 			return json(
@@ -84,7 +84,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 		const turnstileOk = await verifyTurnstileToken({
 			token: form.get('cf-turnstile-response'),
 			remoteip: ip === 'unknown' ? undefined : ip,
-			runtimeEnv: env as EnvBag,
+			runtimeEnv: env,
 		});
 		if (!turnstileOk) {
 			return json({ ok: false, error: 'Please complete the security check and try again.' }, 403);
@@ -104,7 +104,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 			throw error;
 		}
 
-		await sendContactEmail(payload, env as EnvBag);
+		await sendContactEmail(payload, env);
 
 		return json(
 			{

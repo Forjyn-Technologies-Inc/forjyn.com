@@ -1,7 +1,6 @@
 ---
 /**
- * Contact form client wiring. Bundled module script only — no React islands.
- * Inline capture listener prevents native POST before the module binds.
+ * Contact form client wiring — bundled module only (no inline scripts).
  * Loads Turnstile api.js once for all forms on the page.
  */
 ---
@@ -11,18 +10,6 @@
 	async
 	defer
 ></script>
-<script is:inline>
-	document.addEventListener(
-		'submit',
-		(event) => {
-			const target = event.target;
-			if (target instanceof HTMLFormElement && target.hasAttribute('data-contact-form')) {
-				event.preventDefault();
-			}
-		},
-		true,
-	);
-</script>
 <script>
 	import '../../scripts/contactForms.ts';
 </script>
