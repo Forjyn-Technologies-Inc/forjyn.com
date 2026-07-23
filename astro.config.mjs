@@ -12,6 +12,11 @@ export default defineConfig({
 		// Keep static page prerender on Node; API routes still run on Workers.
 		prerenderEnvironment: 'node',
 	}),
+	build: {
+		// Inline CSS into <style> to eliminate the render-blocking stylesheet round-trip.
+		// Tailwind + latin font faces stay modest; marketing pages benefit more than they pay in HTML size.
+		inlineStylesheets: 'always',
+	},
 	integrations: [
 		sitemap({
 			filter: (page) =>

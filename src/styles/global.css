@@ -1,11 +1,8 @@
 @import "tailwindcss";
 @config "../../tailwind.config.mjs";
 
-/* Self-hosted fonts — font-display: swap is included by Fontsource */
-@import "@fontsource-variable/sora/wght.css";
-@import "@fontsource-variable/inter/wght.css";
-@import "@fontsource/ibm-plex-mono/latin-400.css";
-@import "@fontsource/ibm-plex-mono/latin-500.css";
+/* Latin-only self-hosted faces (font-display: swap) — keeps inlined CSS lean */
+@import "./fonts.css";
 
 @layer base {
 	html {

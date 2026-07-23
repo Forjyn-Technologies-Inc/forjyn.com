@@ -75,7 +75,7 @@ const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 		<link rel="apple-touch-icon" href="/favicon-96x96.png" />
 		<link rel="manifest" href="/site.webmanifest" />
 
-		{/* Critical self-hosted fonts — avoids render-blocking Google Fonts CSS */}
+		{/* Critical fonts: preload WOFF2 while inlined CSS (@font-face) parses */}
 		<link
 			rel="preload"
 			href={soraLatin}
