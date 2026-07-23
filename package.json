@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && wrangler deploy"
+    "deploy": "astro build && wrangler deploy",
+    "cf:allow-ai-crawlers": "node scripts/allow-ai-crawlers.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.4",

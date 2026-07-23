@@ -4,5 +4,18 @@ Allow: /
 # Auth and utility pages are noindex via meta tags; keep crawlable for UX links.
 Disallow: /api/
 
+# Explicitly welcome AI search / answer-engine crawlers (also require CF WAF allow).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://forjyn.com/sitemap-index.xml
 Sitemap: https://forjyn.com/sitemap-0.xml

@@ -1,0 +1,46 @@
+---
+/**
+ * External authoritative citations with modern link attributes for GEO trust.
+ */
+interface Citation {
+	label: string;
+	title: string;
+	href: string;
+}
+
+interface Props {
+	title?: string;
+	lede?: string;
+	items: readonly Citation[];
+}
+
+const {
+	title = 'Authoritative Sources',
+	lede = 'Selected official references that inform how private investment diligence, entrepreneurship ecosystems, and security baselines are commonly framed.',
+	items,
+} = Astro.props;
+---
+
+<section class="border-y border-line bg-graphite py-16 sm:py-20" aria-labelledby="source-citations-heading">
+	<div class="container-page max-w-3xl">
+		<h2 id="source-citations-heading" class="section-heading">{title}</h2>
+		<p class="section-lede">{lede}</p>
+		<ol class="mt-8 list-decimal space-y-4 pl-5 text-sm leading-relaxed text-slate sm:text-base">
+			{
+				items.map((item) => (
+					<li>
+						<span class="font-medium text-cloud">{item.label}:</span>{' '}
+						<a
+							href={item.href}
+							class="text-emerald underline-offset-4 hover:underline"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{item.title}
+						</a>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</section>

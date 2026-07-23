@@ -172,3 +172,47 @@ export const homeGlossary = [
 			'Accelerators, incubators, universities, and innovation organizations that support founders through programs, referrals, and events.',
 	},
 ] as const;
+
+/** Authoritative external citations for GEO/AEO trust signals. */
+export const homeCitations = [
+	{
+		label: 'U.S. Securities and Exchange Commission — Investor.gov',
+		title: 'Private investment funds and investor considerations',
+		href: 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds',
+	},
+	{
+		label: 'OECD',
+		title: 'SMEs and entrepreneurship policy guidance',
+		href: 'https://www.oecd.org/en/topics/smes-and-entrepreneurship.html',
+	},
+	{
+		label: 'NIST',
+		title: 'Cybersecurity Framework',
+		href: 'https://www.nist.gov/cyberframework',
+	},
+] as const;
+
+/**
+ * Feature comparison rows for a semantic HTML data table.
+ * Columns: Dimension | Spreadsheets & email | Standalone CRM | Forjyn platform
+ */
+export const homeComparisonColumns = [
+	'Dimension',
+	'Spreadsheets & email',
+	'Standalone CRM',
+	'Forjyn platform',
+] as const;
+
+export const homeComparisonRows = [
+	['Startup–investor matching', 'Manual', 'Limited filters', 'Preference-based scoring'],
+	['Due diligence workspace', 'Attachments & threads', 'File notes only', 'Permissioned deal rooms'],
+	['Ecosystem partners', 'Separate tools', 'Rarely supported', 'Built-in referrals & events'],
+	['AI-assisted evaluation', 'None', 'Add-ons vary', 'Integrated, human-supervised'],
+	['Audit & access control', 'Ad hoc', 'Role basics', 'RBAC, MFA, audit logs'],
+] as const;
+
+/** Multi-perspective GEO statement (balanced viewpoint). */
+export const homePerspective = {
+	heading: 'A Balanced View of Deal Flow Tools',
+	body: 'While some prefer informal networks, spreadsheets, and email for early deal sourcing, industry standards for private-market diligence emphasize organized information, clear records, and independent review. Forjyn is designed for teams that want structured discovery and secure collaboration without replacing human judgment.',
+} as const;

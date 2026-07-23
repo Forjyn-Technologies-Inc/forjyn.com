@@ -1,12 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CapabilityList from '../components/sections/CapabilityList.astro';
+import ComparisonTable from '../components/sections/ComparisonTable.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
 import KeyTakeaways from '../components/sections/KeyTakeaways.astro';
+import SourceCitations from '../components/sections/SourceCitations.astro';
 import TermDefinitions from '../components/sections/TermDefinitions.astro';
 import {
 	homeAiCapabilities,
 	homeAudiences,
+	homeCitations,
+	homeComparisonColumns,
+	homeComparisonRows,
 	homeDealPreview,
 	homeDiligenceFeatures,
 	homeEventCapabilities,
@@ -14,6 +19,7 @@ import {
 	homeInvestorCapabilities,
 	homeJourney,
 	homeKeyTakeaways,
+	homePerspective,
 	homeSecurityCapabilities,
 	homeStartupCapabilities,
 } from '../data/home';
@@ -36,7 +42,7 @@ import {
 				</p>
 				<div class="accent-line mt-4 max-w-24"></div>
 				<h1 class="mt-5 max-w-xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-cloud sm:text-5xl lg:text-[3.4rem]">
-					The Operating System for <span class="text-gradient">Modern Innovation</span>
+					Intelligent Deal Flow for <span class="text-gradient">Startups &amp; Investors</span>
 				</h1>
 				<p class="mt-6 max-w-lg text-base leading-relaxed text-slate sm:text-lg">
 					Forjyn connects startups, investors, ecosystem partners, and service providers through one
@@ -125,14 +131,32 @@ import {
 					greater efficiency and visibility.
 				</p>
 			</div>
+			<aside class="mt-10 max-w-3xl border-t border-line pt-8" aria-labelledby="perspective-heading">
+				<h2
+					id="perspective-heading"
+					class="font-display text-xl font-semibold tracking-tight text-cloud sm:text-2xl"
+				>
+					{homePerspective.heading}
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-slate sm:text-lg">{homePerspective.body}</p>
+			</aside>
 		</div>
 	</section>
+
+	<ComparisonTable
+		title="How Approaches Compare"
+		lede="A concise look at how common deal-flow setups differ on matching, diligence, ecosystem support, and security."
+		columns={homeComparisonColumns}
+		rows={homeComparisonRows}
+	/>
 
 	<TermDefinitions
 		title="Key Terms"
 		lede="Clear definitions for the core concepts behind Forjyn’s deal flow platform."
 		items={homeGlossary}
 	/>
+
+	<SourceCitations items={homeCitations} />
 
 	<section class="border-y border-line bg-graphite py-20 sm:py-24">
 		<div class="container-page">

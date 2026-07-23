@@ -1,0 +1,63 @@
+---
+/**
+ * Semantic HTML data table for GEO feature/data comparisons.
+ * Presentation only — rows and columns come from page data.
+ */
+interface Props {
+	title?: string;
+	lede?: string;
+	columns: readonly string[];
+	rows: readonly (readonly string[])[];
+	caption?: string;
+}
+
+const {
+	title = 'How Approaches Compare',
+	lede,
+	columns,
+	rows,
+	caption = 'Comparison of common deal-flow approaches across key workflow dimensions.',
+} = Astro.props;
+---
+
+<section class="bg-midnight py-20 sm:py-24" aria-labelledby="comparison-table-heading">
+	<div class="container-page">
+		<div class="max-w-2xl">
+			<h2 id="comparison-table-heading" class="section-heading">{title}</h2>
+			{lede && <p class="section-lede">{lede}</p>}
+		</div>
+		<div class="mt-8 overflow-x-auto rounded-xl border border-line">
+			<table class="min-w-full border-collapse text-left text-sm">
+				<caption class="sr-only">{caption}</caption>
+				<thead class="bg-graphite">
+					<tr>
+						{
+							columns.map((column) => (
+								<th scope="col" class="px-4 py-3 font-semibold text-cloud sm:px-5">
+									{column}
+								</th>
+							))
+						}
+					</tr>
+				</thead>
+				<tbody>
+					{
+						rows.map((row) => (
+							<tr class="border-t border-line">
+								{row.map((cell, index) =>
+									index === 0 ? (
+										<th scope="row" class="px-4 py-3 font-medium text-cloud sm:px-5">
+											{cell}
+										</th>
+									) : (
+										<td class="px-4 py-3 text-slate sm:px-5">{cell}</td>
+									),
+								)}
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>

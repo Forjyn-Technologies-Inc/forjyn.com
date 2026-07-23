@@ -1,0 +1,52 @@
+---
+import { defaultSeo } from '../lib/site/seo';
+
+/**
+ * Visible E-E-A-T byline, credentials, and machine-readable <time> for AI date extraction.
+ */
+interface Props {
+	datePublished?: string;
+	dateModified?: string;
+	authorName?: string;
+	authorCredentials?: string;
+}
+
+const {
+	datePublished = defaultSeo.datePublished,
+	dateModified = defaultSeo.dateModified,
+	authorName = defaultSeo.authorName,
+	authorCredentials = defaultSeo.authorCredentials,
+} = Astro.props;
+
+const publishedLabel = new Date(`${datePublished}T12:00:00Z`).toLocaleDateString('en-CA', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'UTC',
+});
+const modifiedLabel = new Date(`${dateModified}T12:00:00Z`).toLocaleDateString('en-CA', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'UTC',
+});
+---
+
+<footer class="mt-10 border-t border-line pt-6 text-xs leading-relaxed text-slate">
+	<p>
+		By <span class="font-medium text-cloud">{authorName}</span>
+		<span aria-hidden="true"> · </span>
+		Published{' '}
+		<time datetime={datePublished}>{publishedLabel}</time>
+		{
+			dateModified !== datePublished && (
+				<>
+					<span aria-hidden="true"> · </span>
+					Updated{' '}
+					<time datetime={dateModified}>{modifiedLabel}</time>
+				</>
+			)
+		}
+	</p>
+	<p class="mt-2 max-w-3xl">{authorCredentials}</p>
+</footer>
