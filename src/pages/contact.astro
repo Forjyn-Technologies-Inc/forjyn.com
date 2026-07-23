@@ -379,6 +379,19 @@ const faqs = [
 			</p>
 		</div>
 	</section>
+	<script is:inline>
+		// Prevent native POST navigation before the module handler binds.
+		document.addEventListener(
+			'submit',
+			(event) => {
+				const target = event.target;
+				if (target instanceof HTMLFormElement && target.hasAttribute('data-contact-form')) {
+					event.preventDefault();
+				}
+			},
+			true,
+		);
+	</script>
 	<script>
 		import '../scripts/contactForms.ts';
 	</script>

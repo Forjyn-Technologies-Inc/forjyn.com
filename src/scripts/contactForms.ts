@@ -4,6 +4,7 @@ export function initContactForms(): void {
 	forms.forEach((form) => {
 		form.addEventListener('submit', async (event) => {
 			event.preventDefault();
+			event.stopPropagation();
 
 			const status = form.querySelector<HTMLElement>('[data-form-status]');
 			const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
@@ -25,6 +26,13 @@ export function initContactForms(): void {
 					body: new FormData(form),
 					headers: { Accept: 'application/json' },
 				});
+
+				const contentType = response.headers.get('content-type') ?? '';
+				if (!contentType.includes('application/json')) {
+					throw new Error(
+						'The contact API is not available on this deployment. Redeploy with Cloudflare Workers (`npm run deploy`) and set Resend secrets.',
+					);
+				}
 
 				const data = (await response.json()) as { ok?: boolean; message?: string; error?: string };
 
@@ -57,4 +65,9 @@ export function initContactForms(): void {
 	});
 }
 
-document.addEventListener('DOMContentLoaded', initContactForms);
+// Module scripts often run after DOMContentLoaded has already fired.
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initContactForms);
+} else {
+	initContactForms();
+}
