@@ -1,0 +1,555 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Solutions for Startups, Investors and Ecosystem Partners | Forjyn';
+const description =
+	'Explore Forjyn solutions for startup fundraising, investor deal discovery, due diligence, ecosystem management, events, compliance, and intelligent matching.';
+
+const startupProfileAreas = [
+	'Company overview',
+	'Industry and sector',
+	'Product or service',
+	'Customer problem',
+	'Proposed solution',
+	'Market opportunity',
+	'TAM, SAM, and SOM',
+	'Business model',
+	'Revenue model',
+	'Traction and milestones',
+	'Financial performance',
+	'Fundraising information',
+	'Funding history',
+	'Team and advisors',
+	'Competitive landscape',
+	'Technology and intellectual property',
+	'Geographic focus',
+	'Pitch video',
+	'Pitch deck',
+	'Supporting documents',
+];
+
+const matchingAreas = [
+	'Investment stage',
+	'Industry preferences',
+	'Geographic focus',
+	'Typical check size',
+	'Business model',
+	'Company maturity',
+	'Investor interests',
+	'Other platform preferences',
+];
+
+const startupMetrics = [
+	'Profile views',
+	'Investor likes',
+	'Priority interest or super likes',
+	'Matches',
+	'Document engagement',
+	'Discovery activity',
+	'Conversion from profile view to interest',
+];
+
+const investorPreferences = [
+	'Industries',
+	'Sectors',
+	'Investment stage',
+	'Geography',
+	'Check size',
+	'Revenue expectations',
+	'Business model',
+	'Traction',
+	'Impact priorities',
+	'Technology focus',
+	'Founder or team criteria',
+];
+
+const discoveryActions = [
+	'Like',
+	'Pass',
+	'Priority interest',
+	'Undo previous action',
+	'View full company profile',
+	'Save for later review',
+];
+
+const profileReviewAreas = [
+	'Product',
+	'Market',
+	'Traction',
+	'Financials',
+	'Business model',
+	'Team',
+	'Funding',
+	'Cap table information',
+	'Pitch materials',
+	'Supporting documents',
+	'AI-supported evaluations',
+];
+
+const pipelineStages = [
+	'Discovered',
+	'Interested',
+	'Matched',
+	'Initial review',
+	'Due diligence',
+	'Investment committee',
+	'Commitment',
+	'Invested',
+	'Declined',
+	'Monitoring',
+];
+
+const verificationSteps = [
+	'Identity verification',
+	'Know Your Customer checks',
+	'Anti–Money Laundering screening',
+	'Accredited investor confirmation',
+	'Supporting document submission',
+	'Administrative approval',
+];
+
+const eventTypes = [
+	'Pitch events',
+	'Workshops',
+	'Founder sessions',
+	'Investor meetings',
+	'Networking events',
+	'Demo days',
+	'Community programming',
+	'Registrations and attendance',
+];
+
+const ecosystemMetrics = [
+	'Startup registrations',
+	'Investor participation',
+	'Event attendance',
+	'Founder engagement',
+	'Referral activity',
+	'Opportunity progression',
+	'Profile completion',
+	'Investor-startup matches',
+];
+
+const serviceCategories = [
+	'Legal',
+	'Accounting',
+	'Finance',
+	'Marketing',
+	'Sales',
+	'Recruitment',
+	'Technology',
+	'Cybersecurity',
+	'Intellectual property',
+	'Insurance',
+	'Government funding',
+	'Grant writing',
+	'Product development',
+	'Research and commercialization',
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="page-hero">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+		<div class="page-hero-inner max-w-3xl">
+			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-light">Solutions</p>
+			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+				Technology Built Around the People Driving Innovation
+			</h1>
+			<p class="mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+				Forjyn gives startups, investors, and ecosystem partners distinct tools while connecting them
+				through one shared platform.
+			</p>
+			<p class="mt-4 text-sm leading-relaxed text-mist-400">
+				Each user receives an experience tailored to their role, goals, permissions, and
+				responsibilities.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-3">
+				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
+				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+			</div>
+			<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-mist-300" aria-label="Solutions sections">
+				<a href="#startups" class="hover:text-white">Startups</a>
+				<a href="#investors" class="hover:text-white">Investors</a>
+				<a href="#ecosystem" class="hover:text-white">Ecosystem Partners</a>
+				<a href="#service-providers" class="hover:text-white">Service Providers</a>
+			</nav>
+		</div>
+	</section>
+
+	<section id="startups" class="scroll-mt-24 bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-3xl">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">For Startups</p>
+				<h2 class="section-heading mt-3">Build, Present and Grow Your Company</h2>
+				<div class="mt-6 space-y-4 text-base leading-relaxed text-ink-700/75">
+					<p>Fundraising can be difficult to navigate.</p>
+					<p>
+						Founders are often asked to recreate the same company information across different
+						applications, investor introductions, pitch events, data rooms, and due diligence
+						requests.
+					</p>
+					<p>
+						Forjyn gives startups one centralized environment to organize their company information,
+						showcase their opportunity, understand investor engagement, and manage the path toward
+						investment.
+					</p>
+				</div>
+			</div>
+
+			<div class="mt-14 grid gap-12 lg:grid-cols-2">
+				<div>
+					<h3 class="font-display text-xl font-semibold text-ink-900">
+						Create an Investor-Ready Profile
+					</h3>
+					<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+						Build a structured company profile that helps investors understand your opportunity.
+					</p>
+					<ul class="capability-list mt-5">
+						{
+							startupProfileAreas.map((item) => (
+								<li class="capability-item">
+									<span class="capability-dot" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div class="space-y-10">
+					<div>
+						<h3 class="font-display text-xl font-semibold text-ink-900">
+							Receive AI-Supported Feedback
+						</h3>
+						<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+							Forjyn’s evaluation tools review available profile information and provide structured
+							insights that can help founders identify missing information, inconsistencies, and areas
+							requiring clarification. Founders can follow evaluation progress and improve their
+							profiles over time.
+						</p>
+					</div>
+					<div>
+						<h3 class="font-display text-xl font-semibold text-ink-900">
+							Get Discovered by Relevant Investors
+						</h3>
+						<ul class="capability-list mt-4">
+							{
+								matchingAreas.map((item) => (
+									<li class="capability-item">
+										<span class="capability-dot" aria-hidden="true" />
+										{item}
+									</li>
+								))
+							}
+						</ul>
+					</div>
+					<div>
+						<h3 class="font-display text-xl font-semibold text-ink-900">
+							Understand Investor Engagement
+						</h3>
+						<ul class="capability-list mt-4">
+							{
+								startupMetrics.map((item) => (
+									<li class="capability-item">
+										<span class="capability-dot" aria-hidden="true" />
+										{item}
+									</li>
+								))
+							}
+						</ul>
+					</div>
+					<div>
+						<h3 class="font-display text-xl font-semibold text-ink-900">Manage Due Diligence</h3>
+						<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+							When an investor relationship progresses, founders can access a secure due diligence
+							room. Upload requested information, respond to document checklists, track requirements,
+							and keep the process organized.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-14 rounded-2xl border border-ink-900/8 bg-mist-50 px-6 py-8 sm:px-8">
+				<h3 class="font-display text-2xl font-semibold text-ink-900">
+					Ready to Build Your Investor Presence?
+				</h3>
+				<p class="mt-2 text-sm text-ink-700/70">
+					Create your Forjyn account and start building your company profile.
+				</p>
+				<div class="mt-5 flex flex-wrap items-center gap-3">
+					<a href="/signup?role=startup" class="btn-primary">Sign Up as a Startup</a>
+					<a href="/contact#demo" class="btn-secondary">Book a Demo</a>
+					<a href="/login" class="link-accent text-sm">Already registered? Log In</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="investors" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-3xl">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">For Investors</p>
+				<h2 class="section-heading mt-3">Discover Opportunities That Match Your Thesis</h2>
+				<div class="mt-6 space-y-4 text-base leading-relaxed text-ink-700/75">
+					<p>
+						Investors need quality deal flow, but more opportunities do not always lead to better
+						decisions.
+					</p>
+					<p>
+						Forjyn helps investors personalize discovery, compare opportunities, organize deal
+						activity, and collaborate throughout the investment review process.
+					</p>
+				</div>
+			</div>
+
+			<div class="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+				<div class="border-t border-ink-900/10 pt-5">
+					<h3 class="font-display text-lg font-semibold text-ink-900">Personalized Deal Discovery</h3>
+					<ul class="capability-list mt-4">
+						{
+							investorPreferences.map((item) => (
+								<li class="capability-item">
+									<span class="capability-dot" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div class="border-t border-ink-900/10 pt-5">
+					<h3 class="font-display text-lg font-semibold text-ink-900">Mobile-First Discovery</h3>
+					<ul class="capability-list mt-4">
+						{
+							discoveryActions.map((item) => (
+								<li class="capability-item">
+									<span class="capability-dot" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div class="border-t border-ink-900/10 pt-5">
+					<h3 class="font-display text-lg font-semibold text-ink-900">Compatibility Scoring</h3>
+					<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+						Forjyn can calculate a 0–100 compatibility score based on relevant startup and investor
+						information. The score is designed to help investors organize opportunities and identify
+						possible alignment. It is not a recommendation or guarantee of investment suitability.
+					</p>
+				</div>
+				<div class="border-t border-ink-900/10 pt-5">
+					<h3 class="font-display text-lg font-semibold text-ink-900">Detailed Company Profiles</h3>
+					<ul class="capability-list mt-4">
+						{
+							profileReviewAreas.map((item) => (
+								<li class="capability-item">
+									<span class="capability-dot" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div class="border-t border-ink-900/10 pt-5">
+					<h3 class="font-display text-lg font-semibold text-ink-900">Organize Your Deal Pipeline</h3>
+					<ul class="capability-list mt-4">
+						{
+							pipelineStages.map((item) => (
+								<li class="capability-item">
+									<span class="capability-dot" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div class="space-y-8 border-t border-ink-900/10 pt-5">
+					<div>
+						<h3 class="font-display text-lg font-semibold text-ink-900">
+							Collaborate During Due Diligence
+						</h3>
+						<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+							Use secure rooms to review documents, coordinate questions, share notes, and monitor
+							outstanding information.
+						</p>
+					</div>
+					<div>
+						<h3 class="font-display text-lg font-semibold text-ink-900">
+							Track Commitments and Portfolio Activity
+						</h3>
+						<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+							Record investment interest, pledged amounts, completed investments, and the status of
+							portfolio opportunities.
+						</p>
+					</div>
+					<div>
+						<h3 class="font-display text-lg font-semibold text-ink-900">Investor Verification</h3>
+						<ul class="capability-list mt-4">
+							{
+								verificationSteps.map((item) => (
+									<li class="capability-item">
+										<span class="capability-dot" aria-hidden="true" />
+										{item}
+									</li>
+								))
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-14 rounded-2xl border border-ink-900/8 bg-white px-6 py-8 sm:px-8">
+				<h3 class="font-display text-2xl font-semibold text-ink-900">Find Your Next Opportunity</h3>
+				<p class="mt-2 text-sm text-ink-700/70">
+					Join Forjyn to build a more personalized and organized deal flow experience.
+				</p>
+				<div class="mt-5 flex flex-wrap items-center gap-3">
+					<a href="/signup?role=investor" class="btn-primary">Sign Up as an Investor</a>
+					<a href="/contact#demo" class="btn-secondary">Book a Demo</a>
+					<a href="/login" class="link-accent text-sm">Existing investor? Log In</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="ecosystem" class="scroll-mt-24 bg-ink-900 py-20 text-white sm:py-24">
+		<div class="container-page">
+			<div class="max-w-3xl">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-light">
+					For Ecosystem Partners
+				</p>
+				<h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+					Give Your Innovation Community Better Infrastructure
+				</h2>
+				<p class="mt-5 text-base leading-relaxed text-mist-300/90">
+					Forjyn helps incubators, accelerators, angel groups, universities, economic development
+					organizations, corporate innovation teams, and other ecosystem partners manage startup
+					activity from a centralized platform.
+				</p>
+			</div>
+
+			<div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				<div>
+					<h3 class="font-display text-lg font-semibold">Manage Your Startup Community</h3>
+					<p class="mt-2 text-sm leading-relaxed text-mist-300/80">
+						View, organize, and support participating startups through structured profiles and program
+						information.
+					</p>
+				</div>
+				<div>
+					<h3 class="font-display text-lg font-semibold">Facilitate Referrals</h3>
+					<p class="mt-2 text-sm leading-relaxed text-mist-300/80">
+						Refer startups to investors, programs, service providers, events, or other ecosystem
+						opportunities.
+					</p>
+				</div>
+				<div>
+					<h3 class="font-display text-lg font-semibold">Coordinate Events</h3>
+					<ul class="mt-3 space-y-2">
+						{
+							eventTypes.map((item) => (
+								<li class="flex gap-2 text-sm text-mist-300/85">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div>
+					<h3 class="font-display text-lg font-semibold">Communicate With Stakeholders</h3>
+					<p class="mt-2 text-sm leading-relaxed text-mist-300/80">
+						Use targeted email campaigns, transactional messages, in-app notifications, and platform
+						announcements to keep members informed.
+					</p>
+				</div>
+				<div>
+					<h3 class="font-display text-lg font-semibold">Measure Engagement</h3>
+					<ul class="mt-3 space-y-2">
+						{
+							ecosystemMetrics.map((item) => (
+								<li class="flex gap-2 text-sm text-mist-300/85">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div>
+					<h3 class="font-display text-lg font-semibold">Manage Access and Permissions</h3>
+					<p class="mt-2 text-sm leading-relaxed text-mist-300/80">
+						Assign administrator, moderator, or program-specific permissions without giving every team
+						member full platform access.
+					</p>
+				</div>
+			</div>
+
+			<div class="mt-14 border-t border-white/10 pt-10">
+				<h3 class="font-display text-2xl font-semibold">
+					Build a More Connected Innovation Community
+				</h3>
+				<p class="mt-2 text-sm text-mist-300/80">
+					See how Forjyn can support your organization, members, and programs.
+				</p>
+				<div class="mt-5 flex flex-wrap gap-3">
+					<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
+					<a href="/contact" class="btn-secondary-on-dark">Contact Us</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="service-providers" class="scroll-mt-24 bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-3xl">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
+					For Service Providers
+				</p>
+				<h2 class="section-heading mt-3">Reach Startups When Your Expertise Matters Most</h2>
+				<div class="mt-6 space-y-4 text-base leading-relaxed text-ink-700/75">
+					<p>
+						Service providers play an important role in helping startups move from early development to
+						sustainable growth.
+					</p>
+					<p>
+						Forjyn can create opportunities for qualified providers to connect with startups seeking
+						support.
+					</p>
+				</div>
+			</div>
+			<ul class="capability-list mt-10">
+				{
+					serviceCategories.map((item) => (
+						<li class="capability-item">
+							<span class="capability-dot" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+			<p class="mt-8 max-w-2xl text-sm leading-relaxed text-ink-700/65">
+				Service provider participation, visibility, and access may be subject to platform approval or
+				partnership arrangements.
+			</p>
+			<a href="/contact" class="btn-primary mt-6">Contact Forjyn</a>
+		</div>
+	</section>
+
+	<section class="bg-mist-50 py-20 sm:py-24">
+		<div class="container-page max-w-3xl text-center">
+			<h2 class="section-heading">One Platform. Different Roles. Shared Growth.</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-700/75">
+				Every Forjyn experience is designed around the user while contributing to a stronger, more
+				connected innovation ecosystem.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+				<a href="/signup" class="btn-secondary">Sign Up Now</a>
+			</div>
+			<p class="mt-4 text-sm text-ink-700/60">
+				<a href="/login" class="link-accent">Log In</a>
+			</p>
+		</div>
+	</section>
+</BaseLayout>

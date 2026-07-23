@@ -1,0 +1,549 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const audiences = [
+	{
+		title: 'For Startups',
+		body: 'Build a complete company profile, present your opportunity professionally, receive AI-supported evaluations, monitor investor engagement, and manage due diligence from one secure workspace.',
+		href: '/solutions/startups',
+		linkLabel: 'Explore Startup Solutions',
+	},
+	{
+		title: 'For Investors',
+		body: 'Discover startups based on your preferences, review opportunities efficiently, manage your deal pipeline, collaborate during due diligence, and track your investment activity.',
+		href: '/solutions/investors',
+		linkLabel: 'Explore Investor Solutions',
+	},
+	{
+		title: 'For Ecosystem Partners',
+		body: 'Manage startup communities, create referrals, coordinate events, support founders, communicate with stakeholders, and understand ecosystem activity through centralized reporting.',
+		href: '/solutions/ecosystem',
+		linkLabel: 'Explore Ecosystem Solutions',
+	},
+];
+
+const journey = [
+	{
+		title: 'Discover',
+		body: 'Explore startup opportunities through a mobile-first discovery experience built around investor preferences.',
+	},
+	{
+		title: 'Match',
+		body: 'Connect startups and investors using compatibility scoring based on relevant factors such as sector, stage, location, check size, and investment interests.',
+	},
+	{
+		title: 'Evaluate',
+		body: 'Use structured company profiles, supporting documents, platform analytics, and AI-assisted evaluations to understand opportunities more clearly.',
+	},
+	{
+		title: 'Collaborate',
+		body: 'Bring investors, founders, administrators, and ecosystem stakeholders into secure due diligence environments.',
+	},
+	{
+		title: 'Grow',
+		body: 'Track engagement, participate in events, manage relationships, and access the connections required to move forward.',
+	},
+];
+
+const investorCapabilities = [
+	'Mobile-first startup discovery',
+	'Like, pass, and priority-interest actions',
+	'Personalized investment preferences',
+	'Compatibility and matching scores',
+	'Detailed startup profiles',
+	'Pitch videos and presentation materials',
+	'Opportunity shortlists',
+	'Mutual matches',
+	'Portfolio and commitment tracking',
+	'Private due diligence collaboration',
+];
+
+const startupCapabilities = [
+	'Guided startup profile builder',
+	'Market and company information',
+	'Pitch deck and document uploads',
+	'Pitch video library',
+	'AI-supported company evaluation',
+	'Investor interest and matching',
+	'Profile engagement analytics',
+	'Due diligence document management',
+	'Secure investor collaboration',
+	'Investment-readiness support',
+];
+
+const aiCapabilities = [
+	{
+		title: 'Startup Evaluations',
+		body: 'Structured assessments help startups understand the completeness and credibility of their profiles.',
+	},
+	{
+		title: 'Intelligent Matching',
+		body: 'Startup and investor information is compared to identify potential alignment.',
+	},
+	{
+		title: 'Due Diligence Assistance',
+		body: 'AI-generated summaries can help users review large volumes of information and identify areas requiring further investigation.',
+	},
+	{
+		title: 'Document Insights',
+		body: 'Uploaded materials can be analyzed to support review and information organization.',
+	},
+	{
+		title: 'Opportunity Scoring',
+		body: 'Platform signals can help investors and administrators identify startups that meet selected criteria.',
+	},
+];
+
+const diligenceFeatures = [
+	'Private deal-specific rooms',
+	'Structured document checklists',
+	'Secure file uploads',
+	'Document version management',
+	'Investor and founder collaboration',
+	'Administrative notes and context',
+	'AI-assisted summaries',
+	'Credibility and completeness insights',
+	'Role-based access permissions',
+	'Activity and audit records',
+];
+
+const eventCapabilities = [
+	'Event calendar',
+	'Online registration',
+	'Participant management',
+	'QR code or token-based check-in',
+	'Automated reminders',
+	'In-app notifications',
+	'Email communications',
+	'Attendance tracking',
+	'Hybrid and in-person event support',
+];
+
+const securityCapabilities = [
+	'AES-256-GCM field-level encryption',
+	'Secure document storage',
+	'Role-based access control',
+	'Multi-factor authentication',
+	'Protected administrative functions',
+	'Secure session management',
+	'Append-only audit logs',
+	'Checksummed activity records',
+	'Server-side permission enforcement',
+	'Compliance review workflows',
+];
+---
+
+<BaseLayout>
+	{/* Hero */}
+	<section class="relative overflow-hidden bg-ink-900 text-white">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+		<div
+			class="pointer-events-none absolute inset-0 bg-grid-fade bg-[size:48px_48px] opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
+			aria-hidden="true"
+		>
+		</div>
+
+		<div class="container-page relative grid min-h-[calc(100vh-4.25rem)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-20">
+			<div class="animate-fade-up">
+				<p class="font-display text-sm font-semibold uppercase tracking-[0.22em] text-accent-light">
+					Forjyn Technologies
+				</p>
+				<h1 class="mt-5 max-w-xl font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+					The Operating System for Modern Innovation
+				</h1>
+				<p class="mt-6 max-w-lg text-base leading-relaxed text-mist-300/90 sm:text-lg">
+					Forjyn connects startups, investors, ecosystem partners, and service providers through one
+					intelligent technology platform.
+				</p>
+				<div class="mt-8 flex flex-wrap items-center gap-3">
+					<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
+					<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+				</div>
+				<p class="mt-5 text-sm text-mist-400">
+					Existing user?
+					<a href="/login" class="ml-1 font-medium text-accent-light underline-offset-4 hover:underline"
+						>Log In</a
+					>
+				</p>
+				<p class="mt-10 max-w-md border-t border-white/10 pt-6 text-sm leading-relaxed text-mist-400">
+					One connected platform for discovering, evaluating, supporting, and growing the companies
+					shaping the future.
+				</p>
+			</div>
+
+			<div class="relative animate-fade-in [animation-delay:180ms]" aria-hidden="true">
+				<div class="absolute -inset-6 rounded-[2rem] bg-accent/15 blur-3xl"></div>
+				<div class="relative animate-float overflow-hidden rounded-2xl border border-white/10 bg-ink-800/80 p-5 shadow-glow backdrop-blur-sm sm:p-6">
+					<div class="flex items-center justify-between border-b border-white/10 pb-4">
+						<div>
+							<p class="text-xs font-medium uppercase tracking-[0.16em] text-mist-400">Deal Flow</p>
+							<p class="mt-1 font-display text-lg font-semibold text-white">Personalized Discovery</p>
+						</div>
+						<span class="rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent-light"
+							>94% match</span
+						>
+					</div>
+					<div class="mt-5 space-y-3">
+						{
+							[
+								{ name: 'Northline Robotics', meta: 'Series A · Climate Tech', score: '96' },
+								{ name: 'Lattice Health', meta: 'Seed · Healthtech', score: '91' },
+								{ name: 'Orbit Freight', meta: 'Pre-Seed · Logistics', score: '88' },
+							].map((item) => (
+								<div class="flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3">
+									<div>
+										<p class="text-sm font-semibold text-white">{item.name}</p>
+										<p class="mt-0.5 text-xs text-mist-400">{item.meta}</p>
+									</div>
+									<p class="font-display text-sm font-semibold text-accent-light">{item.score}</p>
+								</div>
+							))
+						}
+					</div>
+					<div class="mt-5 grid grid-cols-3 gap-2 border-t border-white/10 pt-4 text-center">
+						<div>
+							<p class="font-display text-lg font-semibold text-white">Match</p>
+							<p class="text-[0.7rem] text-mist-400">Compatibility</p>
+						</div>
+						<div>
+							<p class="font-display text-lg font-semibold text-white">Review</p>
+							<p class="text-[0.7rem] text-mist-400">Profiles</p>
+						</div>
+						<div>
+							<p class="font-display text-lg font-semibold text-white">Diligence</p>
+							<p class="text-[0.7rem] text-mist-400">Secure rooms</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* Platform introduction */}
+	<section class="bg-mist-50 py-20 sm:py-24">
+		<div class="container-page max-w-3xl">
+			<h2 class="section-heading">Innovation Moves Quickly. Your Technology Should Too.</h2>
+			<div class="mt-6 space-y-5 text-base leading-relaxed text-ink-700/75 sm:text-lg">
+				<p>
+					The innovation ecosystem is filled with opportunity, but the systems supporting it remain
+					fragmented.
+				</p>
+				<p>
+					Startups search for investors across disconnected networks. Investors review opportunities
+					through spreadsheets, inboxes, referrals, and isolated databases. Ecosystem organizations
+					struggle to manage founders, events, programs, referrals, and stakeholder relationships
+					across multiple tools.
+				</p>
+				<p class="font-medium text-ink-800">Forjyn brings these workflows together.</p>
+				<p>
+					Our platform creates a connected environment where startups can become investment-ready,
+					investors can discover aligned opportunities, and ecosystem partners can support growth with
+					greater efficiency and visibility.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* Audience overview */}
+	<section class="border-y border-ink-900/5 bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">Built for the People Driving Innovation</h2>
+			</div>
+			<div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+				{
+					audiences.map((item) => (
+						<div class="border-t border-ink-900/10 pt-6">
+							<h3 class="font-display text-xl font-semibold text-ink-900">{item.title}</h3>
+							<p class="mt-3 text-sm leading-relaxed text-ink-700/70 sm:text-base">{item.body}</p>
+							<a href={item.href} class="link-accent mt-5 inline-flex text-sm">
+								{item.linkLabel}
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	{/* Core value / journey */}
+	<section class="bg-mist-100/70 py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">One Platform. Every Stage of the Opportunity.</h2>
+				<p class="section-lede">
+					Forjyn supports the journey from initial discovery to deeper evaluation and long-term growth.
+				</p>
+			</div>
+			<ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+				{
+					journey.map((step, index) => (
+						<li class="relative">
+							<span class="font-display text-sm font-semibold text-accent">
+								{String(index + 1).padStart(2, '0')}
+							</span>
+							<h3 class="mt-2 font-display text-xl font-semibold text-ink-900">{step.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{step.body}</p>
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</section>
+
+	{/* Investor discovery */}
+	<section class="bg-ink-900 py-20 text-white sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
+			<div>
+				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+					Deal Flow Designed Around You
+				</h2>
+				<div class="mt-6 space-y-4 text-base leading-relaxed text-mist-300/90">
+					<p>
+						Investors should not have to search through hundreds of irrelevant opportunities to find
+						the right company.
+					</p>
+					<p>
+						Forjyn creates a personalized deal discovery experience based on each investor’s stated
+						preferences.
+					</p>
+					<p>
+						Investors can browse startup profiles, review compatibility scores, save opportunities,
+						express interest, and build a more organized investment pipeline.
+					</p>
+				</div>
+				<a href="/signup?role=investor" class="btn-primary-on-dark mt-8">Join as an Investor</a>
+			</div>
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-light">
+					Key Investor Capabilities
+				</p>
+				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+					{
+						investorCapabilities.map((item) => (
+							<li class="flex gap-2.5 text-sm text-mist-200/90">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true"
+								/>
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	{/* Startup growth */}
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
+			<div>
+				<h2 class="section-heading">More Than a Profile. A Platform for Growth.</h2>
+				<div class="mt-6 space-y-4 text-base leading-relaxed text-ink-700/75">
+					<p>
+						Forjyn helps startups organize their story, prepare for investor conversations, and
+						understand how their opportunity is being received.
+					</p>
+					<p>
+						Founders can build a comprehensive company profile covering their product, market,
+						traction, business model, funding, financial information, and team.
+					</p>
+					<p>
+						They can also upload investor materials, monitor interest, review analytics, receive
+						AI-supported feedback, and manage requested documents through secure due diligence rooms.
+					</p>
+				</div>
+				<a href="/signup?role=startup" class="btn-primary mt-8">Join as a Startup</a>
+			</div>
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
+					Key Startup Capabilities
+				</p>
+				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+					{
+						startupCapabilities.map((item) => (
+							<li class="flex gap-2.5 text-sm text-ink-700/80">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	{/* AI */}
+	<section class="border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">Intelligence Built Into the Platform</h2>
+				<p class="section-lede">
+					Forjyn uses artificial intelligence to help users organize information, identify alignment,
+					and make more informed decisions.
+				</p>
+				<p class="mt-4 text-base leading-relaxed text-ink-700/75">
+					AI is integrated throughout the platform to assist with evaluation, matching, document
+					review, and due diligence. It is designed to support human judgment—not replace it.
+				</p>
+			</div>
+			<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					aiCapabilities.map((item) => (
+						<div class="border-t border-ink-900/10 pt-5">
+							<h3 class="font-display text-lg font-semibold text-ink-900">{item.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{item.body}</p>
+						</div>
+					))
+				}
+			</div>
+			<aside class="mt-12 max-w-3xl rounded-xl border border-ink-900/10 bg-white px-5 py-4 text-sm leading-relaxed text-ink-700/70">
+				<p class="font-semibold text-ink-800">Important Notice</p>
+				<p class="mt-1.5">
+					AI-generated insights are informational tools. They do not constitute investment, financial,
+					legal, accounting, or securities advice. Users remain responsible for their own decisions and
+					professional due diligence.
+				</p>
+			</aside>
+		</div>
+	</section>
+
+	{/* Due diligence */}
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+			<div>
+				<h2 class="section-heading">Due Diligence Without the Disorganized Email Chains</h2>
+				<p class="section-lede">
+					Move opportunities from initial interest to structured review inside a secure collaboration
+					environment.
+				</p>
+				<p class="mt-4 text-base leading-relaxed text-ink-700/75">
+					Forjyn due diligence rooms allow matched startups and investors to exchange information,
+					review documents, track outstanding requests, and maintain a clearer record of the process.
+				</p>
+				<a href="/platform" class="btn-primary mt-8">Explore the Platform</a>
+			</div>
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
+					Due Diligence Features
+				</p>
+				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+					{
+						diligenceFeatures.map((item) => (
+							<li class="flex gap-2.5 text-sm text-ink-700/80">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-signal" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	{/* Ecosystem */}
+	<section class="bg-ink-800 py-20 text-white sm:py-24">
+		<div class="container-page max-w-3xl">
+			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+				Innovation Works Better When the Ecosystem Is Connected
+			</h2>
+			<div class="mt-6 space-y-4 text-base leading-relaxed text-mist-300/90">
+				<p>Startup growth requires more than capital.</p>
+				<p>
+					Founders rely on incubators, accelerators, universities, mentors, legal professionals,
+					accountants, consultants, technology providers, corporate partners, and other service
+					providers.
+				</p>
+				<p>
+					Forjyn is designed to bring these stakeholders into a more connected environment so startups
+					can access relevant support with less friction.
+				</p>
+				<p>
+					The result is a stronger network, better referrals, more visible opportunities, and a clearer
+					path from early-stage development to investment and growth.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* Events */}
+	<section class="bg-mist-50 py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
+			<div>
+				<h2 class="section-heading">Turn Events Into Meaningful Engagement</h2>
+				<p class="section-lede">
+					Manage pitch sessions, investor meetings, networking events, workshops, and community
+					programming through the same platform your members already use.
+				</p>
+			</div>
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
+					Event Capabilities
+				</p>
+				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+					{
+						eventCapabilities.map((item) => (
+							<li class="flex gap-2.5 text-sm text-ink-700/80">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	{/* Security */}
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
+			<div>
+				<h2 class="section-heading">Built for Sensitive Information</h2>
+				<div class="mt-6 space-y-4 text-base leading-relaxed text-ink-700/75">
+					<p>
+						Investment platforms handle confidential business information, identity documents,
+						financial materials, and private communications.
+					</p>
+					<p>Forjyn is designed with security and controlled access at its foundation.</p>
+				</div>
+			</div>
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
+					Security Capabilities
+				</p>
+				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+					{
+						securityCapabilities.map((item) => (
+							<li class="flex gap-2.5 text-sm text-ink-700/80">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ink-700" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	{/* Final CTA */}
+	<section class="relative overflow-hidden bg-ink-900 py-20 text-white sm:py-24">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow opacity-70" aria-hidden="true"></div>
+		<div class="container-page relative max-w-3xl text-center">
+			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+				Better Connections Create Better Companies
+			</h2>
+			<p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+				Join a platform designed to help startups grow, investors discover opportunities, and
+				innovation communities work together.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
+				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+			</div>
+			<p class="mt-5 text-sm text-mist-400">
+				<a href="/login" class="font-medium text-accent-light underline-offset-4 hover:underline"
+					>Log In to Your Account</a
+				>
+			</p>
+		</div>
+	</section>
+</BaseLayout>

@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Sign Up | Forjyn Technologies';
+const description =
+	'Create your Forjyn account and gain access to intelligent tools designed to help startups grow and investors discover stronger opportunities.';
+
+const roles = [
+	{
+		id: 'startup',
+		title: 'Startup',
+		body: 'Build your company profile, showcase your opportunity, receive intelligent platform insights, connect with investors, and manage due diligence.',
+		cta: 'Join as a Startup',
+		href: '/signup?role=startup#continue',
+	},
+	{
+		id: 'investor',
+		title: 'Investor',
+		body: 'Discover startups, personalize your deal flow, manage opportunities, collaborate during due diligence, and track investment activity.',
+		cta: 'Join as an Investor',
+		href: '/signup?role=investor#continue',
+	},
+	{
+		id: 'ecosystem',
+		title: 'Ecosystem Partner',
+		body: 'Support startups, manage referrals, coordinate programs and events, and strengthen your innovation community.',
+		cta: 'Join as an Ecosystem Partner',
+		href: '/signup?role=ecosystem#continue',
+		note: 'Forjyn may require approval or an invitation for certain ecosystem partner accounts.',
+	},
+];
+
+const selectedRole = Astro.url.searchParams.get('role');
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="page-hero">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+		<div class="page-hero-inner max-w-3xl">
+			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-light">Create Account</p>
+			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+				Join the Forjyn Ecosystem
+			</h1>
+			<p class="mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+				Create your account and gain access to intelligent tools designed to help startups grow and
+				investors discover stronger opportunities.
+			</p>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">How will you use Forjyn?</h2>
+				<p class="section-lede">Choose the account type that best describes you.</p>
+			</div>
+
+			<div class="mt-12 grid gap-6 lg:grid-cols-3">
+				{
+					roles.map((role) => {
+						const isSelected = selectedRole === role.id;
+						return (
+							<article
+								id={role.id}
+								class:list={[
+									'flex flex-col rounded-2xl border p-6 sm:p-7',
+									isSelected
+										? 'border-accent/40 bg-accent-muted/40 shadow-glow'
+										: 'border-ink-900/8 bg-mist-50',
+								]}
+							>
+								<h3 class="font-display text-xl font-semibold text-ink-900">{role.title}</h3>
+								<p class="mt-3 flex-1 text-sm leading-relaxed text-ink-700/70">{role.body}</p>
+								{role.note && (
+									<p class="mt-4 text-xs leading-relaxed text-ink-700/60">{role.note}</p>
+								)}
+								<a href={role.href} class="btn-primary mt-6 justify-center">
+									{role.cta}
+								</a>
+							</article>
+						);
+					})
+				}
+			</div>
+
+			{
+				selectedRole && (
+					<div
+						id="continue"
+						class="mt-12 scroll-mt-24 rounded-2xl border border-ink-900/8 bg-mist-50 p-6 sm:p-8"
+					>
+						<h3 class="font-display text-2xl font-semibold text-ink-900">Continue registration</h3>
+						<p class="mt-2 text-sm text-ink-700/70">
+							You selected the{' '}
+							<span class="font-semibold text-ink-900 capitalize">{selectedRole}</span> account type.
+							Complete the form below to create your account.
+						</p>
+						<form class="mt-6 grid gap-4 sm:grid-cols-2" method="post" action="#">
+							<input type="hidden" name="role" value={selectedRole} />
+							<div>
+								<label class="form-label" for="signup-first-name">First Name</label>
+								<input class="form-input" id="signup-first-name" name="firstName" type="text" required />
+							</div>
+							<div>
+								<label class="form-label" for="signup-last-name">Last Name</label>
+								<input class="form-input" id="signup-last-name" name="lastName" type="text" required />
+							</div>
+							<div class="sm:col-span-2">
+								<label class="form-label" for="signup-email">Work Email</label>
+								<input
+									class="form-input"
+									id="signup-email"
+									name="email"
+									type="email"
+									autocomplete="email"
+									required
+								/>
+							</div>
+							<div>
+								<label class="form-label" for="signup-password">Password</label>
+								<input
+									class="form-input"
+									id="signup-password"
+									name="password"
+									type="password"
+									autocomplete="new-password"
+									required
+								/>
+							</div>
+							<div>
+								<label class="form-label" for="signup-organization">Organization</label>
+								<input class="form-input" id="signup-organization" name="organization" type="text" />
+							</div>
+							<div class="sm:col-span-2">
+								<button type="submit" class="btn-primary">Create Account</button>
+							</div>
+						</form>
+					</div>
+				)
+			}
+
+			<div class="mt-12 max-w-2xl border-t border-ink-900/10 pt-8">
+				<p class="text-sm text-ink-700/70">
+					Already have an account?
+					<a href="/login" class="link-accent ml-1">Log In</a>
+				</p>
+				<p class="mt-4 text-xs leading-relaxed text-ink-700/60">
+					By creating an account, you agree to the Forjyn
+					<a href="/legal/terms" class="underline-offset-2 hover:underline">Terms of Use</a>
+					and
+					<a href="/legal/privacy" class="underline-offset-2 hover:underline">Privacy Policy</a>.
+				</p>
+				<p class="mt-2 text-xs leading-relaxed text-ink-700/60">
+					Investor access to certain opportunities may be subject to identity verification,
+					accreditation requirements, and applicable securities laws.
+				</p>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+const navLinks = [
+	{ label: 'Home', href: '/' },
+	{ label: 'Solutions', href: '/solutions' },
+	{ label: 'Platform', href: '/platform' },
+	{ label: 'Pricing', href: '/pricing' },
+	{ label: 'About', href: '/about' },
+	{ label: 'Contact', href: '/contact' },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-ink-900/5 bg-mist-50/90 backdrop-blur-md">
+	<div class="container-page">
+		<div class="flex h-16 items-center justify-between gap-4 lg:h-[4.25rem]">
+			<a href="/" class="group flex items-center gap-2.5 shrink-0" aria-label="Forjyn Technologies home">
+				<span
+					class="flex h-8 w-8 items-center justify-center rounded-md bg-ink-900 text-sm font-bold tracking-tight text-accent-light transition group-hover:bg-ink-800"
+					aria-hidden="true"
+				>
+					F
+				</span>
+				<span class="font-display text-lg font-semibold tracking-tight text-ink-900">
+					Forjyn <span class="font-medium text-ink-700/55">Technologies</span>
+				</span>
+			</a>
+
+			<nav class="hidden items-center gap-1 xl:flex" aria-label="Primary">
+				{
+					navLinks.map((link) => {
+						const isActive =
+							link.href === '/'
+								? pathname === '/'
+								: pathname.startsWith(link.href);
+						return (
+							<a
+								href={link.href}
+								class:list={[
+									'rounded-md px-3 py-2 text-sm font-medium transition',
+									isActive
+										? 'text-accent-dark'
+										: 'text-ink-700/70 hover:text-ink-900',
+								]}
+								aria-current={isActive ? 'page' : undefined}
+							>
+								{link.label}
+							</a>
+						);
+					})
+				}
+			</nav>
+
+			<div class="hidden items-center gap-2 md:flex">
+				<a href="/login" class="btn-ghost">Log In</a>
+				<a href="/signup" class="btn-secondary">Sign Up Now</a>
+				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+			</div>
+
+			<details class="relative xl:hidden">
+				<summary
+					class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-ink-900/10 bg-white text-ink-800 transition hover:border-accent/30 [&::-webkit-details-marker]:hidden"
+					aria-label="Open menu"
+				>
+					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+						<path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
+					</svg>
+				</summary>
+				<div
+					class="absolute right-0 mt-3 w-[min(100vw-2.5rem,20rem)] rounded-xl border border-ink-900/10 bg-white p-3 shadow-panel"
+				>
+					<nav class="flex flex-col gap-0.5" aria-label="Mobile">
+						{
+							navLinks.map((link) => (
+								<a
+									href={link.href}
+									class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-800 hover:bg-mist-100"
+								>
+									{link.label}
+								</a>
+							))
+						}
+					</nav>
+					<div class="mt-3 flex flex-col gap-2 border-t border-ink-900/8 pt-3">
+						<a href="/login" class="btn-ghost justify-center">Log In</a>
+						<a href="/signup" class="btn-secondary justify-center">Sign Up Now</a>
+						<a href="/contact#demo" class="btn-primary justify-center">Book a Demo</a>
+					</div>
+				</div>
+			</details>
+		</div>
+	</div>
+</header>

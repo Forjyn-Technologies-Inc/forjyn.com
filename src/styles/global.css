@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		@apply bg-mist-50 font-sans text-ink-800 antialiased;
+	}
+
+	::selection {
+		@apply bg-accent/25 text-ink-900;
+	}
+}
+
+@layer components {
+	.container-page {
+		@apply mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10;
+	}
+
+	.btn-primary {
+		@apply inline-flex items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition duration-200 hover:bg-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+	}
+
+	.btn-secondary {
+		@apply inline-flex items-center justify-center rounded-lg border border-ink-700/15 bg-white px-5 py-2.5 text-sm font-semibold text-ink-800 transition duration-200 hover:border-accent/40 hover:text-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+	}
+
+	.btn-ghost {
+		@apply inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-medium text-ink-700/80 transition duration-200 hover:text-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+	}
+
+	.btn-primary-on-dark {
+		@apply inline-flex items-center justify-center rounded-lg bg-accent-light px-5 py-2.5 text-sm font-semibold text-ink-900 transition duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-light;
+	}
+
+	.btn-secondary-on-dark {
+		@apply inline-flex items-center justify-center rounded-lg border border-white/25 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition duration-200 hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+	}
+
+	.section-heading {
+		@apply font-display text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl;
+	}
+
+	.section-lede {
+		@apply mt-4 max-w-2xl text-base leading-relaxed text-ink-700/75 sm:text-lg;
+	}
+
+	.link-accent {
+		@apply font-medium text-accent-dark underline-offset-4 transition hover:text-accent hover:underline;
+	}
+
+	.page-hero {
+		@apply relative overflow-hidden bg-ink-900 text-white;
+	}
+
+	.page-hero-inner {
+		@apply mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24;
+	}
+
+	.form-label {
+		@apply mb-1.5 block text-sm font-medium text-ink-800;
+	}
+
+	.form-input {
+		@apply w-full rounded-lg border border-ink-900/12 bg-white px-3.5 py-2.5 text-sm text-ink-900 placeholder:text-ink-700/40 transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20;
+	}
+
+	.form-check {
+		@apply h-4 w-4 rounded border-ink-900/20 text-accent focus:ring-accent/30;
+	}
+
+	.capability-list {
+		@apply grid gap-2.5 sm:grid-cols-2;
+	}
+
+	.capability-item {
+		@apply flex gap-2.5 text-sm text-ink-700/80;
+	}
+
+	.capability-dot {
+		@apply mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent;
+	}
+}

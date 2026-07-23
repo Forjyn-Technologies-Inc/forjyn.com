@@ -1,0 +1,342 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Forjyn Pricing | Startup and Investor Platform Plans';
+const description =
+	'Explore Forjyn membership and platform options for startups, investors, ecosystem partners, accelerators, universities, angel groups, and innovation organizations.';
+
+const pricingFactors = [
+	'User type',
+	'Membership level',
+	'Number of accounts',
+	'Administrative requirements',
+	'Compliance features',
+	'Event functionality',
+	'Communication volume',
+	'Storage requirements',
+	'Integrations',
+	'Custom configuration',
+	'Support level',
+];
+
+const startupFeatures = [
+	'Startup account',
+	'Guided profile builder',
+	'Pitch deck upload',
+	'Pitch video upload',
+	'Company document storage',
+	'Investor matching',
+	'Investor interest visibility',
+	'Startup analytics',
+	'Event registration',
+	'Due diligence access',
+	'AI-supported evaluation',
+];
+
+const investorFeatures = [
+	'Investor account',
+	'Personalized deal discovery',
+	'Compatibility scoring',
+	'Full startup profiles',
+	'Pitch content access',
+	'Matches',
+	'Deal pipeline',
+	'Due diligence rooms',
+	'Event registration',
+	'Portfolio tracking',
+	'Member communications',
+];
+
+const ecosystemFeatures = [
+	'Organization workspace',
+	'Startup and investor directories',
+	'Referral management',
+	'Event management',
+	'Program communications',
+	'Engagement reporting',
+	'Administrative controls',
+	'Moderator accounts',
+	'AI evaluation management',
+	'Compliance workflows',
+	'Custom branding',
+	'Data exports',
+	'Priority support',
+];
+
+const enterpriseFeatures = [
+	'Custom onboarding',
+	'Advanced role permissions',
+	'Multiple programs or chapters',
+	'Dedicated organization environments',
+	'Custom workflows',
+	'Integration support',
+	'Advanced analytics',
+	'Enhanced security configuration',
+	'High-volume communications',
+	'Increased storage',
+	'Dedicated support',
+	'Implementation services',
+	'Training',
+	'Service-level agreements',
+];
+
+const comparisonRows = [
+	['Role-specific profile', 'Included', 'Included', 'Included', 'Included'],
+	['Deal discovery', 'Limited or N/A', 'Included', 'Configurable', 'Configurable'],
+	['Investor matching', 'Included', 'Included', 'Included', 'Included'],
+	['AI evaluations', 'Available', 'View access', 'Managed', 'Advanced'],
+	['Due diligence rooms', 'Included', 'Included', 'Included', 'Included'],
+	['Events', 'Registration', 'Registration', 'Management', 'Advanced'],
+	['Analytics', 'Startup analytics', 'Investor activity', 'Organization reporting', 'Custom'],
+	['Compliance workflows', 'N/A', 'Required where applicable', 'Managed', 'Advanced'],
+	['Administrative access', 'No', 'No', 'Included', 'Advanced'],
+	['Custom integrations', 'No', 'No', 'Optional', 'Included'],
+	['Dedicated support', 'Standard', 'Standard', 'Priority', 'Dedicated'],
+];
+
+const faqs = [
+	{
+		q: 'Can I create an account for free?',
+		a: 'Forjyn offers demos, but does not offer a free trial.',
+	},
+	{
+		q: 'Do investors need to be accredited?',
+		a: 'Yes.',
+	},
+	{
+		q: 'Can an organization add multiple team members?',
+		a: 'Yes. Ecosystem and enterprise plans can support multiple administrators, moderators, and organization users with role-based permissions.',
+	},
+	{
+		q: 'Are payments processed securely?',
+		a: 'Forjyn uses established third-party payment providers for supported payment functionality.',
+	},
+	{
+		q: 'Can I cancel my subscription?',
+		a: 'Cancellation terms depend on the selected plan and agreement. Applicable terms should be presented during checkout or in the customer contract.',
+	},
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="page-hero">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+		<div class="page-hero-inner max-w-3xl">
+			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-light">Pricing</p>
+			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+				Choose the Right Forjyn Experience
+			</h1>
+			<p class="mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+				Start with an account or speak with our team about a platform solution tailored to your
+				organization.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-3">
+				<a href="/signup" class="btn-primary-on-dark">Sign Up Now</a>
+				<a href="/contact#demo" class="btn-secondary-on-dark">Book a Demo</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white py-16 sm:py-20">
+		<div class="container-page max-w-3xl">
+			<p class="text-base leading-relaxed text-ink-700/75">
+				Forjyn serves individual startups and investors as well as larger ecosystem organizations.
+			</p>
+			<p class="mt-4 text-sm font-medium text-ink-800">Pricing may vary based on:</p>
+			<ul class="capability-list mt-4">
+				{
+					pricingFactors.map((item) => (
+						<li class="capability-item">
+							<span class="capability-dot" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section class="border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page grid gap-6 lg:grid-cols-2">
+			<article class="rounded-2xl border border-ink-900/8 bg-white p-7 sm:p-8">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">Startup</p>
+				<h2 class="mt-3 font-display text-2xl font-semibold text-ink-900">
+					For Founders Building Their Investor Presence
+				</h2>
+				<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+					Build a company profile, upload fundraising materials, access relevant platform tools, and
+					connect with investors.
+				</p>
+				<p class="mt-5 font-display text-lg font-semibold text-ink-900">
+					Free or custom monthly pricing
+				</p>
+				<ul class="mt-6 space-y-2.5">
+					{
+						startupFeatures.map((item) => (
+							<li class="flex gap-2.5 text-sm text-ink-700/80">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+				<p class="mt-5 text-xs leading-relaxed text-ink-700/60">
+					Certain premium features, enhanced analytics, evaluations, additional storage, or promotional
+					visibility may require a paid subscription.
+				</p>
+				<a href="/signup?role=startup" class="btn-primary mt-6">Sign Up as a Startup</a>
+			</article>
+
+			<article class="rounded-2xl border border-ink-900/8 bg-white p-7 sm:p-8">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">Investor</p>
+				<h2 class="mt-3 font-display text-2xl font-semibold text-ink-900">
+					For Investors Seeking Organized, Personalized Deal Flow
+				</h2>
+				<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+					Create your investor profile, define your investment preferences, discover startups, and
+					manage your opportunity pipeline.
+				</p>
+				<p class="mt-5 font-display text-lg font-semibold text-ink-900">
+					Monthly or annual membership
+				</p>
+				<ul class="mt-6 space-y-2.5">
+					{
+						investorFeatures.map((item) => (
+							<li class="flex gap-2.5 text-sm text-ink-700/80">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+				<p class="mt-5 text-xs leading-relaxed text-ink-700/60">
+					Access to selected opportunities and investment-related features may require successful
+					identity, compliance, and accreditation verification.
+				</p>
+				<a href="/signup?role=investor" class="btn-primary mt-6">Sign Up as an Investor</a>
+			</article>
+
+			<article class="rounded-2xl border border-ink-900/8 bg-white p-7 sm:p-8">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">Ecosystem</p>
+				<h2 class="mt-3 font-display text-2xl font-semibold text-ink-900">
+					For Organizations Supporting Founders and Investors
+				</h2>
+				<p class="mt-3 text-sm leading-relaxed text-ink-700/70">
+					Designed for accelerators, incubators, universities, angel groups, innovation hubs, corporate
+					innovation teams, economic development organizations, and other ecosystem partners.
+				</p>
+				<p class="mt-5 font-display text-lg font-semibold text-ink-900">Custom</p>
+				<ul class="mt-6 space-y-2.5">
+					{
+						ecosystemFeatures.map((item) => (
+							<li class="flex gap-2.5 text-sm text-ink-700/80">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+				<a href="/contact#demo" class="btn-primary mt-6">Book a Demo</a>
+			</article>
+
+			<article class="rounded-2xl border border-accent/25 bg-ink-900 p-7 text-white sm:p-8">
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-light">Enterprise</p>
+				<h2 class="mt-3 font-display text-2xl font-semibold">For Complex Innovation Networks</h2>
+				<p class="mt-3 text-sm leading-relaxed text-mist-300/85">
+					A tailored platform configuration for organizations with advanced operational, security,
+					integration, reporting, or user-management requirements.
+				</p>
+				<p class="mt-5 font-display text-lg font-semibold text-accent-light">Custom</p>
+				<ul class="mt-6 space-y-2.5">
+					{
+						enterpriseFeatures.map((item) => (
+							<li class="flex gap-2.5 text-sm text-mist-200/90">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+				<a href="/contact" class="btn-primary-on-dark mt-6">Contact Sales</a>
+			</article>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<h2 class="section-heading">Compare Plans</h2>
+			<div class="mt-8 overflow-x-auto rounded-xl border border-ink-900/10">
+				<table class="min-w-full border-collapse text-left text-sm">
+					<thead class="bg-mist-50">
+						<tr>
+							<th class="px-4 py-3 font-semibold text-ink-900 sm:px-5">Capability</th>
+							<th class="px-4 py-3 font-semibold text-ink-900 sm:px-5">Startup</th>
+							<th class="px-4 py-3 font-semibold text-ink-900 sm:px-5">Investor</th>
+							<th class="px-4 py-3 font-semibold text-ink-900 sm:px-5">Ecosystem</th>
+							<th class="px-4 py-3 font-semibold text-ink-900 sm:px-5">Enterprise</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							comparisonRows.map((row) => (
+								<tr class="border-t border-ink-900/8">
+									{row.map((cell, index) => (
+										<td
+											class:list={[
+												'px-4 py-3 sm:px-5',
+												index === 0 ? 'font-medium text-ink-800' : 'text-ink-700/75',
+											]}
+										>
+											{cell}
+										</td>
+									))}
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-t border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page max-w-3xl">
+			<h2 class="section-heading">Frequently Asked Pricing Questions</h2>
+			<div class="mt-10 space-y-6">
+				{
+					faqs.map((faq) => (
+						<details class="group border-b border-ink-900/10 pb-5">
+							<summary class="cursor-pointer list-none font-display text-lg font-semibold text-ink-900 marker:content-none [&::-webkit-details-marker]:hidden">
+								<span class="flex items-center justify-between gap-4">
+									{faq.q}
+									<span class="text-accent transition group-open:rotate-45" aria-hidden="true">+</span>
+								</span>
+							</summary>
+							<p class="mt-3 text-sm leading-relaxed text-ink-700/75">{faq.a}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-ink-900 py-20 text-white sm:py-24">
+		<div class="container-page max-w-3xl text-center">
+			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+				Not Sure Which Plan Fits?
+			</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-mist-300/90">
+				Speak with our team about your goals, users, programs, and platform requirements.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
+				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+			</div>
+			<p class="mt-4 text-sm text-mist-400">
+				<a href="/login" class="font-medium text-accent-light underline-offset-4 hover:underline"
+					>Log In</a
+				>
+			</p>
+		</div>
+	</section>
+</BaseLayout>

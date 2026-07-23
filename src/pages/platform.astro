@@ -1,0 +1,705 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Forjyn Platform | Deal Flow, Due Diligence, AI and Ecosystem Management';
+const description =
+	'Explore Forjyn’s platform capabilities, including intelligent deal discovery, startup profiles, due diligence rooms, compliance, events, payments, analytics, communications, and administration.';
+
+const onboardingCapabilities = [
+	'Email and password registration',
+	'Secure login',
+	'Replit login option',
+	'Password recovery',
+	'Guided profile setup',
+	'Role selection',
+	'Multi-factor authentication',
+	'Session management',
+	'Role-based permissions',
+];
+
+const roles = [
+	{
+		title: 'Startup',
+		body: 'Access company profile tools, startup analytics, investor interest, evaluations, documents, events, and due diligence rooms.',
+	},
+	{
+		title: 'Investor',
+		body: 'Access startup discovery, preferences, matches, pipeline tools, due diligence, portfolio tracking, events, and compliance status.',
+	},
+	{
+		title: 'Ecosystem Partner',
+		body: 'Access community tools, referrals, startup engagement, programming, events, and reporting based on organizational permissions.',
+	},
+	{
+		title: 'Moderator',
+		body: 'Manage approved platform areas such as content, events, or member activity without receiving unrestricted administrative access.',
+	},
+	{
+		title: 'Administrator',
+		body: 'Manage users, compliance, platform content, evaluations, campaigns, and reporting.',
+	},
+	{
+		title: 'Super Administrator',
+		body: 'Access advanced system configuration and the highest level of platform permissions.',
+	},
+];
+
+const complianceCapabilities = [
+	'Know Your Customer identity verification',
+	'Identity document uploads',
+	'Anti–Money Laundering screening',
+	'Accredited investor verification',
+	'Compliance status tracking',
+	'Required next-step notifications',
+	'Secure compliance document vault',
+	'Administrative review queue',
+	'Approval and rejection workflows',
+	'Compliance-related audit records',
+];
+
+const discoveryActions = ['Like', 'Pass', 'Priority interest', 'Undo', 'Save', 'View profile', 'Review match score'];
+
+const matchingFactors = [
+	'Industry',
+	'Stage',
+	'Geography',
+	'Check size',
+	'Business model',
+	'Investor preferences',
+	'Startup attributes',
+	'Platform engagement',
+	'Other configurable criteria',
+];
+
+const profileComponents = [
+	'Overview',
+	'Product',
+	'Market',
+	'Traction',
+	'Business model',
+	'Financial information',
+	'Funding',
+	'Team',
+	'Pitch video',
+	'Pitch deck',
+	'Company documents',
+	'Cap table information',
+	'Visibility settings',
+	'AI evaluation status',
+];
+
+const studioTools = [
+	'Pitch video upload',
+	'Pitch deck upload',
+	'Supporting document management',
+	'Profile editing',
+	'Media management',
+	'Evaluation preparation',
+	'Investment-readiness content',
+];
+
+const evaluationWorkflow = [
+	'Evaluation status',
+	'Step-by-step progress',
+	'Completeness analysis',
+	'Credibility considerations',
+	'Missing-information identification',
+	'Administrative monitoring',
+	'Evaluation cancellation controls',
+	'Re-evaluation following profile updates',
+];
+
+const diligenceFeatures = [
+	'Private rooms',
+	'Permission-based access',
+	'Document checklists',
+	'File uploads',
+	'Document categorization',
+	'Version management',
+	'Investor questions',
+	'Founder responses',
+	'Administrative notes',
+	'AI-supported summaries',
+	'Document review assistance',
+	'Activity history',
+];
+
+const paymentCapabilities = [
+	'Investor membership subscriptions',
+	'Recurring billing',
+	'Membership tier management',
+	'Payment status',
+	'Investment commitment records',
+	'Pledged amount tracking',
+	'Payment-related notifications',
+	'Fund-management integration hooks',
+];
+
+const eventTools = [
+	'Event calendar',
+	'Registration',
+	'Capacity controls',
+	'Participant lists',
+	'QR or token-based check-in',
+	'Automated reminders',
+	'Email notifications',
+	'Push notifications',
+	'Attendance tracking',
+	'Virtual, hybrid, and in-person event support',
+];
+
+const communicationTools = [
+	'Transactional emails',
+	'Verification emails',
+	'Match notifications',
+	'Due diligence requests',
+	'Event reminders',
+	'Platform announcements',
+	'Rich HTML email campaigns',
+	'Audience segmentation',
+	'In-app notifications',
+	'Mobile push notifications',
+	'Status-change alerts',
+];
+
+const engagementFeatures = [
+	'Participation credits',
+	'Deal review activity',
+	'Community contribution tracking',
+	'Leaderboards',
+	'Member recognition',
+	'Engagement history',
+	'Activity-based rewards',
+];
+
+const mobileCapabilities = [
+	'Native application experience',
+	'Mobile startup discovery',
+	'Haptic feedback',
+	'Device-level push notifications',
+	'Mobile event access',
+	'On-the-go profile and opportunity review',
+];
+
+const adminCapabilities = [
+	{
+		title: 'Overview Dashboard',
+		body: 'Review platform growth, member activity, onboarding progress, conversion metrics, and system health.',
+	},
+	{
+		title: 'Investor Directory',
+		body: 'Search, filter, review, and manage investor accounts.',
+	},
+	{
+		title: 'Startup Directory',
+		body: 'Search, filter, review, and manage startup accounts.',
+	},
+	{
+		title: 'Compliance Queue',
+		body: 'Review KYC, AML, and accreditation submissions.',
+	},
+	{
+		title: 'AI Evaluation Controls',
+		body: 'Start, monitor, manage, or cancel evaluations.',
+	},
+	{
+		title: 'Spotlight and Showcase Configuration',
+		body: 'Adjust qualification thresholds and platform visibility criteria.',
+	},
+	{
+		title: 'Qualifying Startup View',
+		body: 'Review startups currently meeting selected spotlight or showcase criteria.',
+	},
+	{
+		title: 'Email Campaign Manager',
+		body: 'Create and send targeted communications.',
+	},
+	{
+		title: 'Event Management',
+		body: 'Create events, manage registration, and monitor attendance.',
+	},
+	{
+		title: 'System Logs',
+		body: 'Review technical events and system activity.',
+	},
+	{
+		title: 'Audit Trail',
+		body: 'Inspect protected records of sensitive administrative actions.',
+	},
+	{
+		title: 'Moderator Permissions',
+		body: 'Delegate limited responsibilities without providing full administrative access.',
+	},
+];
+
+const securityArchitecture = [
+	'AES-256-GCM encryption',
+	'Field-level encryption for sensitive information',
+	'Encrypted document storage',
+	'Role-based server-side middleware',
+	'Administrative MFA controls',
+	'Secure user sessions',
+	'Permission enforcement',
+	'Protected file access',
+	'Audit logging',
+	'Append-only sensitive-action records',
+	'Checksummed audit trails',
+	'Access monitoring',
+];
+
+const integrations = [
+	{
+		title: 'Stripe',
+		body: 'Membership subscriptions, billing, payments, and commitment-related functionality.',
+	},
+	{
+		title: 'Resend',
+		body: 'Transactional email delivery, reminders, verification messages, and campaign communications.',
+	},
+	{
+		title: 'OpenAI and xAI',
+		body: 'AI-supported evaluations, matching insights, summaries, and document analysis.',
+	},
+	{
+		title: 'Replit Object Storage',
+		body: 'Secure file and media hosting.',
+	},
+	{
+		title: 'Replit Authentication',
+		body: 'Alternative login and authentication capabilities.',
+	},
+	{
+		title: 'Capacitor',
+		body: 'iOS and Android application deployment.',
+	},
+];
+
+const sectionNav = [
+	{ href: '#discovery', label: 'Discovery' },
+	{ href: '#ai', label: 'AI' },
+	{ href: '#due-diligence', label: 'Due Diligence' },
+	{ href: '#compliance', label: 'Compliance' },
+	{ href: '#admin', label: 'Admin' },
+	{ href: '#security', label: 'Security' },
+	{ href: '#integrations', label: 'Integrations' },
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="page-hero">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+		<div class="page-hero-inner max-w-3xl">
+			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-light">Platform</p>
+			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+				Everything Your Innovation Ecosystem Needs in One Platform
+			</h1>
+			<p class="mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+				From account creation and deal discovery to compliance, due diligence, events, communications,
+				and analytics, Forjyn centralizes the workflows that help startup ecosystems operate.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center gap-3">
+				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
+				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+				<a href="/login" class="text-sm font-medium text-mist-300 underline-offset-4 hover:text-white hover:underline"
+					>Log In</a
+				>
+			</div>
+			<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-mist-300" aria-label="Platform sections">
+				{
+					sectionNav.map((item) => (
+						<a href={item.href} class="hover:text-white">
+							{item.label}
+						</a>
+					))
+				}
+			</nav>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">A Personalized Experience From the First Login</h2>
+				<p class="section-lede">Each user begins with a role-specific onboarding process.</p>
+			</div>
+			<ul class="capability-list mt-8">
+				{
+					onboardingCapabilities.map((item) => (
+						<li class="capability-item">
+							<span class="capability-dot" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+			<div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					roles.map((role) => (
+						<div class="border-t border-ink-900/10 pt-5">
+							<h3 class="font-display text-lg font-semibold text-ink-900">{role.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{role.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section id="compliance" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2">
+			<div>
+				<h2 class="section-heading">Support for Responsible Platform Access</h2>
+				<p class="section-lede">
+					Forjyn includes verification workflows that can help administrators manage investor access and
+					compliance requirements.
+				</p>
+				<aside class="mt-8 rounded-xl border border-ink-900/10 bg-white px-5 py-4 text-sm leading-relaxed text-ink-700/70">
+					<p class="font-semibold text-ink-800">Important Compliance Notice</p>
+					<p class="mt-1.5">
+						Availability and implementation of verification features may vary by jurisdiction, customer
+						configuration, service provider, and applicable law.
+					</p>
+					<p class="mt-2">
+						Forjyn does not act as a securities dealer, broker, investment adviser, financial
+						institution, or legal adviser unless expressly stated and appropriately authorized.
+					</p>
+				</aside>
+			</div>
+			<ul class="capability-list content-start">
+				{
+					complianceCapabilities.map((item) => (
+						<li class="capability-item">
+							<span class="capability-dot" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section id="discovery" class="scroll-mt-24 bg-ink-900 py-20 text-white sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+					A More Intuitive Way to Explore Startups
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-mist-300/90">
+					Forjyn’s discovery interface makes it easier for investors to review opportunities from
+					desktop or mobile devices.
+				</p>
+			</div>
+			<div class="mt-12 grid gap-10 md:grid-cols-3">
+				<div>
+					<h3 class="font-display text-lg font-semibold">Discovery Actions</h3>
+					<ul class="mt-4 space-y-2">
+						{
+							discoveryActions.map((item) => (
+								<li class="flex gap-2 text-sm text-mist-300/85">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div>
+					<h3 class="font-display text-lg font-semibold">Matching Factors</h3>
+					<ul class="mt-4 space-y-2">
+						{
+							matchingFactors.map((item) => (
+								<li class="flex gap-2 text-sm text-mist-300/85">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+									{item}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div>
+					<h3 class="font-display text-lg font-semibold">Curated Visibility</h3>
+					<p class="mt-3 text-sm leading-relaxed text-mist-300/80">
+						Administrators may use configurable criteria to identify startups for spotlight, showcase,
+						featured opportunity sections, and curated pitch sessions.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page grid gap-14 lg:grid-cols-2">
+			<div>
+				<h2 class="section-heading">Present the Complete Opportunity</h2>
+				<p class="section-lede">
+					Startup profiles give investors a consistent way to review companies while helping founders
+					organize key information.
+				</p>
+				<ul class="capability-list mt-6">
+					{
+						profileComponents.map((item) => (
+							<li class="capability-item">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div>
+				<h2 class="section-heading">Build a Stronger Investor Presentation</h2>
+				<p class="section-lede">
+					The Startup Studio gives founders tools to create, upload, and organize materials used
+					throughout the fundraising process.
+				</p>
+				<ul class="capability-list mt-6">
+					{
+						studioTools.map((item) => (
+							<li class="capability-item">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section id="ai" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2">
+			<div>
+				<h2 class="section-heading">Structured Insights for More Complete Profiles</h2>
+				<p class="section-lede">
+					AI evaluations can assess available startup information and produce structured insights.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-ink-700/70">
+					AI-generated outputs should be reviewed alongside source materials and qualified professional
+					advice.
+				</p>
+			</div>
+			<ul class="capability-list content-start">
+				{
+					evaluationWorkflow.map((item) => (
+						<li class="capability-item">
+							<span class="capability-dot" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section id="due-diligence" class="scroll-mt-24 bg-white py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2">
+			<div>
+				<h2 class="section-heading">Secure Collaboration for Serious Opportunities</h2>
+				<p class="section-lede">
+					When investors and startups move into deeper review, Forjyn creates a dedicated workspace for
+					the opportunity.
+				</p>
+			</div>
+			<ul class="capability-list content-start">
+				{
+					diligenceFeatures.map((item) => (
+						<li class="capability-item">
+							<span class="capability-dot" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section class="bg-ink-800 py-20 text-white sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2">
+			<div>
+				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+					Support the Financial Side of Membership and Opportunity Tracking
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-mist-300/90">
+					Forjyn integrates with Stripe to support selected payment functions.
+				</p>
+				<aside class="mt-8 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-mist-300/85">
+					<p class="font-semibold text-white">Financial Transaction Notice</p>
+					<p class="mt-1.5">
+						The exact processing of investments, securities transactions, custody, transfers,
+						subscriptions, and commitments depends on the customer’s configuration, legal structure,
+						jurisdiction, and authorized financial service providers.
+					</p>
+				</aside>
+			</div>
+			<ul class="space-y-2.5 content-start">
+				{
+					paymentCapabilities.map((item) => (
+						<li class="flex gap-2.5 text-sm text-mist-200/90">
+							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section class="bg-mist-50 py-20 sm:py-24">
+		<div class="container-page grid gap-14 lg:grid-cols-2">
+			<div>
+				<h2 class="section-heading">Bring Your Community Together</h2>
+				<p class="section-lede">
+					Manage events across the same platform where users discover and evaluate opportunities.
+				</p>
+				<ul class="capability-list mt-6">
+					{
+						eventTools.map((item) => (
+							<li class="capability-item">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div>
+				<h2 class="section-heading">Keep Every Stakeholder Informed</h2>
+				<p class="section-lede">
+					Forjyn supports communications across email, mobile, and in-platform channels.
+				</p>
+				<ul class="capability-list mt-6">
+					{
+						communicationTools.map((item) => (
+							<li class="capability-item">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page grid gap-14 lg:grid-cols-2">
+			<div>
+				<h2 class="section-heading">Encourage Meaningful Community Involvement</h2>
+				<ul class="capability-list mt-6">
+					{
+						engagementFeatures.map((item) => (
+							<li class="capability-item">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div>
+				<h2 class="section-heading">Access Forjyn Wherever Opportunities Happen</h2>
+				<p class="section-lede">
+					Forjyn supports mobile deployment through Capacitor wrappers for iOS and Android.
+				</p>
+				<ul class="capability-list mt-6">
+					{
+						mobileCapabilities.map((item) => (
+							<li class="capability-item">
+								<span class="capability-dot" aria-hidden="true" />
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section id="admin" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">Centralized Control Without Complicated Workflows</h2>
+				<p class="section-lede">
+					The Forjyn administrative suite gives authorized users visibility into platform operations.
+				</p>
+			</div>
+			<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					adminCapabilities.map((item) => (
+						<div class="border-t border-ink-900/10 pt-5">
+							<h3 class="font-display text-lg font-semibold text-ink-900">{item.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{item.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section id="security" class="scroll-mt-24 bg-ink-900 py-20 text-white sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2">
+			<div>
+				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+					Security at Every Layer
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-mist-300/90">
+					Forjyn is designed to help protect personal, financial, company, and investment-related
+					information.
+				</p>
+				<aside class="mt-8 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-mist-300/85">
+					<p class="font-semibold text-white">Security Disclaimer</p>
+					<p class="mt-1.5">
+						Security controls reduce risk but cannot eliminate every possible threat. Platform users
+						and customers are responsible for maintaining appropriate access practices and protecting
+						their login credentials.
+					</p>
+				</aside>
+			</div>
+			<ul class="space-y-2.5 content-start">
+				{
+					securityArchitecture.map((item) => (
+						<li class="flex gap-2.5 text-sm text-mist-200/90">
+							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section id="integrations" class="scroll-mt-24 bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">Connected to the Tools That Power the Platform</h2>
+			</div>
+			<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					integrations.map((item) => (
+						<div class="border-t border-ink-900/10 pt-5">
+							<h3 class="font-display text-lg font-semibold text-ink-900">{item.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{item.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-mist-50 py-20 sm:py-24">
+		<div class="container-page max-w-3xl text-center">
+			<h2 class="section-heading">Experience the Forjyn Platform</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-700/75">
+				See how intelligent technology can simplify discovery, evaluation, collaboration, and ecosystem
+				growth.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+				<a href="/signup" class="btn-secondary">Sign Up Now</a>
+			</div>
+			<p class="mt-4 text-sm text-ink-700/60">
+				Existing user? <a href="/login" class="link-accent">Log In</a>
+			</p>
+		</div>
+	</section>
+</BaseLayout>

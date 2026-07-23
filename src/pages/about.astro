@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'About Forjyn Technologies | Connecting the Innovation Ecosystem';
+const description =
+	'Learn about Forjyn Technologies and our mission to connect startups, investors, ecosystem partners, and service providers through intelligent technology.';
+
+const beliefs = [
+	{
+		title: 'Strong Companies Are Built Through Strong Ecosystems',
+		body: 'Capital is important, but startups also require knowledge, customers, talent, services, mentorship, infrastructure, and community. Technology should make these resources easier to access.',
+	},
+	{
+		title: 'Better Information Supports Better Decisions',
+		body: 'Founders need to understand what investors require. Investors need organized, credible information. Ecosystem partners need visibility into the communities they support. Forjyn creates more structured information flows across the ecosystem.',
+	},
+	{
+		title: 'Artificial Intelligence Should Support Human Judgment',
+		body: 'AI can organize information, highlight patterns, improve efficiency, and assist with evaluation. Investment decisions, founder relationships, and company-building remain human responsibilities.',
+	},
+	{
+		title: 'Trust Must Be Built Into the Product',
+		body: 'Users share sensitive identity, financial, company, and investment information. Security, access control, auditability, and responsible data handling must be foundational—not optional additions.',
+	},
+	{
+		title: 'Opportunity Should Not Depend Entirely on Existing Networks',
+		body: 'The best founders are not always the most connected founders. Forjyn is designed to help investors discover promising companies beyond their immediate circles and help startups access stakeholders who may otherwise be difficult to reach.',
+	},
+];
+
+const whatWeBuild = [
+	'Startup profiles',
+	'Investor discovery',
+	'Intelligent matching',
+	'Deal pipeline management',
+	'Due diligence',
+	'AI-supported evaluation',
+	'Compliance workflows',
+	'Events',
+	'Memberships',
+	'Communications',
+	'Ecosystem engagement',
+	'Administrative management',
+	'Analytics',
+	'Mobile access',
+];
+
+const whoWeServe = [
+	{
+		title: 'Startups',
+		body: 'Companies seeking greater visibility, stronger investor preparation, and more organized fundraising workflows.',
+	},
+	{
+		title: 'Investors',
+		body: 'Angel investors, investment groups, venture funds, family offices, corporate investors, and other qualified capital providers.',
+	},
+	{
+		title: 'Ecosystem Partners',
+		body: 'Accelerators, incubators, universities, innovation hubs, economic development organizations, nonprofit organizations, corporate innovation programs, and government-supported initiatives.',
+	},
+	{
+		title: 'Service Providers',
+		body: 'Professionals and organizations that help startups address legal, financial, operational, technical, commercial, and growth challenges.',
+	},
+];
+
+const approach = [
+	{
+		title: 'Role-Specific',
+		body: 'Every user receives tools based on their responsibilities and goals.',
+	},
+	{
+		title: 'Connected',
+		body: 'Information and workflows move across the ecosystem without forcing users into disconnected systems.',
+	},
+	{
+		title: 'Intelligent',
+		body: 'AI and platform data help users organize information, identify potential alignment, and make more informed decisions.',
+	},
+	{
+		title: 'Secure',
+		body: 'Sensitive information is protected through encryption, controlled access, secure sessions, and auditable actions.',
+	},
+	{
+		title: 'Scalable',
+		body: 'Forjyn is designed to support individual users, growing communities, and complex innovation organizations.',
+	},
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="page-hero">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+		<div class="page-hero-inner max-w-3xl">
+			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-light">About</p>
+			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+				Building the Infrastructure Behind Better Innovation
+			</h1>
+			<p class="mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+				Forjyn Technologies Inc. develops intelligent software that connects the people, opportunities,
+				and organizations responsible for startup growth.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-3">
+				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
+				<a href="/platform" class="btn-secondary-on-dark">Explore the Platform</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page max-w-3xl">
+			<h2 class="section-heading">Our Story</h2>
+			<div class="mt-6 space-y-4 text-base leading-relaxed text-ink-700/75">
+				<p>
+					Innovation ecosystems are filled with talented founders, experienced investors, valuable
+					programs, and trusted service providers.
+				</p>
+				<p>The problem is not a lack of opportunity.</p>
+				<p>The problem is that access to those opportunities is often fragmented.</p>
+				<p>
+					Startups are expected to navigate disconnected networks, application portals, investor
+					databases, email introductions, events, and data rooms. Investors receive opportunities from
+					multiple sources without a consistent way to organize, compare, and manage them. Ecosystem
+					organizations rely on combinations of spreadsheets, generic customer relationship systems,
+					event platforms, and communication tools that were not built for startup investment
+					communities.
+				</p>
+				<p class="font-medium text-ink-800">Forjyn was created to solve this fragmentation.</p>
+				<p>
+					We are building a connected platform where startups can prepare and present their companies,
+					investors can discover opportunities aligned with their interests, and ecosystem partners can
+					support both groups through stronger technology and shared infrastructure.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2">
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">Mission</p>
+				<h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink-900">
+					Make Startup Growth Easier, Faster and More Connected
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-ink-700/75">
+					Our mission is to connect startups, investors, ecosystem partners, and service providers
+					through intelligent technology that improves access to capital, resources, knowledge, and
+					opportunity.
+				</p>
+			</div>
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">Vision</p>
+				<h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink-900">
+					A Connected Global Innovation Ecosystem
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-ink-700/75">
+					We envision a future where high-potential startups are not limited by geography, existing
+					relationships, or access to traditional networks.
+				</p>
+				<p class="mt-4 text-base leading-relaxed text-ink-700/75">
+					Forjyn aims to become the operating system through which innovation communities discover
+					opportunities, build relationships, conduct due diligence, coordinate programs, and support
+					company growth.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<div class="max-w-2xl">
+				<h2 class="section-heading">What We Believe</h2>
+			</div>
+			<div class="mt-12 space-y-8">
+				{
+					beliefs.map((item) => (
+						<div class="border-t border-ink-900/10 pt-6">
+							<h3 class="font-display text-xl font-semibold text-ink-900">{item.title}</h3>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-ink-700/70 sm:text-base">
+								{item.body}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page">
+			<h2 class="section-heading">What We Build</h2>
+			<ul class="capability-list mt-8">
+				{
+					whatWeBuild.map((item) => (
+						<li class="capability-item">
+							<span class="capability-dot" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page">
+			<h2 class="section-heading">Who We Serve</h2>
+			<div class="mt-12 grid gap-8 sm:grid-cols-2">
+				{
+					whoWeServe.map((item) => (
+						<div class="border-t border-ink-900/10 pt-5">
+							<h3 class="font-display text-xl font-semibold text-ink-900">{item.title}</h3>
+							<p class="mt-3 text-sm leading-relaxed text-ink-700/70">{item.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-ink-900 py-20 text-white sm:py-24">
+		<div class="container-page">
+			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">Our Approach</h2>
+			<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+				{
+					approach.map((item) => (
+						<div>
+							<h3 class="font-display text-lg font-semibold text-accent-light">{item.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-mist-300/85">{item.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page max-w-3xl">
+			<h2 class="section-heading">Company Information</h2>
+			<dl class="mt-8 space-y-5">
+				<div class="border-t border-ink-900/10 pt-4">
+					<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-ink-700/55">Legal Name</dt>
+					<dd class="mt-1 text-base font-medium text-ink-900">Forjyn Technologies Inc.</dd>
+				</div>
+				<div class="border-t border-ink-900/10 pt-4">
+					<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-ink-700/55">Industry</dt>
+					<dd class="mt-1 text-base font-medium text-ink-900">
+						Technology and Innovation Infrastructure
+					</dd>
+				</div>
+				<div class="border-t border-ink-900/10 pt-4">
+					<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-ink-700/55">
+						Platform Focus
+					</dt>
+					<dd class="mt-1 text-base leading-relaxed text-ink-800">
+						Deal flow, intelligent matching, startup growth, due diligence, ecosystem management, and
+						investment community technology
+					</dd>
+				</div>
+				<div class="border-t border-ink-900/10 pt-4">
+					<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-ink-700/55">Location</dt>
+					<dd class="mt-1 text-base font-medium text-ink-900">Canada</dd>
+				</div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="bg-mist-50 py-20 sm:py-24">
+		<div class="container-page max-w-3xl text-center">
+			<h2 class="section-heading">Help Build a More Connected Innovation Ecosystem</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-700/75">
+				Join Forjyn as a startup or investor, or speak with our team about bringing the platform to your
+				organization.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+				<a href="/signup" class="btn-secondary">Sign Up Now</a>
+			</div>
+			<p class="mt-4 text-sm text-ink-700/60">
+				<a href="/login" class="link-accent">Log In</a>
+			</p>
+		</div>
+	</section>
+</BaseLayout>

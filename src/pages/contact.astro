@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Contact Forjyn Technologies | Book a Demo';
+const description =
+	'Contact Forjyn Technologies to book a platform demonstration, ask about startup or investor accounts, explore ecosystem partnerships, or receive account support.';
+
+const orgTypes = [
+	'Startup',
+	'Investor',
+	'Angel Group',
+	'Venture Capital Firm',
+	'Family Office',
+	'Accelerator',
+	'Incubator',
+	'University',
+	'Government Organization',
+	'Economic Development Organization',
+	'Corporate Innovation Team',
+	'Service Provider',
+	'Other',
+];
+
+const orgSizes = ['1–10', '11–50', '51–200', '201–500', '501+', 'Not applicable'];
+
+const interests = [
+	'Startup profiles',
+	'Investor deal discovery',
+	'Intelligent matching',
+	'Due diligence',
+	'AI evaluations',
+	'Events',
+	'Compliance',
+	'Membership management',
+	'Ecosystem management',
+	'Communications',
+	'Analytics',
+	'Enterprise platform',
+	'Partnership opportunities',
+];
+
+const contactRoles = [
+	'Startup',
+	'Investor',
+	'Ecosystem Partner',
+	'Service Provider',
+	'Media Contact',
+	'Other',
+];
+
+const subjects = [
+	'Account question',
+	'Platform question',
+	'Partnership',
+	'Sales inquiry',
+	'Technical support',
+	'Billing',
+	'Compliance',
+	'Media',
+	'Other',
+];
+
+const faqs = [
+	{
+		q: 'Can startups create an account directly?',
+		a: 'Yes. Startups can select the startup role during registration and begin building their company profile.',
+	},
+	{
+		q: 'Can investors sign up directly?',
+		a: 'Yes. Investors can create an account and complete their profile. Verification may be required before accessing restricted opportunities.',
+	},
+	{
+		q: 'How do ecosystem partners access the platform?',
+		a: 'Ecosystem partners can request a demonstration or contact the Forjyn team to discuss organizational access. Alternatively, they can make an account and get started right away.',
+	},
+	{
+		q: 'Can Forjyn support multiple programs or chapters?',
+		a: 'Enterprise configurations may support multiple teams, programs, communities, or chapters with customized permissions and reporting.',
+	},
+	{
+		q: 'Does Forjyn provide technical support?',
+		a: 'Yes. Support options depend on the user’s plan and customer agreement.',
+	},
+	{
+		q: 'Can we integrate Forjyn with our existing systems?',
+		a: 'Integration options can be discussed during a platform demonstration or implementation consultation.',
+	},
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="page-hero">
+		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+		<div class="page-hero-inner max-w-3xl">
+			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-light">Contact</p>
+			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+				Let’s Build Better Innovation Infrastructure
+			</h1>
+			<p class="mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+				Whether you are raising capital, investing in startups, managing an innovation community, or
+				supporting founders, we would be pleased to learn more about your goals.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-3">
+				<a href="#demo" class="btn-primary-on-dark">Book a Demo</a>
+				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white py-16 sm:py-20">
+		<div class="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			<div class="border-t border-ink-900/10 pt-5">
+				<h2 class="font-display text-lg font-semibold text-ink-900">Book a Demo</h2>
+				<p class="mt-2 text-sm leading-relaxed text-ink-700/70">
+					See how Forjyn supports startup discovery, investor matching, due diligence, events,
+					compliance, communications, and ecosystem management.
+				</p>
+				<a href="#demo" class="link-accent mt-4 inline-flex text-sm">Book a Demo</a>
+			</div>
+			<div class="border-t border-ink-900/10 pt-5">
+				<h2 class="font-display text-lg font-semibold text-ink-900">General Inquiries</h2>
+				<p class="mt-2 text-sm leading-relaxed text-ink-700/70">
+					For company, media, partnership, and general questions.
+				</p>
+				<a href="mailto:info@forjyn.com" class="link-accent mt-4 inline-flex text-sm"
+					>info@forjyn.com</a
+				>
+			</div>
+			<div class="border-t border-ink-900/10 pt-5">
+				<h2 class="font-display text-lg font-semibold text-ink-900">Sales and Partnerships</h2>
+				<p class="mt-2 text-sm leading-relaxed text-ink-700/70">
+					For platform licensing, ecosystem plans, enterprise implementation, or strategic partnerships.
+				</p>
+				<a href="mailto:sales@forjyn.com" class="link-accent mt-4 inline-flex text-sm"
+					>sales@forjyn.com</a
+				>
+			</div>
+			<div class="border-t border-ink-900/10 pt-5">
+				<h2 class="font-display text-lg font-semibold text-ink-900">Account Support</h2>
+				<p class="mt-2 text-sm leading-relaxed text-ink-700/70">
+					For login assistance, onboarding questions, technical support, or account issues.
+				</p>
+				<a href="mailto:support@forjyn.com" class="link-accent mt-4 inline-flex text-sm"
+					>support@forjyn.com</a
+				>
+				<a href="/login" class="mt-2 block text-sm text-ink-700/60 underline-offset-4 hover:underline"
+					>Log In</a
+				>
+			</div>
+		</div>
+	</section>
+
+	<section id="demo" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+			<div>
+				<h2 class="section-heading">Request a Personalized Demonstration</h2>
+				<p class="section-lede">
+					Complete the form and tell us what you are hoping to accomplish with Forjyn. A demonstration
+					can be tailored to your organization and user type.
+				</p>
+			</div>
+			<form class="rounded-2xl border border-ink-900/8 bg-white p-6 sm:p-8" method="post" action="#">
+				<div class="grid gap-4 sm:grid-cols-2">
+					<div>
+						<label class="form-label" for="demo-first-name">First Name</label>
+						<input class="form-input" id="demo-first-name" name="firstName" type="text" required />
+					</div>
+					<div>
+						<label class="form-label" for="demo-last-name">Last Name</label>
+						<input class="form-input" id="demo-last-name" name="lastName" type="text" required />
+					</div>
+					<div>
+						<label class="form-label" for="demo-email">Work Email</label>
+						<input class="form-input" id="demo-email" name="email" type="email" required />
+					</div>
+					<div>
+						<label class="form-label" for="demo-phone">Phone Number <span class="font-normal text-ink-700/45">(Optional)</span></label>
+						<input class="form-input" id="demo-phone" name="phone" type="tel" />
+					</div>
+					<div>
+						<label class="form-label" for="demo-org">Organization</label>
+						<input class="form-input" id="demo-org" name="organization" type="text" required />
+					</div>
+					<div>
+						<label class="form-label" for="demo-title">Job Title</label>
+						<input class="form-input" id="demo-title" name="jobTitle" type="text" />
+					</div>
+					<div>
+						<label class="form-label" for="demo-org-type">Organization Type</label>
+						<select class="form-input" id="demo-org-type" name="organizationType" required>
+							<option value="">Select one</option>
+							{orgTypes.map((type) => <option value={type}>{type}</option>)}
+						</select>
+					</div>
+					<div>
+						<label class="form-label" for="demo-org-size">Organization Size</label>
+						<select class="form-input" id="demo-org-size" name="organizationSize">
+							<option value="">Select one</option>
+							{orgSizes.map((size) => <option value={size}>{size}</option>)}
+						</select>
+					</div>
+				</div>
+
+				<fieldset class="mt-5">
+					<legend class="form-label">What are you interested in?</legend>
+					<div class="mt-2 grid gap-2 sm:grid-cols-2">
+						{
+							interests.map((item) => (
+								<label class="flex items-start gap-2 text-sm text-ink-700/80">
+									<input class="form-check mt-0.5" type="checkbox" name="interests" value={item} />
+									{item}
+								</label>
+							))
+						}
+					</div>
+				</fieldset>
+
+				<div class="mt-5">
+					<label class="form-label" for="demo-users">How many users do you expect?</label>
+					<input class="form-input" id="demo-users" name="expectedUsers" type="text" />
+				</div>
+
+				<div class="mt-5">
+					<label class="form-label" for="demo-goals">Tell us about your goals</label>
+					<textarea
+						class="form-input min-h-28"
+						id="demo-goals"
+						name="goals"
+						placeholder="Tell us about your organization, current workflows, platform requirements, and what you would like to improve."
+					></textarea>
+				</div>
+
+				<button type="submit" class="btn-primary mt-6">Request a Demo</button>
+				<p class="mt-4 text-xs leading-relaxed text-ink-700/55">
+					Thank you for contacting Forjyn. After submission, a member of our team will review the
+					information and contact you using the details provided.
+				</p>
+			</form>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page grid gap-12 lg:grid-cols-2">
+			<div>
+				<h2 class="section-heading">Send Us a Message</h2>
+				<p class="section-lede">General inquiries, partnerships, media, and support requests.</p>
+			</div>
+			<form class="rounded-2xl border border-ink-900/8 bg-mist-50 p-6 sm:p-8" method="post" action="#">
+				<div class="grid gap-4 sm:grid-cols-2">
+					<div>
+						<label class="form-label" for="contact-name">Name</label>
+						<input class="form-input" id="contact-name" name="name" type="text" required />
+					</div>
+					<div>
+						<label class="form-label" for="contact-email">Email</label>
+						<input class="form-input" id="contact-email" name="email" type="email" required />
+					</div>
+					<div class="sm:col-span-2">
+						<label class="form-label" for="contact-org">Organization</label>
+						<input class="form-input" id="contact-org" name="organization" type="text" />
+					</div>
+				</div>
+
+				<fieldset class="mt-5">
+					<legend class="form-label">I am a:</legend>
+					<div class="mt-2 grid gap-2 sm:grid-cols-2">
+						{
+							contactRoles.map((role) => (
+								<label class="flex items-center gap-2 text-sm text-ink-700/80">
+									<input class="form-check" type="radio" name="role" value={role} required />
+									{role}
+								</label>
+							))
+						}
+					</div>
+				</fieldset>
+
+				<div class="mt-5">
+					<label class="form-label" for="contact-subject">Subject</label>
+					<select class="form-input" id="contact-subject" name="subject" required>
+						<option value="">Select one</option>
+						{subjects.map((subject) => <option value={subject}>{subject}</option>)}
+					</select>
+				</div>
+
+				<div class="mt-5">
+					<label class="form-label" for="contact-message">Message</label>
+					<textarea class="form-input min-h-28" id="contact-message" name="message" required></textarea>
+				</div>
+
+				<button type="submit" class="btn-primary mt-6">Submit Message</button>
+			</form>
+		</div>
+	</section>
+
+	<section class="border-y border-ink-900/5 bg-mist-50 py-16 sm:py-20">
+		<div class="container-page max-w-2xl text-center">
+			<h2 class="section-heading">Already Have a Forjyn Account?</h2>
+			<p class="mt-4 text-base leading-relaxed text-ink-700/75">
+				Log in to access your dashboard, manage your profile, review activity, and continue using the
+				platform.
+			</p>
+			<a href="/login" class="btn-primary mt-6">Log In</a>
+			<p class="mt-4 text-sm text-ink-700/65">
+				Forgot your password?
+				<a href="/forgot-password" class="link-accent ml-1">Reset Password</a>
+			</p>
+			<p class="mt-2 text-sm text-ink-700/65">
+				Do not have an account?
+				<a href="/signup" class="link-accent ml-1">Sign Up Now</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 sm:py-24">
+		<div class="container-page max-w-3xl">
+			<h2 class="section-heading">Contact FAQ</h2>
+			<div class="mt-10 space-y-6">
+				{
+					faqs.map((faq) => (
+						<details class="group border-b border-ink-900/10 pb-5">
+							<summary class="cursor-pointer list-none font-display text-lg font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
+								<span class="flex items-center justify-between gap-4">
+									{faq.q}
+									<span class="text-accent transition group-open:rotate-45" aria-hidden="true">+</span>
+								</span>
+							</summary>
+							<p class="mt-3 text-sm leading-relaxed text-ink-700/75">{faq.a}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-ink-900 py-20 text-white sm:py-24">
+		<div class="container-page max-w-3xl text-center">
+			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+				Start Building Better Connections
+			</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-mist-300/90">
+				Join Forjyn today or schedule a personalized demonstration to see how the platform can support
+				your innovation community.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+				<a href="#demo" class="btn-primary-on-dark">Book a Demo</a>
+				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
+			</div>
+			<p class="mt-4 text-sm text-mist-400">
+				Existing user?
+				<a href="/login" class="ml-1 font-medium text-accent-light underline-offset-4 hover:underline"
+					>Log In</a
+				>
+			</p>
+		</div>
+	</section>
+</BaseLayout>
