@@ -160,7 +160,13 @@ const faqs = [
 					can be tailored to your organization and user type.
 				</p>
 			</div>
-			<form class="rounded-2xl border border-line bg-graphite p-6 sm:p-8" method="post" action="#">
+			<form
+				class="rounded-2xl border border-line bg-graphite p-6 sm:p-8"
+				method="post"
+				action="/api/contact"
+				data-contact-form
+			>
+				<input type="hidden" name="type" value="demo" />
 				<div class="grid gap-4 sm:grid-cols-2">
 					<div>
 						<label class="form-label" for="demo-first-name">First Name</label>
@@ -232,9 +238,15 @@ const faqs = [
 				</div>
 
 				<button type="submit" class="btn-primary mt-6">Request a Demo</button>
-				<p class="mt-4 text-xs leading-relaxed text-slate">
-					Thank you for contacting Forjyn. After submission, a member of our team will review the
-					information and contact you using the details provided.
+				<p
+					class="mt-4 text-sm leading-relaxed data-[state=error]:text-error data-[state=success]:text-success"
+					data-form-status
+					aria-live="polite"
+				>
+				</p>
+				<p class="mt-2 text-xs leading-relaxed text-slate">
+					After submission, a member of our team will review the information and contact you using the
+					details provided.
 				</p>
 			</form>
 		</div>
@@ -246,7 +258,13 @@ const faqs = [
 				<h2 class="section-heading">Send Us a Message</h2>
 				<p class="section-lede">General inquiries, partnerships, media, and support requests.</p>
 			</div>
-			<form class="rounded-2xl border border-line bg-midnight p-6 sm:p-8" method="post" action="#">
+			<form
+				class="rounded-2xl border border-line bg-midnight p-6 sm:p-8"
+				method="post"
+				action="/api/contact"
+				data-contact-form
+			>
+				<input type="hidden" name="type" value="general" />
 				<div class="grid gap-4 sm:grid-cols-2">
 					<div>
 						<label class="form-label" for="contact-name">Name</label>
@@ -290,6 +308,12 @@ const faqs = [
 				</div>
 
 				<button type="submit" class="btn-primary mt-6">Submit Message</button>
+				<p
+					class="mt-4 text-sm leading-relaxed data-[state=error]:text-error data-[state=success]:text-success"
+					data-form-status
+					aria-live="polite"
+				>
+				</p>
 			</form>
 		</div>
 	</section>
@@ -355,4 +379,7 @@ const faqs = [
 			</p>
 		</div>
 	</section>
+	<script>
+		import '../scripts/contactForms.ts';
+	</script>
 </BaseLayout>
