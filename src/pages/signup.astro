@@ -1,8 +1,11 @@
 ---
+export const prerender = false;
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import ContactFormScripts from '../components/forms/ContactFormScripts.astro';
 import HoneypotField from '../components/forms/HoneypotField.astro';
+import TurnstileWidget from '../components/forms/TurnstileWidget.astro';
 
 const title = 'Sign Up | Forjyn Technologies';
 const description =
@@ -157,6 +160,9 @@ const selected = roles.find((role) => role.id === selectedRole);
 							{/* Hidden combined fields for general contact payload */}
 							<input type="hidden" name="name" id="signup-name" value="" />
 							<input type="hidden" name="message" id="signup-combined-message" value="" />
+							<div class="sm:col-span-2">
+								<TurnstileWidget />
+							</div>
 							<div class="sm:col-span-2">
 								<button type="submit" class="btn-primary">Submit Interest</button>
 								<p

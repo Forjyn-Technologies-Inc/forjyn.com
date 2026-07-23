@@ -1,0 +1,15 @@
+---
+/**
+ * Cloudflare Turnstile widget embed (Spin). Server verifies via /api/contact siteverify.
+ */
+import { getTurnstileSiteKey } from '../../lib/turnstile';
+
+const sitekey = getTurnstileSiteKey();
+---
+
+<div
+	class="cf-turnstile mt-5"
+	data-sitekey={sitekey}
+	data-action="turnstile-spin-v2"
+	data-theme="dark"
+></div>

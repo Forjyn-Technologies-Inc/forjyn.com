@@ -6,6 +6,7 @@ import type { EnvBag } from '../../lib/config';
 import { FormValidationError } from '../../lib/mail/fieldValidation';
 import { parseContactForm } from '../../lib/mail/parseContactForm';
 import { sendContactEmail } from '../../lib/mail/sendContactEmail';
+import { verifyTurnstileToken } from '../../lib/turnstile';
 
 const PUBLIC_ERROR =
 	'Unable to send your message. Please try again or email sales@forjyn.com.';
@@ -32,6 +33,14 @@ function isAllowedOrigin(request: Request): boolean {
 	}
 }
 
+function clientIp(request: Request, clientAddress?: string): string | undefined {
+	return (
+		request.headers.get('CF-Connecting-IP') ??
+		request.headers.get('X-Forwarded-For')?.split(',')[0]?.trim() ??
+		clientAddress
+	);
+}
+
 function json(body: Record<string, unknown>, status: number): Response {
 	return new Response(JSON.stringify(body), {
 		status,
@@ -42,7 +51,7 @@ function json(body: Record<string, unknown>, status: number): Response {
 	});
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress }) => {
 	try {
 		if (!isAllowedOrigin(request)) {
 			return json({ ok: false, error: 'Forbidden origin.' }, 403);
@@ -57,6 +66,15 @@ export const POST: APIRoute = async ({ request }) => {
 		}
 
 		const form = await request.formData();
+
+		const turnstileOk = await verifyTurnstileToken({
+			token: form.get('cf-turnstile-response'),
+			remoteip: clientIp(request, clientAddress),
+			runtimeEnv: env as EnvBag,
+		});
+		if (!turnstileOk) {
+			return json({ ok: false, error: 'Please complete the security check and try again.' }, 403);
+		}
 
 		let payload;
 		try {

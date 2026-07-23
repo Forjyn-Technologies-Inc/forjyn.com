@@ -5,6 +5,7 @@ import {
 	contactOrgTypes,
 } from '../../data/contact';
 import HoneypotField from './HoneypotField.astro';
+import TurnstileWidget from './TurnstileWidget.astro';
 ---
 
 <form
@@ -86,6 +87,8 @@ import HoneypotField from './HoneypotField.astro';
 			placeholder="Tell us about your organization, current workflows, platform requirements, and what you would like to improve."
 		></textarea>
 	</div>
+
+	<TurnstileWidget />
 
 	<button type="submit" class="btn-primary mt-6">Request a Demo</button>
 	<p

@@ -41,6 +41,16 @@ export function initContactForms(): void {
 				}
 
 				form.reset();
+				const turnstile = (
+					window as Window & {
+						turnstile?: { reset: (el?: HTMLElement) => void };
+					}
+				).turnstile;
+				if (turnstile) {
+					form.querySelectorAll<HTMLElement>('.cf-turnstile').forEach((el) => {
+						turnstile.reset(el);
+					});
+				}
 				if (status) {
 					status.dataset.state = 'success';
 					status.textContent =
