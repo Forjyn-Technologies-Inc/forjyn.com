@@ -6,47 +6,47 @@ import type { EnvBag } from '../../lib/config';
 import { FormValidationError } from '../../lib/mail/fieldValidation';
 import { parseContactForm } from '../../lib/mail/parseContactForm';
 import { sendContactEmail } from '../../lib/mail/sendContactEmail';
+import { enforceRateLimit } from '../../lib/rateLimit';
 import { verifyTurnstileToken } from '../../lib/turnstile';
 
 const PUBLIC_ERROR =
 	'Unable to send your message. Please try again or email sales@forjyn.com.';
 
+/** Explicit origins only — no wildcard subdomains. */
 const ALLOWED_ORIGINS = new Set([
 	'https://forjyn.com',
 	'https://www.forjyn.com',
+	'https://forjyn.shrill-thunder-fbe6.workers.dev',
 	'http://localhost:4321',
 	'http://127.0.0.1:4321',
 	'http://localhost:8787',
 	'http://127.0.0.1:8787',
 ]);
 
+const RATE_LIMIT = 5;
+const RATE_WINDOW_SEC = 15 * 60;
+
 function isAllowedOrigin(request: Request): boolean {
 	const origin = request.headers.get('Origin');
 	if (!origin) return false;
-	if (ALLOWED_ORIGINS.has(origin)) return true;
-	// Cloudflare Workers preview / staging hostnames for this project.
-	try {
-		const host = new URL(origin).hostname;
-		return host === 'forjyn.shrill-thunder-fbe6.workers.dev' || host.endsWith('.forjyn.com');
-	} catch {
-		return false;
-	}
+	return ALLOWED_ORIGINS.has(origin);
 }
 
-function clientIp(request: Request, clientAddress?: string): string | undefined {
+function clientIp(request: Request, clientAddress?: string): string {
 	return (
 		request.headers.get('CF-Connecting-IP') ??
-		request.headers.get('X-Forwarded-For')?.split(',')[0]?.trim() ??
-		clientAddress
+		clientAddress ??
+		'unknown'
 	);
 }
 
-function json(body: Record<string, unknown>, status: number): Response {
+function json(body: Record<string, unknown>, status: number, extraHeaders?: HeadersInit): Response {
 	return new Response(JSON.stringify(body), {
 		status,
 		headers: {
 			'Content-Type': 'application/json',
 			'Cache-Control': 'no-store',
+			...extraHeaders,
 		},
 	});
 }
@@ -65,11 +65,25 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 			return json({ ok: false, error: 'Unsupported content type.' }, 415);
 		}
 
+		const ip = clientIp(request, clientAddress);
+		const rate = await enforceRateLimit({
+			key: `contact:${ip}`,
+			limit: RATE_LIMIT,
+			windowSec: RATE_WINDOW_SEC,
+		});
+		if (!rate.ok) {
+			return json(
+				{ ok: false, error: 'Too many requests. Please try again later.' },
+				429,
+				rate.retryAfterSec ? { 'Retry-After': String(rate.retryAfterSec) } : undefined,
+			);
+		}
+
 		const form = await request.formData();
 
 		const turnstileOk = await verifyTurnstileToken({
 			token: form.get('cf-turnstile-response'),
-			remoteip: clientIp(request, clientAddress),
+			remoteip: ip === 'unknown' ? undefined : ip,
 			runtimeEnv: env as EnvBag,
 		});
 		if (!turnstileOk) {
@@ -107,9 +121,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 			return json({ ok: false, error: error.message }, 400);
 		}
 
-		const detail = error instanceof Error ? error.message : 'unknown error';
-		// Log only a short code-ish detail — never the form body / PII.
-		console.error('[api/contact] send_failed', detail.slice(0, 200));
+		// Do not log provider/PII details — fixed code only.
+		const code =
+			error instanceof Error && error.message.includes('TURNSTILE_SECRET')
+				? 'config_error'
+				: error instanceof Error && error.message.includes('RESEND')
+					? 'mail_config_error'
+					: 'send_failed';
+		console.error('[api/contact]', code);
 		return json({ ok: false, error: PUBLIC_ERROR }, 502);
 	}
 };

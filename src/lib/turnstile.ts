@@ -1,7 +1,19 @@
 import { readEnv, type EnvBag } from './config';
 
+export const TURNSTILE_ACTION = 'turnstile-spin-v2';
+
+const ALLOWED_HOSTNAMES = new Set([
+	'forjyn.com',
+	'www.forjyn.com',
+	'localhost',
+	'127.0.0.1',
+	'forjyn.shrill-thunder-fbe6.workers.dev',
+]);
+
 type SiteverifyResponse = {
 	success?: boolean;
+	action?: string;
+	hostname?: string;
 	'error-codes'?: string[];
 };
 
@@ -32,8 +44,16 @@ export async function verifyTurnstileToken(input: {
 		body,
 	});
 
+	if (!response.ok) return false;
+
 	const result = (await response.json()) as SiteverifyResponse;
-	return result.success === true;
+	if (result.success !== true) return false;
+
+	// Bind verification to this integration's widget action + expected hostnames.
+	if (result.action !== TURNSTILE_ACTION) return false;
+	if (!result.hostname || !ALLOWED_HOSTNAMES.has(result.hostname)) return false;
+
+	return true;
 }
 
 /** Public site key (safe to expose). Prefer env; fallback is the dashboard widget. */

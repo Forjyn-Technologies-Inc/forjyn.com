@@ -34,15 +34,21 @@ export class FormValidationError extends Error {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Strip CR/LF/NUL so values cannot be used for header injection. */
+export function sanitizeHeaderValue(value: string): string {
+	return value.replace(/[\r\n\0]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
 export function requireLength(value: string, max: number, label: string): string {
-	if (value.length > max) {
+	const cleaned = sanitizeHeaderValue(value);
+	if (cleaned.length > max) {
 		throw new FormValidationError(`${label} is too long (max ${max} characters).`);
 	}
-	return value;
+	return cleaned;
 }
 
 export function requireEmail(value: string): string {
-	const email = value.toLowerCase();
+	const email = sanitizeHeaderValue(value).toLowerCase();
 	if (!EMAIL_PATTERN.test(email) || email.length > FIELD_LIMITS.email) {
 		throw new FormValidationError('Please enter a valid email address.');
 	}
