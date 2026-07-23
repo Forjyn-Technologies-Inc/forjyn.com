@@ -23,8 +23,8 @@ export default {
 				midnight: '#0B1020',
 				graphite: '#161D31',
 				slate: {
-					DEFAULT: '#8D98B8',
-					muted: 'rgba(141, 152, 184, 0.72)',
+					DEFAULT: '#A3ADC8',
+					muted: '#8D98B8',
 				},
 				cloud: '#F7FBF0',
 				line: '#29314A',
@@ -33,8 +33,8 @@ export default {
 				error: '#FF5C7A',
 			},
 			fontFamily: {
-				display: ['"Sora"', 'system-ui', 'sans-serif'],
-				sans: ['"Inter"', 'system-ui', 'sans-serif'],
+				display: ['"Sora Variable"', 'Sora', 'system-ui', 'sans-serif'],
+				sans: ['"Inter Variable"', 'Inter', 'system-ui', 'sans-serif'],
 				mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
 			},
 			borderRadius: {

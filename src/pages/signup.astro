@@ -70,7 +70,7 @@ const selected = roles.find((role) => role.id === selectedRole);
 								<h3 class="font-display text-xl font-semibold text-cloud">{role.title}</h3>
 								<p class="mt-3 flex-1 text-sm leading-relaxed text-slate">{role.body}</p>
 								{role.note && (
-									<p class="mt-4 text-xs leading-relaxed text-slate/80">{role.note}</p>
+									<p class="mt-4 text-xs leading-relaxed text-slate">{role.note}</p>
 								)}
 								<a href={role.href} class="btn-primary mt-6 justify-center">
 									{role.cta}
@@ -173,13 +173,13 @@ const selected = roles.find((role) => role.id === selectedRole);
 					Already have an account?
 					<a href="/login" class="link-accent ml-1">Log In</a>
 				</p>
-				<p class="mt-4 text-xs leading-relaxed text-slate/80">
+				<p class="mt-4 text-xs leading-relaxed text-slate">
 					By submitting interest, you agree to the Forjyn
 					<a href="/legal/terms" class="underline-offset-2 hover:underline">Terms of Use</a>
 					and
 					<a href="/legal/privacy" class="underline-offset-2 hover:underline">Privacy Policy</a>.
 				</p>
-				<p class="mt-2 text-xs leading-relaxed text-slate/80">
+				<p class="mt-2 text-xs leading-relaxed text-slate">
 					Investor access to certain opportunities may be subject to identity verification,
 					accreditation requirements, and applicable securities laws.
 				</p>

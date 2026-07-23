@@ -35,7 +35,7 @@ export const organizationJsonLd = {
 	'@type': 'Organization',
 	name: 'Forjyn Technologies Inc.',
 	url: siteOrigin,
-	logo: absoluteUrl('/logo.svg'),
+	logo: absoluteUrl('/web-app-manifest-192x192.png'),
 	email: 'info@forjyn.com',
 	sameAs: [] as string[],
 	description: defaultSeo.description,

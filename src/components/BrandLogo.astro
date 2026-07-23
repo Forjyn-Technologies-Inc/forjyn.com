@@ -1,7 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+
 /**
- * Brand mark from /public. Public SVG paths keep width/height explicit;
- * raster content images should use astro:assets Image when added.
+ * Brand mark via Astro Image (optimized WebP/AVIF from src/assets).
+ * When a wordmark is shown, the image is decorative (empty alt) because
+ * the adjacent text already names the brand; otherwise alt is descriptive.
  */
 interface Props {
 	/** Pixel size of the mark. */
@@ -10,6 +14,8 @@ interface Props {
 	showWordmark?: boolean;
 	/** Short = “Forjyn Technologies”; full = “Forjyn Technologies Inc.” */
 	wordmark?: 'short' | 'full';
+	/** Eager + high priority for above-the-fold header logo (LCP-friendly). */
+	priority?: boolean;
 	class?: string;
 }
 
@@ -17,6 +23,7 @@ const {
 	size = 32,
 	showWordmark = true,
 	wordmark = 'short',
+	priority = false,
 	class: className,
 } = Astro.props;
 
@@ -25,14 +32,18 @@ const label =
 ---
 
 <span class:list={['inline-flex items-center gap-2.5', className]}>
-	<img
-		src="/logo.svg"
-		alt=""
+	<Image
+		src={logo}
+		alt={showWordmark ? '' : 'Forjyn Technologies logo'}
 		width={size}
 		height={size}
+		densities={[1, 2]}
+		format="webp"
+		loading={priority ? 'eager' : 'lazy'}
+		fetchpriority={priority ? 'high' : undefined}
+		decoding={priority ? 'sync' : 'async'}
 		class="rounded-md object-contain"
 		style={`width:${size}px;height:${size}px`}
-		decoding="async"
 	/>
 	{
 		showWordmark &&
