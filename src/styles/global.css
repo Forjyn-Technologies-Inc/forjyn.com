@@ -9,11 +9,11 @@
 	}
 
 	body {
-		@apply bg-mist-50 font-sans text-ink-800 antialiased;
+		@apply bg-midnight font-sans text-cloud antialiased;
 	}
 
 	::selection {
-		@apply bg-accent/25 text-ink-900;
+		@apply bg-emerald/30 text-cloud;
 	}
 }
 
@@ -23,39 +23,55 @@
 	}
 
 	.btn-primary {
-		@apply inline-flex items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition duration-200 hover:bg-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+		@apply inline-flex items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-secondary {
-		@apply inline-flex items-center justify-center rounded-lg border border-ink-700/15 bg-white px-5 py-2.5 text-sm font-semibold text-ink-800 transition duration-200 hover:border-accent/40 hover:text-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+		@apply inline-flex items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
 	}
 
 	.btn-ghost {
-		@apply inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-medium text-ink-700/80 transition duration-200 hover:text-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+		@apply inline-flex items-center justify-center rounded-brand px-3 py-2 text-sm font-medium text-slate transition duration-200 hover:text-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-primary-on-dark {
-		@apply inline-flex items-center justify-center rounded-lg bg-accent-light px-5 py-2.5 text-sm font-semibold text-ink-900 transition duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-light;
+		@apply inline-flex items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-secondary-on-dark {
-		@apply inline-flex items-center justify-center rounded-lg border border-white/25 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition duration-200 hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+		@apply inline-flex items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
 	}
 
 	.section-heading {
-		@apply font-display text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl;
+		@apply font-display text-3xl font-semibold tracking-tight text-cloud sm:text-4xl;
 	}
 
 	.section-lede {
-		@apply mt-4 max-w-2xl text-base leading-relaxed text-ink-700/75 sm:text-lg;
+		@apply mt-4 max-w-2xl text-base leading-relaxed text-slate sm:text-lg;
 	}
 
 	.link-accent {
-		@apply font-medium text-accent-dark underline-offset-4 transition hover:text-accent hover:underline;
+		@apply font-medium text-emerald underline-offset-4 transition hover:text-cyan hover:underline;
+	}
+
+	.text-gradient {
+		@apply bg-brand-gradient bg-clip-text text-transparent;
+	}
+
+	.accent-line {
+		@apply h-px w-full bg-brand-gradient;
+	}
+
+	.glow-border {
+		@apply border border-line shadow-glow-border;
+	}
+
+	.card-surface {
+		@apply rounded-2xl border border-line bg-graphite transition duration-200 hover:shadow-glow;
 	}
 
 	.page-hero {
-		@apply relative overflow-hidden bg-ink-900 text-white;
+		@apply relative overflow-hidden bg-midnight text-cloud;
 	}
 
 	.page-hero-inner {
@@ -63,15 +79,16 @@
 	}
 
 	.form-label {
-		@apply mb-1.5 block text-sm font-medium text-ink-800;
+		@apply mb-1.5 block text-sm font-medium text-cloud;
 	}
 
 	.form-input {
-		@apply w-full rounded-lg border border-ink-900/12 bg-white px-3.5 py-2.5 text-sm text-ink-900 placeholder:text-ink-700/40 transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20;
+		@apply w-full rounded-brand border border-line bg-midnight px-3.5 py-2.5 text-sm text-cloud placeholder:text-slate/60 transition focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/25;
 	}
 
 	.form-check {
-		@apply h-4 w-4 rounded border-ink-900/20 text-accent focus:ring-accent/30;
+		@apply h-4 w-4 rounded border-line bg-midnight text-emerald focus:ring-emerald/30;
+		accent-color: #2fd17b;
 	}
 
 	.capability-list {
@@ -79,10 +96,22 @@
 	}
 
 	.capability-item {
-		@apply flex gap-2.5 text-sm text-ink-700/80;
+		@apply flex gap-2.5 text-sm text-slate;
 	}
 
 	.capability-dot {
-		@apply mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent;
+		@apply mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald;
+	}
+
+	.metric {
+		@apply font-mono font-medium tabular-nums;
+	}
+
+	.surface-section {
+		@apply bg-midnight;
+	}
+
+	.surface-alt {
+		@apply bg-graphite/40;
 	}
 }

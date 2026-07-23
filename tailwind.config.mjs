@@ -4,44 +4,54 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				ink: {
-					950: '#070b14',
-					900: '#0b1220',
-					800: '#121a2b',
-					700: '#1c2740',
-					600: '#2a3754',
+				emerald: {
+					DEFAULT: '#2FD17B',
+					soft: 'rgba(47, 209, 123, 0.14)',
 				},
-				mist: {
-					50: '#f7f9fc',
-					100: '#eef2f8',
-					200: '#dbe3ef',
-					300: '#b8c4d8',
-					400: '#8896b0',
+				violet: {
+					DEFAULT: '#785CFF',
+					soft: 'rgba(120, 92, 255, 0.14)',
 				},
-				accent: {
-					DEFAULT: '#0f9f8a',
-					light: '#2dd4bf',
-					dark: '#0b7a6a',
-					muted: '#d5f5ef',
+				azure: {
+					DEFAULT: '#2C8DFF',
+					soft: 'rgba(44, 141, 255, 0.14)',
 				},
-				signal: {
-					DEFAULT: '#3b82f6',
-					soft: '#dbeafe',
+				cyan: {
+					DEFAULT: '#3ED5FF',
+					soft: 'rgba(62, 213, 255, 0.14)',
 				},
+				midnight: '#0B1020',
+				graphite: '#161D31',
+				slate: {
+					DEFAULT: '#8D98B8',
+					muted: 'rgba(141, 152, 184, 0.72)',
+				},
+				cloud: '#F7FBF0',
+				line: '#29314A',
+				success: '#27D980',
+				warning: '#FFC857',
+				error: '#FF5C7A',
 			},
 			fontFamily: {
-				display: ['"Syne"', 'system-ui', 'sans-serif'],
-				sans: ['"Sora"', 'system-ui', 'sans-serif'],
+				display: ['"Sora"', 'system-ui', 'sans-serif'],
+				sans: ['"Inter"', 'system-ui', 'sans-serif'],
+				mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+			},
+			borderRadius: {
+				brand: '0.75rem',
 			},
 			boxShadow: {
-				glow: '0 0 60px -12px rgba(15, 159, 138, 0.35)',
-				panel: '0 24px 60px -28px rgba(7, 11, 20, 0.45)',
+				glow: '0 0 48px -10px rgba(47, 209, 123, 0.35)',
+				'glow-violet': '0 0 48px -10px rgba(120, 92, 255, 0.35)',
+				'glow-border': '0 0 0 1px rgba(47, 209, 123, 0.35), 0 0 28px -8px rgba(44, 141, 255, 0.35)',
+				panel: '0 24px 60px -28px rgba(11, 16, 32, 0.8)',
 			},
 			backgroundImage: {
+				'brand-gradient': 'linear-gradient(to right, #2FD17B, #2C8DFF, #785CFF)',
 				'grid-fade':
-					'linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
+					'linear-gradient(to right, rgba(41, 49, 74, 0.55) 1px, transparent 1px), linear-gradient(to bottom, rgba(41, 49, 74, 0.55) 1px, transparent 1px)',
 				'hero-glow':
-					'radial-gradient(ellipse 80% 60% at 70% 20%, rgba(15, 159, 138, 0.22), transparent 55%), radial-gradient(ellipse 50% 40% at 15% 80%, rgba(59, 130, 246, 0.12), transparent 50%)',
+					'radial-gradient(ellipse 80% 60% at 70% 20%, rgba(47, 209, 123, 0.18), transparent 55%), radial-gradient(ellipse 50% 40% at 15% 80%, rgba(120, 92, 255, 0.16), transparent 50%), radial-gradient(ellipse 40% 30% at 50% 50%, rgba(44, 141, 255, 0.1), transparent 60%)',
 			},
 			animation: {
 				'fade-up': 'fadeUp 0.7s ease-out both',

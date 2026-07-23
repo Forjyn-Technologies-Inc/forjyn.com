@@ -289,25 +289,26 @@ const sectionNav = [
 	<section class="page-hero">
 		<div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
 		<div class="page-hero-inner max-w-3xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-light">Platform</p>
+			<p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald">Platform</p>
+			<div class="accent-line mt-4 max-w-24"></div>
 			<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
 				Everything Your Innovation Ecosystem Needs in One Platform
 			</h1>
-			<p class="mt-5 max-w-2xl text-base leading-relaxed text-mist-300/90 sm:text-lg">
+			<p class="mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg">
 				From account creation and deal discovery to compliance, due diligence, events, communications,
 				and analytics, Forjyn centralizes the workflows that help startup ecosystems operate.
 			</p>
 			<div class="mt-8 flex flex-wrap items-center gap-3">
 				<a href="/contact#demo" class="btn-primary-on-dark">Book a Demo</a>
 				<a href="/signup" class="btn-secondary-on-dark">Sign Up Now</a>
-				<a href="/login" class="text-sm font-medium text-mist-300 underline-offset-4 hover:text-white hover:underline"
+				<a href="/login" class="text-sm font-medium text-slate underline-offset-4 hover:text-cloud hover:underline"
 					>Log In</a
 				>
 			</div>
-			<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-mist-300" aria-label="Platform sections">
+			<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate" aria-label="Platform sections">
 				{
 					sectionNav.map((item) => (
-						<a href={item.href} class="hover:text-white">
+						<a href={item.href} class="hover:text-cloud">
 							{item.label}
 						</a>
 					))
@@ -316,7 +317,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section class="bg-white py-20 sm:py-24">
+	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page">
 			<div class="max-w-2xl">
 				<h2 class="section-heading">A Personalized Experience From the First Login</h2>
@@ -335,9 +336,9 @@ const sectionNav = [
 			<div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{
 					roles.map((role) => (
-						<div class="border-t border-ink-900/10 pt-5">
-							<h3 class="font-display text-lg font-semibold text-ink-900">{role.title}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{role.body}</p>
+						<div class="border-t border-line pt-5">
+							<h3 class="font-display text-lg font-semibold text-cloud">{role.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-slate">{role.body}</p>
 						</div>
 					))
 				}
@@ -345,7 +346,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section id="compliance" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+	<section id="compliance" class="scroll-mt-24 border-y border-line bg-midnight py-20 sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2">
 			<div>
 				<h2 class="section-heading">Support for Responsible Platform Access</h2>
@@ -353,8 +354,8 @@ const sectionNav = [
 					Forjyn includes verification workflows that can help administrators manage investor access and
 					compliance requirements.
 				</p>
-				<aside class="mt-8 rounded-xl border border-ink-900/10 bg-white px-5 py-4 text-sm leading-relaxed text-ink-700/70">
-					<p class="font-semibold text-ink-800">Important Compliance Notice</p>
+				<aside class="mt-8 rounded-xl border border-line bg-graphite px-5 py-4 text-sm leading-relaxed text-slate">
+					<p class="font-semibold text-cloud">Important Compliance Notice</p>
 					<p class="mt-1.5">
 						Availability and implementation of verification features may vary by jurisdiction, customer
 						configuration, service provider, and applicable law.
@@ -378,13 +379,13 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section id="discovery" class="scroll-mt-24 bg-ink-900 py-20 text-white sm:py-24">
+	<section id="discovery" class="scroll-mt-24 bg-midnight py-20 text-cloud sm:py-24">
 		<div class="container-page">
 			<div class="max-w-2xl">
 				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
 					A More Intuitive Way to Explore Startups
 				</h2>
-				<p class="mt-4 text-base leading-relaxed text-mist-300/90">
+				<p class="mt-4 text-base leading-relaxed text-slate">
 					Forjyn’s discovery interface makes it easier for investors to review opportunities from
 					desktop or mobile devices.
 				</p>
@@ -395,8 +396,8 @@ const sectionNav = [
 					<ul class="mt-4 space-y-2">
 						{
 							discoveryActions.map((item) => (
-								<li class="flex gap-2 text-sm text-mist-300/85">
-									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+								<li class="flex gap-2 text-sm text-slate">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" aria-hidden="true" />
 									{item}
 								</li>
 							))
@@ -408,8 +409,8 @@ const sectionNav = [
 					<ul class="mt-4 space-y-2">
 						{
 							matchingFactors.map((item) => (
-								<li class="flex gap-2 text-sm text-mist-300/85">
-									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+								<li class="flex gap-2 text-sm text-slate">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" aria-hidden="true" />
 									{item}
 								</li>
 							))
@@ -418,7 +419,7 @@ const sectionNav = [
 				</div>
 				<div>
 					<h3 class="font-display text-lg font-semibold">Curated Visibility</h3>
-					<p class="mt-3 text-sm leading-relaxed text-mist-300/80">
+					<p class="mt-3 text-sm leading-relaxed text-slate">
 						Administrators may use configurable criteria to identify startups for spotlight, showcase,
 						featured opportunity sections, and curated pitch sessions.
 					</p>
@@ -427,7 +428,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section class="bg-white py-20 sm:py-24">
+	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page grid gap-14 lg:grid-cols-2">
 			<div>
 				<h2 class="section-heading">Present the Complete Opportunity</h2>
@@ -466,14 +467,14 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section id="ai" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+	<section id="ai" class="scroll-mt-24 border-y border-line bg-midnight py-20 sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2">
 			<div>
 				<h2 class="section-heading">Structured Insights for More Complete Profiles</h2>
 				<p class="section-lede">
 					AI evaluations can assess available startup information and produce structured insights.
 				</p>
-				<p class="mt-4 text-sm leading-relaxed text-ink-700/70">
+				<p class="mt-4 text-sm leading-relaxed text-slate">
 					AI-generated outputs should be reviewed alongside source materials and qualified professional
 					advice.
 				</p>
@@ -491,7 +492,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section id="due-diligence" class="scroll-mt-24 bg-white py-20 sm:py-24">
+	<section id="due-diligence" class="scroll-mt-24 bg-graphite py-20 sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2">
 			<div>
 				<h2 class="section-heading">Secure Collaboration for Serious Opportunities</h2>
@@ -513,17 +514,17 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section class="bg-ink-800 py-20 text-white sm:py-24">
+	<section class="bg-graphite py-20 text-cloud sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2">
 			<div>
 				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
 					Support the Financial Side of Membership and Opportunity Tracking
 				</h2>
-				<p class="mt-4 text-base leading-relaxed text-mist-300/90">
+				<p class="mt-4 text-base leading-relaxed text-slate">
 					Forjyn integrates with Stripe to support selected payment functions.
 				</p>
-				<aside class="mt-8 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-mist-300/85">
-					<p class="font-semibold text-white">Financial Transaction Notice</p>
+				<aside class="mt-8 rounded-xl border border-line bg-graphite px-5 py-4 text-sm leading-relaxed text-slate">
+					<p class="font-semibold text-cloud">Financial Transaction Notice</p>
 					<p class="mt-1.5">
 						The exact processing of investments, securities transactions, custody, transfers,
 						subscriptions, and commitments depends on the customer’s configuration, legal structure,
@@ -534,8 +535,8 @@ const sectionNav = [
 			<ul class="space-y-2.5 content-start">
 				{
 					paymentCapabilities.map((item) => (
-						<li class="flex gap-2.5 text-sm text-mist-200/90">
-							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+						<li class="flex gap-2.5 text-sm text-slate">
+							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" aria-hidden="true" />
 							{item}
 						</li>
 					))
@@ -544,7 +545,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section class="bg-mist-50 py-20 sm:py-24">
+	<section class="bg-midnight py-20 sm:py-24">
 		<div class="container-page grid gap-14 lg:grid-cols-2">
 			<div>
 				<h2 class="section-heading">Bring Your Community Together</h2>
@@ -581,7 +582,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section class="bg-white py-20 sm:py-24">
+	<section class="bg-graphite py-20 sm:py-24">
 		<div class="container-page grid gap-14 lg:grid-cols-2">
 			<div>
 				<h2 class="section-heading">Encourage Meaningful Community Involvement</h2>
@@ -615,7 +616,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section id="admin" class="scroll-mt-24 border-y border-ink-900/5 bg-mist-50 py-20 sm:py-24">
+	<section id="admin" class="scroll-mt-24 border-y border-line bg-midnight py-20 sm:py-24">
 		<div class="container-page">
 			<div class="max-w-2xl">
 				<h2 class="section-heading">Centralized Control Without Complicated Workflows</h2>
@@ -626,9 +627,9 @@ const sectionNav = [
 			<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{
 					adminCapabilities.map((item) => (
-						<div class="border-t border-ink-900/10 pt-5">
-							<h3 class="font-display text-lg font-semibold text-ink-900">{item.title}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{item.body}</p>
+						<div class="border-t border-line pt-5">
+							<h3 class="font-display text-lg font-semibold text-cloud">{item.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-slate">{item.body}</p>
 						</div>
 					))
 				}
@@ -636,18 +637,18 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section id="security" class="scroll-mt-24 bg-ink-900 py-20 text-white sm:py-24">
+	<section id="security" class="scroll-mt-24 bg-midnight py-20 text-cloud sm:py-24">
 		<div class="container-page grid gap-12 lg:grid-cols-2">
 			<div>
 				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
 					Security at Every Layer
 				</h2>
-				<p class="mt-4 text-base leading-relaxed text-mist-300/90">
+				<p class="mt-4 text-base leading-relaxed text-slate">
 					Forjyn is designed to help protect personal, financial, company, and investment-related
 					information.
 				</p>
-				<aside class="mt-8 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-mist-300/85">
-					<p class="font-semibold text-white">Security Disclaimer</p>
+				<aside class="mt-8 rounded-xl border border-line bg-graphite px-5 py-4 text-sm leading-relaxed text-slate">
+					<p class="font-semibold text-cloud">Security Disclaimer</p>
 					<p class="mt-1.5">
 						Security controls reduce risk but cannot eliminate every possible threat. Platform users
 						and customers are responsible for maintaining appropriate access practices and protecting
@@ -658,8 +659,8 @@ const sectionNav = [
 			<ul class="space-y-2.5 content-start">
 				{
 					securityArchitecture.map((item) => (
-						<li class="flex gap-2.5 text-sm text-mist-200/90">
-							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-light" aria-hidden="true" />
+						<li class="flex gap-2.5 text-sm text-slate">
+							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" aria-hidden="true" />
 							{item}
 						</li>
 					))
@@ -668,7 +669,7 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section id="integrations" class="scroll-mt-24 bg-white py-20 sm:py-24">
+	<section id="integrations" class="scroll-mt-24 bg-graphite py-20 sm:py-24">
 		<div class="container-page">
 			<div class="max-w-2xl">
 				<h2 class="section-heading">Connected to the Tools That Power the Platform</h2>
@@ -676,9 +677,9 @@ const sectionNav = [
 			<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{
 					integrations.map((item) => (
-						<div class="border-t border-ink-900/10 pt-5">
-							<h3 class="font-display text-lg font-semibold text-ink-900">{item.title}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-ink-700/70">{item.body}</p>
+						<div class="border-t border-line pt-5">
+							<h3 class="font-display text-lg font-semibold text-cloud">{item.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-slate">{item.body}</p>
 						</div>
 					))
 				}
@@ -686,10 +687,10 @@ const sectionNav = [
 		</div>
 	</section>
 
-	<section class="bg-mist-50 py-20 sm:py-24">
+	<section class="bg-midnight py-20 sm:py-24">
 		<div class="container-page max-w-3xl text-center">
 			<h2 class="section-heading">Experience the Forjyn Platform</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-700/75">
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate">
 				See how intelligent technology can simplify discovery, evaluation, collaboration, and ecosystem
 				growth.
 			</p>
@@ -697,7 +698,7 @@ const sectionNav = [
 				<a href="/contact#demo" class="btn-primary">Book a Demo</a>
 				<a href="/signup" class="btn-secondary">Sign Up Now</a>
 			</div>
-			<p class="mt-4 text-sm text-ink-700/60">
+			<p class="mt-4 text-sm text-slate/80">
 				Existing user? <a href="/login" class="link-accent">Log In</a>
 			</p>
 		</div>
