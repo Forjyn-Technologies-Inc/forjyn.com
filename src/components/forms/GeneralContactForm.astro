@@ -1,14 +1,16 @@
 ---
 import { contactRoles, contactSubjects } from '../../data/contact';
+import HoneypotField from './HoneypotField.astro';
 ---
 
 <form
-	class="rounded-2xl border border-line bg-midnight p-6 sm:p-8"
+	class="relative rounded-2xl border border-line bg-midnight p-6 sm:p-8"
 	method="post"
 	action="/api/contact"
 	data-contact-form
 >
 	<input type="hidden" name="type" value="general" />
+	<HoneypotField id="contact-honeypot" />
 	<div class="grid gap-4 sm:grid-cols-2">
 		<div>
 			<label class="form-label" for="contact-name">Name</label>

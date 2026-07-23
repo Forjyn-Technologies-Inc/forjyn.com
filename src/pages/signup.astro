@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import ContactFormScripts from '../components/forms/ContactFormScripts.astro';
+import HoneypotField from '../components/forms/HoneypotField.astro';
 
 const title = 'Sign Up | Forjyn Technologies';
 const description =
@@ -95,7 +96,7 @@ const selected = roles.find((role) => role.id === selectedRole);
 							with the Forjyn application.
 						</p>
 						<form
-							class="mt-6 grid gap-4 sm:grid-cols-2"
+							class="relative mt-6 grid gap-4 sm:grid-cols-2"
 							method="post"
 							action="/api/contact"
 							data-contact-form
@@ -103,6 +104,7 @@ const selected = roles.find((role) => role.id === selectedRole);
 							<input type="hidden" name="type" value="general" />
 							<input type="hidden" name="role" value={selected.contactRole} />
 							<input type="hidden" name="subject" value={`Account interest — ${selected.title}`} />
+							<HoneypotField id={`signup-honeypot-${selected.id}`} />
 							<div>
 								<label class="form-label" for="signup-first-name">First Name</label>
 								<input
