@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Auth and utility pages are noindex via meta tags; keep crawlable for UX links.
+Disallow: /api/
+
+Sitemap: https://forjyn.com/sitemap-index.xml

@@ -12,12 +12,13 @@ interface Props {
 	lede?: string;
 	seoTitle: string;
 	seoDescription: string;
+	noindex?: boolean;
 }
 
-const { eyebrow, title, lede, seoTitle, seoDescription } = Astro.props;
+const { eyebrow, title, lede, seoTitle, seoDescription, noindex = false } = Astro.props;
 ---
 
-<BaseLayout title={seoTitle} description={seoDescription}>
+<BaseLayout title={seoTitle} description={seoDescription} noindex={noindex}>
 	<PageHero eyebrow={eyebrow} title={title} lede={lede}>
 		<slot name="actions" slot="actions" />
 	</PageHero>

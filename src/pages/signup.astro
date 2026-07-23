@@ -39,7 +39,7 @@ const selectedRole = Astro.url.searchParams.get('role');
 const selected = roles.find((role) => role.id === selectedRole);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} noindex>
 	<PageHero
 		eyebrow="Create Account"
 		title="Join the Forjyn Ecosystem"
