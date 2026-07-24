@@ -1,8 +1,4 @@
 export const investmentDisclaimer = [
-	'Forjyn Technologies Inc. provides technology and information-management tools for startups, investors, ecosystem organizations, and other platform users.',
-	'Unless expressly stated otherwise, Forjyn is not a securities dealer, investment fund, investment adviser, financial adviser, broker, crowdfunding portal, legal adviser, accounting firm, or financial institution.',
-	'Information, scores, matches, evaluations, profiles, reports, and AI-generated outputs made available through the platform are provided for informational and organizational purposes only. They do not constitute investment, legal, tax, accounting, financial, or other professional advice.',
-	'Nothing on the platform is an offer, recommendation, endorsement, solicitation, or guarantee concerning any company, security, investment, transaction, or outcome.',
-	'Users are responsible for conducting their own independent due diligence and obtaining advice from qualified professionals before making business, investment, legal, financial, or tax decisions.',
-	'Investment opportunities involve risk, including the possible loss of the entire amount invested.',
+	'Forjyn Technologies Inc. provides software and information-management tools for startups, investors, and ecosystem partners. Unless expressly stated otherwise, Forjyn is not a broker, investment adviser, securities dealer, or financial institution.',
+	'All platform content, metrics, profiles, and AI-generated outputs are for informational and organizational purposes only and do not constitute professional, legal, tax, or investment advice. Nothing on the platform constitutes an offer, recommendation, or guarantee of any security or transaction. Users are solely responsible for conducting their own due diligence. Investments involve risk, including loss of principal.',
 ] as const;

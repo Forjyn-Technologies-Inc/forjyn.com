@@ -15,7 +15,7 @@ export const defaultSeo = {
 	/** E-E-A-T / freshness signals (ISO date). */
 	authorName: 'Forjyn Technologies',
 	authorCredentials:
-		'Forjyn Technologies Inc. designs and operates deal-flow software for startups, investors, and innovation ecosystem partners, with a focus on secure collaboration, structured company profiles, and human-supervised AI assistance.',
+		'Forjyn Technologies Inc. provides software and information-management tools for startups, investors, and ecosystem partners.',
 	datePublished: '2026-07-23',
 	dateModified: '2026-07-23',
 } as const;
