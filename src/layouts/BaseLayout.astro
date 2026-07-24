@@ -2,7 +2,6 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CloudflareWebAnalytics from '../components/CloudflareWebAnalytics.astro';
-import ContentAttribution from '../components/ContentAttribution.astro';
 import {
 	absoluteUrl,
 	buildWebPageJsonLd,
@@ -121,9 +120,6 @@ const webPageJsonLd = buildWebPageJsonLd({
 		<Header />
 		<main id="main-content" class="flex-1">
 			<slot />
-			<div class="container-page pb-10">
-				<ContentAttribution datePublished={datePublished} dateModified={dateModified} />
-			</div>
 		</main>
 		<Footer />
 		{/* Idle-deferred RUM — requires CF Web Analytics “JS Snippet installation” mode */}

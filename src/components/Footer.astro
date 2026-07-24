@@ -2,6 +2,7 @@
 import BrandLogo from './BrandLogo.astro';
 import { footerColumns } from '../lib/site/nav';
 import { investmentDisclaimer } from '../data/legal';
+import { defaultSeo } from '../lib/site/seo';
 
 interface Props {
 	/** Copyright year override. */
@@ -49,9 +50,10 @@ const { year = 2026 } = Astro.props;
 
 		<div class="mt-14 border-t border-line pt-8">
 			<p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate">
-				Investment Disclaimer
+				About &amp; Investment Disclaimer
 			</p>
 			<div class="mt-4 max-w-4xl space-y-3 text-xs leading-relaxed text-slate sm:text-[0.8125rem]">
+				<p>{defaultSeo.authorCredentials}</p>
 				{investmentDisclaimer.map((paragraph) => <p>{paragraph}</p>)}
 			</div>
 			<p class="mt-8 text-sm text-slate">
