@@ -22,7 +22,7 @@ const { eyebrow, title, lede, seoTitle, seoDescription, noindex = false } = Astr
 	<PageHero eyebrow={eyebrow} title={title} lede={lede}>
 		<slot name="actions" slot="actions" />
 	</PageHero>
-	<section class="bg-graphite py-16 sm:py-20">
+	<section class="bg-graphite section-y">
 		<div class="container-page">
 			<div class="max-w-3xl space-y-5 text-base leading-relaxed text-slate [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-cloud [&_h2:first-child]:mt-0 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_a]:text-emerald [&_a]:underline-offset-4 hover:[&_a]:underline">
 			<slot />

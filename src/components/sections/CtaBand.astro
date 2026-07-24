@@ -20,7 +20,7 @@ const {
 const surfaceClass = surface === 'midnight' ? 'bg-midnight text-cloud' : 'bg-graphite';
 ---
 
-<section class:list={['relative overflow-hidden py-20 sm:py-24', surfaceClass, className]}>
+<section class:list={['relative overflow-hidden section-y', surfaceClass, className]}>
 	{
 		surface === 'midnight' && (
 			<div
