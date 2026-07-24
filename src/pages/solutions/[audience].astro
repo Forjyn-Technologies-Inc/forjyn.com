@@ -28,7 +28,8 @@ const { page } = Astro.props;
 	</PageHero>
 
 	<section class="bg-graphite py-16 sm:py-20">
-		<div class="container-page max-w-3xl">
+		<div class="container-page">
+			<div class="max-w-3xl">
 			<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">Highlights</p>
 			<CapabilityList items={page.highlights} class="mt-6 grid gap-3 sm:grid-cols-2" />
 			<p class="mt-8 text-sm leading-relaxed text-slate">
@@ -38,6 +39,7 @@ const { page } = Astro.props;
 				<a href="/platform" class="link-accent">Platform</a>
 				pages.
 			</p>
+			</div>
 		</div>
 	</section>
 
