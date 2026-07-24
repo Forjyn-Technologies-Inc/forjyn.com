@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
-import KeyTakeaways from '../components/sections/KeyTakeaways.astro';
 import {
 	startupProfileAreas,
 	matchingAreas,
@@ -20,13 +19,6 @@ import {
 const title = 'Forjyn Solutions for Startups & Investors';
 const description =
 	'Explore Forjyn solutions for startup fundraising, investor deal discovery, due diligence, ecosystem management, and intelligent matching.';
-
-const solutionsTakeaways = [
-	'Startups get investment-ready profiles, matching, analytics, and diligence tools.',
-	'Investors get personalized discovery, scoring, pipelines, and secure collaboration.',
-	'Ecosystem partners manage communities, referrals, events, and reporting in one place.',
-	'Service providers and enterprises can plug into the same connected network.',
-] as const;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -38,19 +30,20 @@ const solutionsTakeaways = [
 		<p class="mt-4 text-sm leading-relaxed text-slate">
 			Each user receives an experience tailored to their role, goals, permissions, and responsibilities.
 		</p>
-		<div class="mt-8 flex flex-wrap gap-3">
+		<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
 			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
 			<a href="/signup" class="btn-secondary">Sign Up Now</a>
 		</div>
-		<nav class="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate" aria-label="Solutions sections">
+		<nav
+			class="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-center text-sm text-slate"
+			aria-label="Solutions sections"
+		>
 				<a href="#startups" class="hover:text-cloud">Startups</a>
 				<a href="#investors" class="hover:text-cloud">Investors</a>
 				<a href="#ecosystem" class="hover:text-cloud">Ecosystem Partners</a>
 				<a href="#service-providers" class="hover:text-cloud">Service Providers</a>
 			</nav>
 	</PageHero>
-
-	<KeyTakeaways items={solutionsTakeaways} />
 
 	<section id="startups" class="scroll-mt-24 bg-graphite py-20 sm:py-24">
 		<div class="container-page">
@@ -416,11 +409,7 @@ const solutionsTakeaways = [
 		lede="Every Forjyn experience is designed around the user while contributing to a stronger, more connected innovation ecosystem."
 	>
 		<Fragment slot="actions">
-			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+			<a href="/signup" class="btn-primary">Sign Up Now</a>
 		</Fragment>
-		<p class="mt-4 text-sm text-slate">
-			<a href="/login" class="link-accent">Log In</a>
-		</p>
 	</CtaBand>
 </BaseLayout>

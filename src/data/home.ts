@@ -135,63 +135,6 @@ export const homeDealPreview = [
 	{ name: 'Orbit Freight', meta: 'Pre-Seed · Logistics', score: '88' },
 ] as const;
 
-/** Homepage GEO summary — placed near the top of primary content. */
-export const homeKeyTakeaways = [
-	'Forjyn is an intelligent deal flow platform for startups, investors, and ecosystem partners.',
-	'Investors discover matched opportunities; startups present investment-ready profiles.',
-	'Secure due diligence rooms replace fragmented email threads and file shares.',
-	'AI assists evaluation and matching while human judgment remains in control.',
-	'Events, referrals, and collaboration tools keep the wider innovation network connected.',
-] as const;
-
-/** Homepage term/definition pairs for AEO (dl/dt/dd). */
-export const homeGlossary = [
-	{
-		term: 'Deal flow',
-		definition:
-			'The stream of startup investment opportunities investors review, prioritize, and advance through a pipeline.',
-	},
-	{
-		term: 'Intelligent matching',
-		definition:
-			'Compatibility scoring that compares startup attributes with investor preferences such as sector, stage, location, and check size.',
-	},
-	{
-		term: 'Due diligence room',
-		definition:
-			'A private, permissioned workspace where founders and investors exchange documents, track requests, and collaborate securely.',
-	},
-	{
-		term: 'Investment-ready profile',
-		definition:
-			'A structured company record covering product, market, traction, team, funding, and supporting materials for investor review.',
-	},
-	{
-		term: 'Ecosystem partner',
-		definition:
-			'Accelerators, incubators, universities, and innovation organizations that support founders through programs, referrals, and events.',
-	},
-] as const;
-
-/** Authoritative external citations for GEO/AEO trust signals. */
-export const homeCitations = [
-	{
-		label: 'U.S. Securities and Exchange Commission — Investor.gov',
-		title: 'Private investment funds and investor considerations',
-		href: 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds',
-	},
-	{
-		label: 'OECD',
-		title: 'SMEs and entrepreneurship policy guidance',
-		href: 'https://www.oecd.org/en/topics/smes-and-entrepreneurship.html',
-	},
-	{
-		label: 'NIST',
-		title: 'Cybersecurity Framework',
-		href: 'https://www.nist.gov/cyberframework',
-	},
-] as const;
-
 /**
  * Feature comparison rows for a semantic HTML data table.
  * Columns: Dimension | Spreadsheets & email | Standalone CRM | Forjyn platform

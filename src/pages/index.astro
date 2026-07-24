@@ -3,22 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CapabilityList from '../components/sections/CapabilityList.astro';
 import ComparisonTable from '../components/sections/ComparisonTable.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
-import KeyTakeaways from '../components/sections/KeyTakeaways.astro';
-import SourceCitations from '../components/sections/SourceCitations.astro';
-import TermDefinitions from '../components/sections/TermDefinitions.astro';
 import {
 	homeAiCapabilities,
 	homeAudiences,
-	homeCitations,
 	homeComparisonColumns,
 	homeComparisonRows,
 	homeDealPreview,
 	homeDiligenceFeatures,
 	homeEventCapabilities,
-	homeGlossary,
 	homeInvestorCapabilities,
 	homeJourney,
-	homeKeyTakeaways,
 	homePerspective,
 	homeSecurityCapabilities,
 	homeStartupCapabilities,
@@ -49,15 +43,8 @@ import {
 					intelligent technology platform.
 				</p>
 				<div class="mt-8 flex flex-wrap items-center gap-3">
-					<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-					<a href="/signup" class="btn-secondary">Sign Up Now</a>
+					<a href="/signup" class="btn-primary">Sign Up Now</a>
 				</div>
-				<p class="mt-5 text-sm text-slate">
-					Existing user?
-					<a href="/login" class="ml-1 font-medium text-emerald underline-offset-4 hover:underline"
-						>Log In</a
-					>
-				</p>
 				<p class="mt-10 max-w-md border-t border-line pt-6 text-sm leading-relaxed text-slate">
 					One connected platform for discovering, evaluating, supporting, and growing the companies
 					shaping the future.
@@ -108,8 +95,6 @@ import {
 		</div>
 	</section>
 
-	<KeyTakeaways items={homeKeyTakeaways} />
-
 	<section class="bg-midnight py-20 sm:py-24">
 		<div class="container-page max-w-3xl">
 			<h2 class="section-heading">Innovation Moves Quickly. Your Technology Should Too.</h2>
@@ -149,14 +134,6 @@ import {
 		columns={homeComparisonColumns}
 		rows={homeComparisonRows}
 	/>
-
-	<TermDefinitions
-		title="Key Terms"
-		lede="Clear definitions for the core concepts behind Forjyn’s deal flow platform."
-		items={homeGlossary}
-	/>
-
-	<SourceCitations items={homeCitations} />
 
 	<section class="border-y border-line bg-graphite py-20 sm:py-24">
 		<div class="container-page">
@@ -286,14 +263,6 @@ import {
 					))
 				}
 			</div>
-			<aside class="mt-12 max-w-3xl rounded-xl border border-line bg-graphite px-5 py-4 text-sm leading-relaxed text-slate">
-				<p class="font-semibold text-cloud">Important Notice</p>
-				<p class="mt-1.5">
-					AI-generated insights are informational tools. They do not constitute investment, financial,
-					legal, accounting, or securities advice. Users remain responsible for their own decisions and
-					professional due diligence.
-				</p>
-			</aside>
 		</div>
 	</section>
 
@@ -388,13 +357,7 @@ import {
 		lede="Join a platform designed to help startups grow, investors discover opportunities, and innovation communities work together."
 	>
 		<Fragment slot="actions">
-			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-			<a href="/signup" class="btn-secondary">Sign Up Now</a>
+			<a href="/signup" class="btn-primary">Sign Up Now</a>
 		</Fragment>
-		<p class="mt-5 text-sm text-slate">
-			<a href="/login" class="font-medium text-emerald underline-offset-4 hover:underline"
-				>Log In to Your Account</a
-			>
-		</p>
 	</CtaBand>
 </BaseLayout>

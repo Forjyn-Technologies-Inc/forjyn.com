@@ -40,8 +40,7 @@ const { pathname = Astro.url.pathname } = Astro.props;
 			<div class="hidden items-center gap-2 md:flex">
 				<slot name="actions">
 					<a href="/login" class="btn-ghost">Log In</a>
-					<a href="/signup" class="btn-secondary">Sign Up Now</a>
-					<a href="/contact#demo" class="btn-primary">Book a Demo</a>
+					<a href="/signup" class="btn-primary">Sign Up Now</a>
 				</slot>
 			</div>
 
@@ -73,8 +72,7 @@ const { pathname = Astro.url.pathname } = Astro.props;
 					<div class="mt-3 flex flex-col gap-2 border-t border-line pt-3">
 						<slot name="mobile-actions">
 							<a href="/login" class="btn-ghost justify-center">Log In</a>
-							<a href="/signup" class="btn-secondary justify-center">Sign Up Now</a>
-							<a href="/contact#demo" class="btn-primary justify-center">Book a Demo</a>
+							<a href="/signup" class="btn-primary justify-center">Sign Up Now</a>
 						</slot>
 					</div>
 				</div>
