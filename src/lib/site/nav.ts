@@ -50,8 +50,8 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 	{
 		title: 'Account',
 		links: [
-			{ label: 'Sign Up', href: '/signup' },
-			{ label: 'Log In', href: '/login' },
+			{ label: 'Sign Up', href: 'https://app.forjyn.com/register' },
+			{ label: 'Log In', href: 'https://app.forjyn.com/login' },
 			{ label: 'Forgot Password', href: '/forgot-password' },
 			{ label: 'Support', href: '/support' },
 		],

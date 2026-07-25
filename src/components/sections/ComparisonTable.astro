@@ -9,6 +9,8 @@ interface Props {
 	columns: readonly string[];
 	rows: readonly (readonly string[])[];
 	caption?: string;
+	/** Reduce top padding when stacked under a preceding midnight section. */
+	compactTop?: boolean;
 }
 
 const {
@@ -17,10 +19,14 @@ const {
 	columns,
 	rows,
 	caption = 'Comparison of common deal-flow approaches across key workflow dimensions.',
+	compactTop = false,
 } = Astro.props;
 ---
 
-<section class="bg-midnight section-y" aria-labelledby="comparison-table-heading">
+<section
+	class:list={['bg-midnight', compactTop ? 'pt-8 pb-12 sm:pt-10 sm:pb-16' : 'section-y']}
+	aria-labelledby="comparison-table-heading"
+>
 	<div class="container-page">
 		<div class="max-w-2xl">
 			<h2 id="comparison-table-heading" class="section-heading">{title}</h2>

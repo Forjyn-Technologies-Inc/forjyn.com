@@ -24,8 +24,6 @@ export default defineConfig({
 		sitemap({
 			filter: (page) =>
 				!page.includes('/404') &&
-				!page.endsWith('/login/') &&
-				!page.endsWith('/login') &&
 				!page.endsWith('/signup/') &&
 				!page.endsWith('/signup') &&
 				!page.includes('/forgot-password'),

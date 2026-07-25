@@ -30,7 +30,7 @@ export const solutionAudiencePages: SolutionAudiencePage[] = [
 			'Secure due diligence rooms',
 		],
 		ctaLabel: 'Join as a Startup',
-		ctaHref: '/signup?role=startup',
+		ctaHref: 'https://app.forjyn.com/register',
 	},
 	{
 		slug: 'investors',
@@ -50,7 +50,7 @@ export const solutionAudiencePages: SolutionAudiencePage[] = [
 			'Private due diligence collaboration',
 		],
 		ctaLabel: 'Join as an Investor',
-		ctaHref: '/signup?role=investor',
+		ctaHref: 'https://app.forjyn.com/register',
 	},
 	{
 		slug: 'ecosystem',
