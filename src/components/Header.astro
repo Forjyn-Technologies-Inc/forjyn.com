@@ -12,8 +12,8 @@ const { pathname = Astro.url.pathname } = Astro.props;
 
 <header class="sticky top-0 z-50 border-b border-line bg-midnight/90 backdrop-blur-md">
 	<div class="container-page">
-		<div class="flex h-16 items-center justify-between gap-4 lg:h-[4.25rem]">
-			<a href="/" class="group shrink-0" aria-label="Forjyn Technologies home">
+		<div class="flex h-16 min-w-0 items-center justify-between gap-3 sm:gap-4 lg:h-[4.25rem]">
+			<a href="/" class="group min-w-0 shrink-0" aria-label="Forjyn Technologies home">
 				<BrandLogo size={32} wordmark="short" priority />
 			</a>
 
@@ -25,7 +25,7 @@ const { pathname = Astro.url.pathname } = Astro.props;
 							<a
 								href={link.href}
 								class:list={[
-									'rounded-brand px-3 py-2 text-sm font-medium transition',
+									'inline-flex min-h-11 items-center rounded-brand px-3 py-2 text-sm font-medium transition',
 									isActive ? 'text-emerald' : 'text-slate hover:text-cloud',
 								]}
 								aria-current={isActive ? 'page' : undefined}
@@ -37,7 +37,7 @@ const { pathname = Astro.url.pathname } = Astro.props;
 				}
 			</nav>
 
-			<div class="hidden items-center gap-2 md:flex">
+			<div class="hidden items-center gap-2 xl:flex">
 				<slot name="actions">
 					<a href="https://app.forjyn.com/login" class="btn-ghost">Log In</a>
 					<a href="https://app.forjyn.com/register" class="btn-primary">Sign Up Now</a>
@@ -46,7 +46,7 @@ const { pathname = Astro.url.pathname } = Astro.props;
 
 			<details class="relative xl:hidden">
 				<summary
-					class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-brand border border-line bg-graphite text-cloud transition hover:border-emerald/40 hover:shadow-glow [&::-webkit-details-marker]:hidden"
+					class="flex h-11 w-11 min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-brand border border-line bg-graphite text-cloud transition hover:border-emerald/40 hover:shadow-glow [&::-webkit-details-marker]:hidden"
 					aria-label="Open main navigation menu"
 				>
 					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" focusable="false">
@@ -55,14 +55,14 @@ const { pathname = Astro.url.pathname } = Astro.props;
 					<span class="sr-only">Menu</span>
 				</summary>
 				<div
-					class="absolute right-0 mt-3 w-[min(100vw-2.5rem,20rem)] rounded-2xl border border-line bg-graphite p-3 shadow-panel"
+					class="absolute right-0 z-50 mt-3 w-72 max-w-[min(20rem,calc(100vw-2.5rem))] rounded-2xl border border-line bg-graphite p-3 shadow-panel sm:w-80"
 				>
 					<nav class="flex flex-col gap-0.5" aria-label="Mobile">
 						{
 							primaryNav.map((link) => (
 								<a
 									href={link.href}
-									class="rounded-brand px-3 py-2.5 text-sm font-medium text-cloud hover:bg-midnight hover:text-emerald"
+									class="inline-flex min-h-11 items-center rounded-brand px-3 py-2.5 text-sm font-medium text-cloud hover:bg-midnight hover:text-emerald"
 								>
 									{link.label}
 								</a>

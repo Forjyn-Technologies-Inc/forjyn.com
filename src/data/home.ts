@@ -159,3 +159,11 @@ export const homePerspective = {
 	heading: 'A Balanced View of Deal Flow Tools',
 	body: 'While some prefer informal networks, spreadsheets, and email for early deal sourcing, industry standards for private-market diligence emphasize organized information, clear records, and independent review. Forjyn is designed for teams that want structured discovery and secure collaboration without replacing human judgment.',
 } as const;
+
+/** Stakeholder groups highlighted in the ecosystem connection section. */
+export const homeEcosystemNetwork = [
+	'Incubators & Accelerators',
+	'Universities & Research Hubs',
+	'Mentors & Professional Services (Legal, Finance, Tech)',
+	'Corporate & Capital Partners',
+] as const;

@@ -1,25 +1,39 @@
 ---
+/**
+ * Two-column capability list with independent vertical stacks.
+ * Columns do not share row heights, so multi-line items never stretch the other column.
+ */
 interface Props {
 	items: readonly string[];
 	/** Tailwind class for the bullet color (default emerald). */
 	dotClass?: string;
+	/** Classes for the outer 2-column grid wrapper. */
 	class?: string;
 }
 
 const {
 	items,
 	dotClass = 'bg-emerald',
-	class: className = 'mt-5 grid gap-3 sm:grid-cols-2',
+	class: className = 'mt-5',
 } = Astro.props;
+
+const midpoint = Math.ceil(items.length / 2);
+const columns = [items.slice(0, midpoint), items.slice(midpoint)] as const;
 ---
 
-<ul class={className}>
+<div class:list={['grid grid-cols-1 gap-x-8 gap-y-0 sm:grid-cols-2', className]}>
 	{
-		items.map((item) => (
-			<li class="capability-item">
-				<span class:list={['capability-dot', dotClass]} aria-hidden="true" />
-				{item}
-			</li>
-		))
+		columns.map((column) =>
+			column.length > 0 ? (
+				<ul class="flex flex-col gap-3">
+					{column.map((item) => (
+						<li class="flex items-start gap-2.5 text-sm text-slate">
+							<span class:list={['capability-dot', 'mt-1.5', dotClass]} aria-hidden="true" />
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			) : null,
+		)
 	}
-</ul>
+</div>

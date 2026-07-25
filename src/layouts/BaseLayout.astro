@@ -110,7 +110,7 @@ const webPageJsonLd = buildWebPageJsonLd({
 		<script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
 		<script type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} />
 	</head>
-	<body class="min-h-screen flex flex-col bg-midnight text-cloud">
+	<body class="flex min-h-screen flex-col overflow-x-clip bg-midnight text-cloud">
 		<a
 			href="#main-content"
 			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-brand focus:bg-graphite focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-cloud focus:shadow-glow-border"
@@ -118,7 +118,7 @@ const webPageJsonLd = buildWebPageJsonLd({
 			Skip to content
 		</a>
 		<Header />
-		<main id="main-content" class="flex-1">
+		<main id="main-content" class="min-w-0 flex-1">
 			<slot />
 		</main>
 		<Footer />

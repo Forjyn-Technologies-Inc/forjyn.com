@@ -10,6 +10,7 @@ import {
 	homeComparisonRows,
 	homeDealPreview,
 	homeDiligenceFeatures,
+	homeEcosystemNetwork,
 	homeEventCapabilities,
 	homeInvestorCapabilities,
 	homeJourney,
@@ -35,7 +36,7 @@ import {
 					Forjyn Technologies
 				</p>
 				<div class="accent-line mt-4 max-w-24"></div>
-				<h1 class="mt-5 max-w-xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-cloud sm:text-5xl lg:text-[3.4rem]">
+				<h1 class="mt-5 max-w-xl min-w-0 break-words font-display text-4xl font-bold leading-[1.08] tracking-tight text-cloud sm:text-5xl lg:text-[3.4rem]">
 					Intelligent Deal Flow for <span class="text-gradient">Startups &amp; Investors</span>
 				</h1>
 				<p class="mt-6 max-w-lg text-base leading-relaxed text-slate sm:text-lg">
@@ -48,43 +49,43 @@ import {
 				</p>
 			</div>
 
-			<div class="relative" aria-hidden="true">
-				<div class="absolute -inset-4 rounded-[2rem] bg-emerald/10 blur-2xl"></div>
+			<div class="relative min-w-0 overflow-hidden" aria-hidden="true">
+				<div class="absolute inset-0 rounded-[2rem] bg-emerald/10 blur-2xl"></div>
 				<div class="relative overflow-hidden rounded-2xl border border-line bg-graphite/80 p-5 shadow-glow-border backdrop-blur-sm sm:p-6 motion-safe:animate-float">
-					<div class="flex items-center justify-between border-b border-line pb-4">
-						<div>
+					<div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+						<div class="min-w-0">
 							<p class="text-xs font-medium uppercase tracking-[0.16em] text-slate">Deal Flow</p>
 							<p class="mt-1 font-display text-lg font-semibold text-cloud">Personalized Discovery</p>
 						</div>
-						<span class="metric rounded-full bg-emerald/20 px-3 py-1 text-xs font-semibold text-emerald"
+						<span class="metric shrink-0 rounded-full bg-emerald/20 px-3 py-1 text-xs font-semibold text-emerald"
 							>94% match</span
 						>
 					</div>
 					<div class="mt-5 space-y-3">
 						{
 							homeDealPreview.map((item) => (
-								<div class="flex items-center justify-between rounded-xl border border-line bg-midnight px-4 py-3 transition hover:shadow-glow">
-									<div>
-										<p class="text-sm font-semibold text-cloud">{item.name}</p>
-										<p class="mt-0.5 text-xs text-slate">{item.meta}</p>
+								<div class="flex items-center justify-between gap-3 rounded-xl border border-line bg-midnight px-4 py-3 transition hover:shadow-glow">
+									<div class="min-w-0">
+										<p class="truncate text-sm font-semibold text-cloud">{item.name}</p>
+										<p class="mt-0.5 truncate text-xs text-slate">{item.meta}</p>
 									</div>
-									<p class="metric text-sm font-semibold text-emerald">{item.score}</p>
+									<p class="metric shrink-0 text-sm font-semibold text-emerald">{item.score}</p>
 								</div>
 							))
 						}
 					</div>
-					<div class="mt-5 grid grid-cols-3 gap-2 border-t border-line pt-4 text-center">
+					<div class="mt-5 grid grid-cols-3 gap-1 border-t border-line pt-4 text-center sm:gap-2">
 						<div>
-							<p class="font-display text-lg font-semibold text-cloud">Match</p>
-							<p class="text-[0.7rem] text-slate">Compatibility</p>
+							<p class="font-display text-base font-semibold text-cloud sm:text-lg">Match</p>
+							<p class="text-[0.65rem] text-slate sm:text-[0.7rem]">Compatibility</p>
 						</div>
 						<div>
-							<p class="font-display text-lg font-semibold text-cloud">Review</p>
-							<p class="text-[0.7rem] text-slate">Profiles</p>
+							<p class="font-display text-base font-semibold text-cloud sm:text-lg">Review</p>
+							<p class="text-[0.65rem] text-slate sm:text-[0.7rem]">Profiles</p>
 						</div>
 						<div>
-							<p class="font-display text-lg font-semibold text-cloud">Diligence</p>
-							<p class="text-[0.7rem] text-slate">Secure rooms</p>
+							<p class="font-display text-base font-semibold text-cloud sm:text-lg">Diligence</p>
+							<p class="text-[0.65rem] text-slate sm:text-[0.7rem]">Secure rooms</p>
 						</div>
 					</div>
 				</div>
@@ -164,7 +165,7 @@ import {
 					Forjyn supports the journey from initial discovery to deeper evaluation and long-term growth.
 				</p>
 			</div>
-			<ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+			<ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
 				{
 					homeJourney.map((step, index) => (
 						<li class="relative">
@@ -290,27 +291,32 @@ import {
 	</section>
 
 	<section class="bg-graphite section-y text-cloud">
-		<div class="container-page">
-			<div class="max-w-3xl">
-			<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-				Innovation Works Better When the Ecosystem Is Connected
-			</h2>
-			<div class="mt-6 space-y-4 text-justify text-base leading-relaxed text-slate">
-				<p>Startup growth requires more than capital.</p>
-				<p>
-					Founders rely on incubators, accelerators, universities, mentors, legal professionals,
-					accountants, consultants, technology providers, corporate partners, and other service
-					providers.
-				</p>
-				<p>
-					Forjyn is designed to bring these stakeholders into a more connected environment so startups
-					can access relevant support with less friction.
-				</p>
-				<p>
-					The result is a stronger network, better referrals, more visible opportunities, and a clearer
-					path from early-stage development to investment and growth.
+		<div class="container-page grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+			<div>
+				<h2 class="section-heading">Innovation Works Better When the Ecosystem Is Connected</h2>
+				<p class="mt-6 text-justify text-base leading-relaxed text-slate sm:text-lg">
+					Startup growth requires more than capital. Forjyn brings your entire network into a single
+					connected environment—eliminating friction so founders can access the exact expertise and
+					resources they need to scale.
 				</p>
 			</div>
+			<div>
+				<div class="grid gap-6 sm:grid-cols-2">
+					{
+						homeEcosystemNetwork.map((label) => (
+							<div class="border-t border-line pt-4">
+								<p class="font-display text-base font-semibold text-cloud">{label}</p>
+							</div>
+						))
+					}
+				</div>
+				<p
+					class="mt-8 border-l-2 border-emerald/60 pl-4 text-sm leading-relaxed text-slate sm:text-base"
+					role="note"
+				>
+					<span class="font-semibold text-cloud">The Result:</span>{' '}
+					Stronger networks, high-intent referrals, and faster paths from seed to scale.
+				</p>
 			</div>
 		</div>
 	</section>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
+import CapabilityList from '../components/sections/CapabilityList.astro';
 import {
 	onboardingCapabilities,
 	roles,
@@ -44,16 +45,7 @@ const description =
 				<h2 class="section-heading">A Personalized Experience From the First Login</h2>
 				<p class="section-lede">Each user begins with a role-specific onboarding process.</p>
 			</div>
-			<ul class="capability-list mt-8">
-				{
-					onboardingCapabilities.map((item) => (
-						<li class="capability-item">
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList items={onboardingCapabilities} class="mt-8" />
 			<div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{
 					roles.map((role) => (
@@ -87,16 +79,7 @@ const description =
 					</p>
 				</aside>
 			</div>
-			<ul class="capability-list content-start">
-				{
-					complianceCapabilities.map((item) => (
-						<li class="capability-item">
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList items={complianceCapabilities} class="content-start" />
 		</div>
 	</section>
 
@@ -157,16 +140,7 @@ const description =
 					Startup profiles give investors a consistent way to review companies while helping founders
 					organize key information.
 				</p>
-				<ul class="capability-list mt-6">
-					{
-						profileComponents.map((item) => (
-							<li class="capability-item">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={profileComponents} class="mt-6" />
 			</div>
 			<div>
 				<h2 class="section-heading">Build a Stronger Investor Presentation</h2>
@@ -174,16 +148,7 @@ const description =
 					The Startup Studio gives founders tools to create, upload, and organize materials used
 					throughout the fundraising process.
 				</p>
-				<ul class="capability-list mt-6">
-					{
-						studioTools.map((item) => (
-							<li class="capability-item">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={studioTools} class="mt-6" />
 			</div>
 		</div>
 	</section>
@@ -200,16 +165,7 @@ const description =
 					advice.
 				</p>
 			</div>
-			<ul class="capability-list content-start">
-				{
-					evaluationWorkflow.map((item) => (
-						<li class="capability-item">
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList items={evaluationWorkflow} class="content-start" />
 		</div>
 	</section>
 
@@ -222,16 +178,7 @@ const description =
 					the opportunity.
 				</p>
 			</div>
-			<ul class="capability-list content-start">
-				{
-					diligenceFeatures.map((item) => (
-						<li class="capability-item">
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList items={diligenceFeatures} class="content-start" />
 		</div>
 	</section>
 
@@ -267,32 +214,14 @@ const description =
 				<p class="section-lede">
 					Manage events across the same platform where users discover and evaluate opportunities.
 				</p>
-				<ul class="capability-list mt-6">
-					{
-						eventTools.map((item) => (
-							<li class="capability-item">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={eventTools} class="mt-6" />
 			</div>
 			<div>
 				<h2 class="section-heading">Keep Every Stakeholder Informed</h2>
 				<p class="section-lede">
 					Forjyn supports communications across email, mobile, and in-platform channels.
 				</p>
-				<ul class="capability-list mt-6">
-					{
-						communicationTools.map((item) => (
-							<li class="capability-item">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={communicationTools} class="mt-6" />
 			</div>
 		</div>
 	</section>
@@ -301,32 +230,14 @@ const description =
 		<div class="container-page grid gap-14 lg:grid-cols-2">
 			<div>
 				<h2 class="section-heading">Encourage Meaningful Community Involvement</h2>
-				<ul class="capability-list mt-6">
-					{
-						engagementFeatures.map((item) => (
-							<li class="capability-item">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={engagementFeatures} class="mt-6" />
 			</div>
 			<div>
 				<h2 class="section-heading">Access Forjyn Wherever Opportunities Happen</h2>
 				<p class="section-lede">
 					Forjyn supports mobile deployment through Capacitor wrappers for iOS and Android.
 				</p>
-				<ul class="capability-list mt-6">
-					{
-						mobileCapabilities.map((item) => (
-							<li class="capability-item">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
+				<CapabilityList items={mobileCapabilities} class="mt-6" />
 			</div>
 		</div>
 	</section>

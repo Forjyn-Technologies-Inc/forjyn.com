@@ -10,6 +10,7 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
+		overflow-x: clip;
 	}
 
 	body {
@@ -45,27 +46,27 @@
 	}
 
 	.btn-primary {
-		@apply inline-flex items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
+		@apply inline-flex min-h-11 items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-secondary {
-		@apply inline-flex items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
+		@apply inline-flex min-h-11 items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
 	}
 
 	.btn-ghost {
-		@apply inline-flex items-center justify-center rounded-brand px-3 py-2 text-sm font-medium text-slate transition duration-200 hover:text-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
+		@apply inline-flex min-h-11 items-center justify-center rounded-brand px-3 py-2 text-sm font-medium text-slate transition duration-200 hover:text-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-primary-on-dark {
-		@apply inline-flex items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
+		@apply inline-flex min-h-11 items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-secondary-on-dark {
-		@apply inline-flex items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
+		@apply inline-flex min-h-11 items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
 	}
 
 	.section-heading {
-		@apply font-display text-3xl font-semibold tracking-tight text-cloud sm:text-4xl;
+		@apply break-words font-display text-3xl font-semibold tracking-tight text-cloud sm:text-4xl;
 	}
 
 	.section-lede {
@@ -101,7 +102,7 @@
 	}
 
 	.form-input {
-		@apply w-full rounded-brand border border-line bg-midnight px-3.5 py-2.5 text-sm text-cloud placeholder:text-slate transition focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/25;
+		@apply min-h-11 w-full rounded-brand border border-line bg-midnight px-3.5 py-2.5 text-sm text-cloud placeholder:text-slate transition focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/25;
 	}
 
 	.form-check {
@@ -110,11 +111,11 @@
 	}
 
 	.capability-list {
-		@apply grid gap-2.5 sm:grid-cols-2;
+		@apply sm:columns-2 sm:gap-x-8;
 	}
 
 	.capability-item {
-		@apply flex gap-2.5 text-sm text-slate;
+		@apply mb-2.5 flex items-start gap-2.5 break-inside-avoid text-sm text-slate last:mb-0;
 	}
 
 	.capability-dot {
