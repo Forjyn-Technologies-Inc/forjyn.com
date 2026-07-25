@@ -19,7 +19,6 @@ import {
 	mobileCapabilities,
 	adminCapabilities,
 	securityArchitecture,
-	integrations,
 	sectionNav,
 } from '../data/platform';
 
@@ -36,7 +35,6 @@ const description =
 	>
 		<Fragment slot="actions">
 			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-			<a href="https://app.forjyn.com/register" class="btn-secondary">Sign Up Now</a>
 		</Fragment>
 	</PageHero>
 
@@ -241,19 +239,13 @@ const description =
 		<div class="container-page grid gap-12 lg:grid-cols-2">
 			<div>
 				<h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-					Support the Financial Side of Membership and Opportunity Tracking
+					Streamline Membership Billing &amp; Payments
 				</h2>
-				<p class="mt-4 text-base leading-relaxed text-slate">
-					Forjyn integrates with Stripe to support selected payment functions.
+				<p class="mt-4 text-justify text-base leading-relaxed text-slate">
+					Forjyn uses Stripe to process platform subscriptions and fees. Investment transactions or
+					securities movements are handled directly between concerned parties via their authorized
+					third-party providers and regulated financial institutions.
 				</p>
-				<aside class="mt-8 rounded-xl border border-line bg-graphite px-5 py-4 text-sm leading-relaxed text-slate">
-					<p class="font-semibold text-cloud">Financial Transaction Notice</p>
-					<p class="mt-1.5">
-						The exact processing of investments, securities transactions, custody, transfers,
-						subscriptions, and commitments depends on the customer’s configuration, legal structure,
-						jurisdiction, and authorized financial service providers.
-					</p>
-				</aside>
 			</div>
 			<ul class="space-y-2.5 content-start">
 				{
@@ -389,24 +381,6 @@ const description =
 					))
 				}
 			</ul>
-		</div>
-	</section>
-
-	<section id="integrations" class="scroll-mt-24 bg-graphite section-y">
-		<div class="container-page">
-			<div class="max-w-2xl">
-				<h2 class="section-heading">Connected to the Tools That Power the Platform</h2>
-			</div>
-			<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{
-					integrations.map((item) => (
-						<div class="border-t border-line pt-5">
-							<h3 class="font-display text-lg font-semibold text-cloud">{item.title}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-slate">{item.body}</p>
-						</div>
-					))
-				}
-			</div>
 		</div>
 	</section>
 

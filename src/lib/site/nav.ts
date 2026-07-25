@@ -23,7 +23,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 			{ label: 'AI Evaluations', href: '/platform#ai' },
 			{ label: 'Events', href: '/platform#events' },
 			{ label: 'Security', href: '/platform#security' },
-			{ label: 'Integrations', href: '/platform#integrations' },
 		],
 	},
 	{
@@ -52,7 +51,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 		links: [
 			{ label: 'Sign Up', href: 'https://app.forjyn.com/register' },
 			{ label: 'Log In', href: 'https://app.forjyn.com/login' },
-			{ label: 'Forgot Password', href: '/forgot-password' },
 			{ label: 'Support', href: '/support' },
 		],
 	},

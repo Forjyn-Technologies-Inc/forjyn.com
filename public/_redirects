@@ -4,3 +4,5 @@
 # App auth lives on the product host.
 /login https://app.forjyn.com/login 301
 /login/ https://app.forjyn.com/login 301
+/forgot-password https://app.forjyn.com/login 301
+/forgot-password/ https://app.forjyn.com/login 301

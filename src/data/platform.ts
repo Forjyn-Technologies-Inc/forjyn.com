@@ -228,7 +228,6 @@ export const securityArchitecture = [
 	'AES-256-GCM encryption',
 	'Field-level encryption for sensitive information',
 	'Encrypted document storage',
-	'Role-based server-side middleware',
 	'Administrative MFA controls',
 	'Secure user sessions',
 	'Permission enforcement',
@@ -239,33 +238,6 @@ export const securityArchitecture = [
 	'Access monitoring',
 ];
 
-export const integrations = [
-	{
-		title: 'Stripe',
-		body: 'Membership subscriptions, billing, payments, and commitment-related functionality.',
-	},
-	{
-		title: 'Resend',
-		body: 'Transactional email delivery, reminders, verification messages, and campaign communications.',
-	},
-	{
-		title: 'OpenAI and xAI',
-		body: 'AI-supported evaluations, matching insights, summaries, and document analysis.',
-	},
-	{
-		title: 'Object Storage',
-		body: 'Secure file and media hosting.',
-	},
-	{
-		title: 'Authentication Providers',
-		body: 'Secure login and authentication capabilities for platform users.',
-	},
-	{
-		title: 'Capacitor',
-		body: 'iOS and Android application deployment.',
-	},
-];
-
 export const sectionNav = [
 	{ href: '#discovery', label: 'Discovery' },
 	{ href: '#ai', label: 'AI' },
@@ -273,5 +245,4 @@ export const sectionNav = [
 	{ href: '#compliance', label: 'Compliance' },
 	{ href: '#admin', label: 'Admin' },
 	{ href: '#security', label: 'Security' },
-	{ href: '#integrations', label: 'Integrations' },
 ];

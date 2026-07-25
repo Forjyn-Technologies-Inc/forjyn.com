@@ -25,8 +25,7 @@ export default defineConfig({
 			filter: (page) =>
 				!page.includes('/404') &&
 				!page.endsWith('/signup/') &&
-				!page.endsWith('/signup') &&
-				!page.includes('/forgot-password'),
+				!page.endsWith('/signup'),
 		}),
 	],
 	vite: {
