@@ -27,19 +27,13 @@ import TurnstileWidget from './TurnstileWidget.astro';
 		</div>
 	</div>
 
-	<fieldset class="mt-5">
-		<legend class="form-label">I am a:</legend>
-		<div class="mt-2 grid gap-2 sm:grid-cols-2">
-			{
-				contactRoles.map((role) => (
-					<label class="flex items-center gap-2 text-sm text-slate">
-						<input class="form-check" type="radio" name="role" value={role} required />
-						{role}
-					</label>
-				))
-			}
-		</div>
-	</fieldset>
+	<div class="mt-5">
+		<label class="form-label" for="contact-role">I am a:</label>
+		<select class="form-input" id="contact-role" name="role" required>
+			<option value="">Select one</option>
+			{contactRoles.map((role) => <option value={role}>{role}</option>)}
+		</select>
+	</div>
 
 	<div class="mt-5">
 		<label class="form-label" for="contact-subject">Subject</label>
