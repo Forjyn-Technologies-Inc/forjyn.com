@@ -1,7 +1,6 @@
 ---
 import BrandLogo from './BrandLogo.astro';
 import { footerColumns } from '../lib/site/nav';
-import { investmentDisclaimer } from '../data/legal';
 
 interface Props {
 	/** Copyright year override. */
@@ -48,13 +47,7 @@ const { year = 2026 } = Astro.props;
 		</div>
 
 		<div class="mt-14 border-t border-line pt-8">
-			<p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate">
-				About &amp; Investment Disclaimer
-			</p>
-			<div class="mt-4 space-y-3 text-justify text-xs leading-relaxed text-slate sm:text-[0.8125rem]">
-				{investmentDisclaimer.map((paragraph) => <p>{paragraph}</p>)}
-			</div>
-			<p class="mt-8 text-sm text-slate">
+			<p class="text-sm text-slate">
 				© {year} Forjyn Technologies Inc. All rights reserved.
 			</p>
 		</div>
