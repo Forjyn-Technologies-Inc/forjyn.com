@@ -30,12 +30,12 @@ const { year = 2026 } = Astro.props;
 						<p class="text-xs font-semibold uppercase tracking-[0.14em] text-emerald">
 							{column.title}
 						</p>
-						<ul class="mt-4 space-y-2.5">
+						<ul class="mt-4 space-y-1">
 							{column.links.map((link) => (
 								<li>
 									<a
 										href={link.href}
-										class="text-sm text-slate transition hover:text-cloud inline-flex min-h-11 items-center"
+										class="inline-block py-0.5 text-sm leading-snug text-slate transition hover:text-cloud"
 									>
 										{link.label}
 									</a>
