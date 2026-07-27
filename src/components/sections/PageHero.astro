@@ -6,11 +6,11 @@ interface Props {
 	title: string;
 	/** Supporting paragraph. */
 	lede?: string;
-	/** Measure class for the text column (default max-w-3xl). */
+	/** Optional class on the text column (defaults to full container width). */
 	innerClass?: string;
 }
 
-const { eyebrow, title, lede, innerClass = 'max-w-3xl' } = Astro.props;
+const { eyebrow, title, lede, innerClass } = Astro.props;
 ---
 
 <section class="page-hero">
@@ -26,7 +26,7 @@ const { eyebrow, title, lede, innerClass = 'max-w-3xl' } = Astro.props;
 			<h1 class="mt-4 min-w-0 break-words font-display text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
 			{
 				lede && (
-					<p class="mt-5 max-w-2xl text-justify text-base leading-relaxed text-slate sm:text-lg">{lede}</p>
+					<p class="mt-5 text-justify text-base leading-relaxed text-slate sm:text-lg">{lede}</p>
 				)
 			}
 			{
