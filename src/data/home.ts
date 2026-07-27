@@ -42,32 +42,6 @@ export const homeJourney = [
 	},
 ] as const;
 
-export const homeInvestorCapabilities = [
-	'Mobile-first startup discovery',
-	'Like, pass, and priority-interest actions',
-	'Personalized investment preferences',
-	'Compatibility and matching scores',
-	'Detailed startup profiles',
-	'Pitch videos and presentation materials',
-	'Opportunity shortlists',
-	'Mutual matches',
-	'Portfolio and commitment tracking',
-	'Private due diligence collaboration',
-] as const;
-
-export const homeStartupCapabilities = [
-	'Guided startup profile builder',
-	'Market and company information',
-	'Pitch deck and document uploads',
-	'Pitch video library',
-	'AI-supported company evaluation',
-	'Investor interest and matching',
-	'Profile engagement analytics',
-	'Due diligence document management',
-	'Secure investor collaboration',
-	'Investment-readiness support',
-] as const;
-
 export const homeAiCapabilities = [
 	{
 		title: 'Startup Evaluations',
@@ -89,44 +63,6 @@ export const homeAiCapabilities = [
 		title: 'Opportunity Scoring',
 		body: 'Platform signals can help investors and administrators identify startups that meet selected criteria.',
 	},
-] as const;
-
-export const homeDiligenceFeatures = [
-	'Private deal-specific rooms',
-	'Structured document checklists',
-	'Secure file uploads',
-	'Document version management',
-	'Investor and founder collaboration',
-	'Administrative notes and context',
-	'AI-assisted summaries',
-	'Credibility and completeness insights',
-	'Role-based access permissions',
-	'Activity and audit records',
-] as const;
-
-export const homeEventCapabilities = [
-	'Event calendar',
-	'Online registration',
-	'Participant management',
-	'QR code or token-based check-in',
-	'Automated reminders',
-	'In-app notifications',
-	'Email communications',
-	'Attendance tracking',
-	'Hybrid and in-person event support',
-] as const;
-
-export const homeSecurityCapabilities = [
-	'AES-256-GCM field-level encryption',
-	'Secure document storage',
-	'Role-based access control',
-	'Multi-factor authentication',
-	'Protected administrative functions',
-	'Secure session management',
-	'Append-only audit logs',
-	'Checksummed activity records',
-	'Server-side permission enforcement',
-	'Compliance review workflows',
 ] as const;
 
 export const homeDealPreview = [
@@ -152,12 +88,4 @@ export const homeComparisonRows = [
 	['Ecosystem partners', 'Separate tools', 'Rarely supported', 'Built-in referrals & events'],
 	['AI-assisted evaluation', 'None', 'Add-ons vary', 'Integrated, human-supervised'],
 	['Audit & access control', 'Ad hoc', 'Role basics', 'RBAC, MFA, audit logs'],
-] as const;
-
-/** Stakeholder groups highlighted in the ecosystem connection section. */
-export const homeEcosystemNetwork = [
-	'Incubators & Accelerators',
-	'Universities & Research Hubs',
-	'Mentors & Professional Services (Legal, Finance, Tech)',
-	'Corporate & Capital Partners',
 ] as const;
