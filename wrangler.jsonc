@@ -1,6 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "forjyn",
+	"account_id": "170924fe62aa5109502e9e344ab13c35",
 	"compatibility_date": "2026-07-23",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"assets": {
