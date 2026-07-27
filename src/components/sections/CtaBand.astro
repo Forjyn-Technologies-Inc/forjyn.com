@@ -48,7 +48,8 @@ const surfaceClass = surface === 'midnight' ? 'bg-midnight text-cloud' : 'bg-gra
 				Astro.slots.has('actions') && (
 					<div
 						class:list={[
-							'mt-8 flex flex-wrap gap-3',
+							'flex flex-wrap gap-3',
+							lede ? 'mt-8' : 'mt-5',
 							centered && 'items-center justify-center',
 						]}
 					>

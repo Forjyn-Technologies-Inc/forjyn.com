@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
+import CapabilityList from '../components/sections/CapabilityList.astro';
 import {
 	startupFounderFeatures,
 	investorFeatures,
@@ -26,22 +27,25 @@ const featureItem = 'flex gap-3 text-base leading-snug text-slate';
 		eyebrow="Solutions"
 		title="Technology Built Around the People Driving Innovation"
 		lede="Forjyn gives startups, investors, and ecosystem partners distinct tools while connecting them through one shared platform."
+		class="[&_.container-page]:pb-8 [&_.container-page]:sm:pb-10 [&_.container-page]:lg:pb-12"
 	>
 		<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
 			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
 		</div>
 		<nav
-			class="mt-8 flex flex-wrap items-center justify-center gap-3"
+			class="mt-5 flex flex-wrap items-center justify-center gap-3"
 			aria-label="Solutions sections"
 		>
-			<a href="#startups" class="btn-secondary">Startups</a>
-			<a href="#investors" class="btn-secondary">Investors</a>
-			<a href="#ecosystem" class="btn-secondary">Ecosystem Partners</a>
-			<a href="#service-providers" class="btn-secondary">Service Providers</a>
+			<a href="#startups" class="btn-secondary text-emerald hover:text-emerald">Startups</a>
+			<a href="#investors" class="btn-secondary text-emerald hover:text-emerald">Investors</a>
+			<a href="#ecosystem" class="btn-secondary text-emerald hover:text-emerald">Ecosystem Partners</a>
+			<a href="#service-providers" class="btn-secondary text-emerald hover:text-emerald"
+				>Service Providers</a
+			>
 		</nav>
 	</PageHero>
 
-	<section id="startups" class="scroll-mt-24 bg-graphite section-y">
+	<section id="startups" class="scroll-mt-24 bg-graphite pt-8 pb-12 sm:pt-10 sm:pb-16">
 		<div class="container-page">
 			<p class={audienceLabel}>For Startups</p>
 			<div class="accent-line mt-4 max-w-20"></div>
@@ -50,16 +54,7 @@ const featureItem = 'flex gap-3 text-base leading-snug text-slate';
 				Build a structured company profile that helps investors understand your opportunity with our
 				built in features:
 			</p>
-			<ul class={featureList}>
-				{
-					startupFounderFeatures.map((item) => (
-						<li class={featureItem}>
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList items={startupFounderFeatures} class="mt-6 gap-x-12 [&_li]:text-base [&_li]:leading-snug" />
 
 			<div class="mt-14 text-center">
 				<p class="font-display text-2xl font-semibold text-cloud sm:text-3xl">
@@ -116,16 +111,10 @@ const featureItem = 'flex gap-3 text-base leading-snug text-slate';
 			<p class="mt-6 text-base leading-relaxed text-slate sm:text-lg">
 				Give Your Innovation Community Better Infrastructure with Forjyn’s ecosystem partner features:
 			</p>
-			<ul class={featureList}>
-				{
-					ecosystemPartnerFeatures.map((item) => (
-						<li class={featureItem}>
-							<span class="capability-dot" aria-hidden="true" />
-							{item}
-						</li>
-					))
-				}
-			</ul>
+			<CapabilityList
+				items={ecosystemPartnerFeatures}
+				class="mt-6 gap-x-12 [&_li]:text-base [&_li]:leading-snug"
+			/>
 
 			<div class="mt-14 text-center">
 				<p class="font-display text-2xl font-semibold text-cloud sm:text-3xl">
@@ -163,17 +152,10 @@ const featureItem = 'flex gap-3 text-base leading-snug text-slate';
 					))
 				}
 			</ul>
-			<p class="mt-8 text-sm leading-relaxed text-slate">
-				Service provider participation, visibility, and access may be subject to platform approval or
-				partnership arrangements.
-			</p>
 		</div>
 	</section>
 
-	<CtaBand
-		title="One Platform. Different Roles. Shared Growth."
-		lede="Every Forjyn experience is designed around the user while contributing to a stronger, more connected innovation ecosystem."
-	>
+	<CtaBand title="One Platform. Different Roles. Shared Growth.">
 		<Fragment slot="actions">
 			<a href="https://app.forjyn.com/register" class="btn-primary">Sign Up Now</a>
 		</Fragment>
