@@ -63,6 +63,10 @@ export const homeAiCapabilities = [
 		title: 'Opportunity Scoring',
 		body: 'Platform signals can help investors and administrators identify startups that meet selected criteria.',
 	},
+	{
+		title: 'Intelligent Knowledge Search',
+		body: "Ask questions directly within a startup's due diligence room. AI analyzes supporting documentation to deliver accurate, context-aware responses.",
+	},
 ] as const;
 
 export const homeDealPreview = [
