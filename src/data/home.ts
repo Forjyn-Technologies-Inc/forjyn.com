@@ -77,19 +77,28 @@ export const homeDealPreview = [
 
 /**
  * Feature comparison rows for a semantic HTML data table.
- * Columns: Dimension | Spreadsheets & email | Standalone CRM | Forjyn platform
+ * Columns: Feature | Spreadsheets & Email | Traditional Deal Flow Platforms | Forjyn
  */
 export const homeComparisonColumns = [
-	'Dimension',
-	'Spreadsheets & email',
-	'Standalone CRM',
-	'Forjyn platform',
+	'Feature',
+	'Spreadsheets & Email',
+	'Traditional Deal Flow Platforms',
+	'Forjyn',
 ] as const;
 
 export const homeComparisonRows = [
-	['Startup–investor matching', 'Manual', 'Limited filters', 'Preference-based scoring'],
-	['Due diligence workspace', 'Attachments & threads', 'File notes only', 'Permissioned deal rooms'],
-	['Ecosystem partners', 'Separate tools', 'Rarely supported', 'Built-in referrals & events'],
-	['AI-assisted evaluation', 'None', 'Add-ons vary', 'Integrated, human-supervised'],
-	['Audit & access control', 'Ad hoc', 'Role basics', 'RBAC, MFA, audit logs'],
+	['Startup Profiles', 'X', '✓', '✓'],
+	['Investor Profiles', 'X', '✓', '✓'],
+	['Startup–Investor Matching', 'X', '✓', '✓'],
+	['Due Diligence Rooms', 'X', '✓', '✓'],
+	['Integrated Messaging', 'X', '✓', '✓'],
+	['Role-Based Permissions', 'X', '✓', '✓'],
+	['Audit Logs & Activity Tracking', 'X', '✓', '✓'],
+	['AI-Powered Matching', 'X', 'X', '✓'],
+	['AI Document Intelligence', 'X', 'X', '✓'],
+	['Ecosystem Partner Portal', 'X', 'X', '✓'],
+	['Referral Management', 'X', 'X', '✓'],
+	['Program & Event Management', 'X', 'X', '✓'],
+	['Startup Investment Readiness Tools', 'X', 'X', '✓'],
+	['Multi-Organization Collaboration', 'X', 'X', '✓'],
 ] as const;
