@@ -46,11 +46,11 @@
 	}
 
 	.btn-primary {
-		@apply inline-flex min-h-11 items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
+		@apply inline-flex h-11 items-center justify-center rounded-brand border border-transparent bg-emerald px-5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-secondary {
-		@apply inline-flex min-h-11 items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
+		@apply inline-flex h-11 items-center justify-center rounded-brand border border-line bg-transparent px-5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
 	}
 
 	.btn-ghost {
@@ -58,11 +58,11 @@
 	}
 
 	.btn-primary-on-dark {
-		@apply inline-flex min-h-11 items-center justify-center rounded-brand bg-emerald px-5 py-2.5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
+		@apply inline-flex h-11 items-center justify-center rounded-brand border border-transparent bg-emerald px-5 text-sm font-semibold text-midnight transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
 	}
 
 	.btn-secondary-on-dark {
-		@apply inline-flex min-h-11 items-center justify-center rounded-brand border border-line bg-transparent px-5 py-2.5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
+		@apply inline-flex h-11 items-center justify-center rounded-brand border border-line bg-transparent px-5 text-sm font-semibold text-cloud transition duration-200 hover:border-emerald/50 hover:bg-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure;
 	}
 
 	.section-heading {
