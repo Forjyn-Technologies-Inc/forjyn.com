@@ -1,50 +1,45 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHero from '../../components/sections/PageHero.astro';
-import CapabilityList from '../../components/sections/CapabilityList.astro';
-import CtaBand from '../../components/sections/CtaBand.astro';
-import { solutionAudiencePages } from '../../data/solutionAudiences';
+/**
+ * Legacy audience URLs redirect to the matching section on /solutions.
+ * Hash fragments are applied client-side (HTTP redirects cannot carry them).
+ */
+const audienceRedirects = [
+	{ slug: 'startups', anchor: 'startups' },
+	{ slug: 'investors', anchor: 'investors' },
+	{ slug: 'ecosystem', anchor: 'ecosystem' },
+	{ slug: 'service-providers', anchor: 'service-providers' },
+	{ slug: 'enterprise', anchor: 'ecosystem' },
+] as const;
 
 export function getStaticPaths() {
-	return solutionAudiencePages.map((page) => ({
-		params: { audience: page.slug },
-		props: { page },
+	return audienceRedirects.map(({ slug, anchor }) => ({
+		params: { audience: slug },
+		props: { anchor },
 	}));
 }
 
 interface Props {
-	page: (typeof solutionAudiencePages)[number];
+	anchor: (typeof audienceRedirects)[number]['anchor'];
 }
 
-const { page } = Astro.props;
+const { anchor } = Astro.props;
+const target = `/solutions#${anchor}`;
 ---
 
-<BaseLayout title={page.seoTitle} description={page.seoDescription}>
-	<PageHero eyebrow={page.eyebrow} title={page.title} lede={page.lede}>
-		<Fragment slot="actions">
-			<a href={page.ctaHref} class="btn-primary">{page.ctaLabel}</a>
-			<a href={`/solutions#${page.anchor}`} class="btn-secondary">View full solutions</a>
-		</Fragment>
-	</PageHero>
-
-	<section class="bg-graphite section-y">
-		<div class="container-page">
-			<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">Highlights</p>
-			<CapabilityList items={page.highlights} class="mt-6" />
-			<p class="mt-8 text-sm leading-relaxed text-slate">
-				For a deeper walkthrough of workflows, capabilities, and role-specific tools, see the{' '}
-				<a href={`/solutions#${page.anchor}`} class="link-accent">Solutions overview</a>.
-			</p>
-		</div>
-	</section>
-
-	<CtaBand
-		title="See Forjyn in Action"
-		lede="Book a personalized demonstration tailored to your organization and goals."
-	>
-		<Fragment slot="actions">
-			<a href="/contact#demo" class="btn-primary">Book a Demo</a>
-			<a href="/contact" class="btn-secondary">Contact Us</a>
-		</Fragment>
-	</CtaBand>
-</BaseLayout>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="refresh" content={`0;url=${target}`} />
+		<link rel="canonical" href="https://forjyn.com/solutions" />
+		<title>Redirecting…</title>
+		<script define:vars={{ target }}>
+			location.replace(target);
+		</script>
+	</head>
+	<body>
+		<p>
+			<a href={target}>Continue to Solutions</a>
+		</p>
+	</body>
+</html>

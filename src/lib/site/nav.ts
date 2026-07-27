@@ -14,11 +14,10 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 	{
 		title: 'Solutions',
 		links: [
-			{ label: 'For Startups', href: '/solutions/startups' },
-			{ label: 'For Investors', href: '/solutions/investors' },
-			{ label: 'For Ecosystem Partners', href: '/solutions/ecosystem' },
-			{ label: 'For Service Providers', href: '/solutions/service-providers' },
-			{ label: 'Enterprise Solutions', href: '/solutions/enterprise' },
+			{ label: 'For Startups', href: '/solutions#startups' },
+			{ label: 'For Investors', href: '/solutions#investors' },
+			{ label: 'For Ecosystem Partners', href: '/solutions#ecosystem' },
+			{ label: 'For Service Providers', href: '/solutions#service-providers' },
 		],
 	},
 	{
@@ -27,8 +26,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 			{ label: 'Contact', href: '/contact' },
 			{ label: 'Book a Demo', href: '/contact#demo' },
 			{ label: 'Careers', href: '/careers' },
-			{ label: 'News', href: '/news' },
-			{ label: 'Partnerships', href: '/partnerships' },
 		],
 	},
 	{

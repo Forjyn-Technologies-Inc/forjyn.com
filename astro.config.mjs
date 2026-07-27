@@ -15,6 +15,12 @@ export default defineConfig({
 		// Without this, logo WebPs stayed 192×192 while rendering at 32px.
 		imageService: 'compile',
 	}),
+	redirects: {
+		'/news': '/',
+		'/news/': '/',
+		'/partnerships': '/contact',
+		'/partnerships/': '/contact',
+	},
 	build: {
 		// Inline CSS into <style> to eliminate the render-blocking stylesheet round-trip.
 		// Tailwind + latin font faces stay modest; marketing pages benefit more than they pay in HTML size.

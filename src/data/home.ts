@@ -2,19 +2,19 @@ export const homeAudiences = [
 	{
 		title: 'For Startups',
 		body: 'Build a complete company profile, present your opportunity professionally, receive AI-supported evaluations, monitor investor engagement, and manage due diligence from one secure workspace.',
-		href: '/solutions/startups',
+		href: '/solutions#startups',
 		linkLabel: 'Explore Startup Solutions',
 	},
 	{
 		title: 'For Investors',
 		body: 'Discover startups based on your preferences, review opportunities efficiently, manage your deal pipeline, collaborate during due diligence, and track your investment activity.',
-		href: '/solutions/investors',
+		href: '/solutions#investors',
 		linkLabel: 'Explore Investor Solutions',
 	},
 	{
 		title: 'For Ecosystem Partners',
 		body: 'Manage startup communities, create referrals, coordinate events, support founders, communicate with stakeholders, and understand ecosystem activity through centralized reporting.',
-		href: '/solutions/ecosystem',
+		href: '/solutions#ecosystem',
 		linkLabel: 'Explore Ecosystem Solutions',
 	},
 ] as const;
