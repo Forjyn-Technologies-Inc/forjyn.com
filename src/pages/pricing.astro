@@ -7,34 +7,6 @@ const title = 'Forjyn Pricing | Startup and Investor Plans';
 const description =
 	'Compare Forjyn plans for startups, investors, ecosystem partners, accelerators, universities, and innovation organizations.';
 
-const startupFeatures = [
-	'Startup account',
-	'Guided profile builder',
-	'Pitch deck upload',
-	'Pitch video upload',
-	'Company document storage',
-	'Investor matching',
-	'Investor interest visibility',
-	'Startup analytics',
-	'Event registration',
-	'Due diligence access',
-	'AI-supported evaluation',
-];
-
-const investorFeatures = [
-	'Investor account',
-	'Personalized deal discovery',
-	'Compatibility scoring',
-	'Full startup profiles',
-	'Pitch content access',
-	'Matches',
-	'Deal pipeline',
-	'Due diligence rooms',
-	'Event registration',
-	'Portfolio tracking',
-	'Member communications',
-];
-
 const ecosystemFeatures = [
 	'Organization workspace',
 	'Startup and investor directories',
@@ -67,43 +39,6 @@ const enterpriseFeatures = [
 	'Training',
 	'Service-level agreements',
 ];
-
-const comparisonRows = [
-	['Role-specific profile', 'Included', 'Included', 'Included', 'Included'],
-	['Deal discovery', 'Limited or N/A', 'Included', 'Configurable', 'Configurable'],
-	['Investor matching', 'Included', 'Included', 'Included', 'Included'],
-	['AI evaluations', 'Available', 'View access', 'Managed', 'Advanced'],
-	['Due diligence rooms', 'Included', 'Included', 'Included', 'Included'],
-	['Events', 'Registration', 'Registration', 'Management', 'Advanced'],
-	['Analytics', 'Startup analytics', 'Investor activity', 'Organization reporting', 'Custom'],
-	['Compliance workflows', 'N/A', 'Required where applicable', 'Managed', 'Advanced'],
-	['Administrative access', 'No', 'No', 'Included', 'Advanced'],
-	['Custom integrations', 'No', 'No', 'Optional', 'Included'],
-	['Dedicated support', 'Standard', 'Standard', 'Priority', 'Dedicated'],
-];
-
-const faqs = [
-	{
-		q: 'Can I create an account for free?',
-		a: 'Forjyn offers demos, but does not offer a free trial.',
-	},
-	{
-		q: 'Do investors need to be accredited?',
-		a: 'Yes.',
-	},
-	{
-		q: 'Can an organization add multiple team members?',
-		a: 'Yes. Ecosystem and enterprise plans can support multiple administrators, moderators, and organization users with role-based permissions.',
-	},
-	{
-		q: 'Are payments processed securely?',
-		a: 'Forjyn uses established third-party payment providers for supported payment functionality.',
-	},
-	{
-		q: 'Can I cancel my subscription?',
-		a: 'Cancellation terms depend on the selected plan and agreement. Applicable terms should be presented during checkout or in the customer contract.',
-	},
-];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -127,16 +62,6 @@ const faqs = [
 				<p class="mt-5 font-display text-lg font-semibold text-cloud">
 					100 CAD <span class="text-base font-medium text-slate">per year</span>
 				</p>
-				<ul class="mt-6 space-y-2.5">
-					{
-						startupFeatures.map((item) => (
-							<li class="flex gap-2.5 text-sm text-slate">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
 				<p class="mt-5 text-xs leading-relaxed text-slate">
 					Certain premium features, enhanced analytics, evaluations, additional storage, or promotional
 					visibility may require a paid subscription.
@@ -156,16 +81,6 @@ const faqs = [
 				<p class="mt-5 font-display text-lg font-semibold text-cloud">
 					999 CAD <span class="text-base font-medium text-slate">per year</span>
 				</p>
-				<ul class="mt-6 space-y-2.5">
-					{
-						investorFeatures.map((item) => (
-							<li class="flex gap-2.5 text-sm text-slate">
-								<span class="capability-dot" aria-hidden="true" />
-								{item}
-							</li>
-						))
-					}
-				</ul>
 				<p class="mt-5 text-xs leading-relaxed text-slate">
 					Access to selected opportunities and investment-related features may require successful
 					identity, compliance, and accreditation verification.
@@ -218,64 +133,6 @@ const faqs = [
 				</ul>
 				<a href="/contact" class="btn-primary-on-dark mt-6">Contact Sales</a>
 			</article>
-		</div>
-	</section>
-
-	<section class="bg-graphite section-y">
-		<div class="container-page">
-			<h2 class="section-heading">Compare Plans</h2>
-			<div class="mt-8 overflow-x-auto rounded-xl border border-line">
-				<table class="min-w-[640px] w-full border-collapse text-left text-sm">
-					<thead class="bg-midnight">
-						<tr>
-							<th class="px-4 py-3 font-semibold text-cloud sm:px-5">Capability</th>
-							<th class="px-4 py-3 font-semibold text-cloud sm:px-5">Startup</th>
-							<th class="px-4 py-3 font-semibold text-cloud sm:px-5">Investor</th>
-							<th class="px-4 py-3 font-semibold text-cloud sm:px-5">Ecosystem</th>
-							<th class="px-4 py-3 font-semibold text-cloud sm:px-5">Enterprise</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							comparisonRows.map((row) => (
-								<tr class="border-t border-line">
-									{row.map((cell, index) => (
-										<td
-											class:list={[
-												'px-4 py-3 sm:px-5',
-												index === 0 ? 'font-medium text-cloud' : 'text-slate',
-											]}
-										>
-											{cell}
-										</td>
-									))}
-								</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
-
-	<section class="border-t border-line bg-midnight section-y">
-		<div class="container-page">
-			<h2 class="section-heading">Frequently Asked Pricing Questions</h2>
-			<div class="mt-10 space-y-6">
-				{
-					faqs.map((faq) => (
-						<details class="group border-b border-line pb-5">
-							<summary class="cursor-pointer list-none font-display text-lg font-semibold text-cloud marker:content-none [&::-webkit-details-marker]:hidden">
-								<span class="flex min-h-11 items-center justify-between gap-4">
-									<span class="min-w-0 flex-1 break-words pr-2">{faq.q}</span>
-									<span class="shrink-0 text-emerald transition group-open:rotate-45" aria-hidden="true">+</span>
-								</span>
-							</summary>
-							<p class="mt-3 text-sm leading-relaxed text-slate">{faq.a}</p>
-						</details>
-					))
-				}
-			</div>
 		</div>
 	</section>
 
