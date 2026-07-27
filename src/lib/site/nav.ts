@@ -6,25 +6,11 @@ export interface NavLink {
 export const primaryNav: NavLink[] = [
 	{ label: 'Home', href: '/' },
 	{ label: 'Solutions', href: '/solutions' },
-	{ label: 'Platform', href: '/platform' },
 	{ label: 'Pricing', href: '/pricing' },
-	{ label: 'About', href: '/about' },
 	{ label: 'Contact', href: '/contact' },
 ];
 
 export const footerColumns: { title: string; links: NavLink[] }[] = [
-	{
-		title: 'Platform',
-		links: [
-			{ label: 'Platform Overview', href: '/platform' },
-			{ label: 'Startup Tools', href: '/platform#startup-tools' },
-			{ label: 'Investor Tools', href: '/platform#investor-tools' },
-			{ label: 'Due Diligence', href: '/platform#due-diligence' },
-			{ label: 'AI Evaluations', href: '/platform#ai' },
-			{ label: 'Events', href: '/platform#events' },
-			{ label: 'Security', href: '/platform#security' },
-		],
-	},
 	{
 		title: 'Solutions',
 		links: [
@@ -38,7 +24,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 	{
 		title: 'Company',
 		links: [
-			{ label: 'About', href: '/about' },
 			{ label: 'Contact', href: '/contact' },
 			{ label: 'Book a Demo', href: '/contact#demo' },
 			{ label: 'Careers', href: '/careers' },

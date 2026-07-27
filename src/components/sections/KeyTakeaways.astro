@@ -13,13 +13,11 @@ const { title = 'Key Takeaways', items } = Astro.props;
 
 <section class="border-y border-line bg-graphite section-y" aria-labelledby="key-takeaways-heading">
 	<div class="container-page">
-		<div class="max-w-3xl">
 		<h2 id="key-takeaways-heading" class="font-display text-xl font-semibold tracking-tight text-cloud sm:text-2xl">
 			{title}
 		</h2>
 		<ul class="mt-5 list-disc space-y-2.5 pl-5 text-sm leading-relaxed text-slate sm:text-base">
 			{items.map((item) => <li>{item}</li>)}
 		</ul>
-		</div>
 	</div>
 </section>

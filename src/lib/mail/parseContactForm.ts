@@ -7,7 +7,6 @@ import {
 	assertOrgType,
 	assertRole,
 	assertSubject,
-	filterInterests,
 	requireEmail,
 	requireLength,
 } from './fieldValidation';
@@ -33,7 +32,6 @@ function parseDemo(form: FormData): DemoPayload {
 
 	const phoneRaw = asString(form.get('phone'));
 	const jobTitleRaw = asString(form.get('jobTitle'));
-	const expectedUsersRaw = asString(form.get('expectedUsers'));
 	const goalsRaw = asString(form.get('goals'));
 
 	return {
@@ -50,10 +48,6 @@ function parseDemo(form: FormData): DemoPayload {
 			: undefined,
 		organizationType,
 		organizationSize: assertOrgSize(asString(form.get('organizationSize')) || undefined),
-		interests: filterInterests(form.getAll('interests').map(asString).filter(Boolean)),
-		expectedUsers: expectedUsersRaw
-			? requireLength(expectedUsersRaw, FIELD_LIMITS.expectedUsers, 'Expected users')
-			: undefined,
 		goals: goalsRaw ? requireLength(goalsRaw, FIELD_LIMITS.goals, 'Goals') : undefined,
 	};
 }

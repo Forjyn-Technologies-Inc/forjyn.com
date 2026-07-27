@@ -14,7 +14,6 @@ import {
 	homeEventCapabilities,
 	homeInvestorCapabilities,
 	homeJourney,
-	homePerspective,
 	homeSecurityCapabilities,
 	homeStartupCapabilities,
 } from '../data/home';
@@ -110,15 +109,6 @@ import {
 					greater efficiency and visibility.
 				</p>
 			</div>
-			<aside class="mt-8 border-t border-line pt-6" aria-labelledby="perspective-heading">
-				<h2
-					id="perspective-heading"
-					class="font-display text-xl font-semibold tracking-tight text-cloud sm:text-2xl"
-				>
-					{homePerspective.heading}
-				</h2>
-				<p class="mt-4 text-justify text-base leading-relaxed text-slate sm:text-lg">{homePerspective.body}</p>
-			</aside>
 		</div>
 	</section>
 
@@ -132,9 +122,7 @@ import {
 
 	<section class="border-y border-line bg-graphite section-y">
 		<div class="container-page">
-			<div class="max-w-2xl">
-				<h2 class="section-heading">Built for the People Driving Innovation</h2>
-			</div>
+			<h2 class="section-heading">Built for the People Driving Innovation</h2>
 			<div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
 				{
 					homeAudiences.map((item) => (
@@ -153,12 +141,10 @@ import {
 
 	<section class="bg-graphite/50 section-y">
 		<div class="container-page">
-			<div class="max-w-2xl">
-				<h2 class="section-heading">One Platform. Every Stage of the Opportunity.</h2>
-				<p class="section-lede">
-					Forjyn supports the journey from initial discovery to deeper evaluation and long-term growth.
-				</p>
-			</div>
+			<h2 class="section-heading">One Platform. Every Stage of the Opportunity.</h2>
+			<p class="section-lede">
+				Forjyn supports the journey from initial discovery to deeper evaluation and long-term growth.
+			</p>
 			<ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
 				{
 					homeJourney.map((step, index) => (
@@ -237,17 +223,15 @@ import {
 
 	<section class="border-y border-line bg-midnight section-y">
 		<div class="container-page">
-			<div class="max-w-2xl">
-				<h2 class="section-heading">Intelligence Built Into the Platform</h2>
-				<p class="section-lede">
-					Forjyn uses artificial intelligence to help users organize information, identify alignment,
-					and make more informed decisions.
-				</p>
-				<p class="mt-4 text-base leading-relaxed text-slate">
-					AI is integrated throughout the platform to assist with evaluation, matching, document
-					review, and due diligence. It is designed to support human judgment—not replace it.
-				</p>
-			</div>
+			<h2 class="section-heading">Intelligence Built Into the Platform</h2>
+			<p class="section-lede">
+				Forjyn uses artificial intelligence to help users organize information, identify alignment,
+				and make more informed decisions.
+			</p>
+			<p class="mt-4 text-base leading-relaxed text-slate">
+				AI is integrated throughout the platform to assist with evaluation, matching, document
+				review, and due diligence. It is designed to support human judgment—not replace it.
+			</p>
 			<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 				{
 					homeAiCapabilities.map((item) => (
@@ -273,7 +257,7 @@ import {
 					Forjyn due diligence rooms allow matched startups and investors to exchange information,
 					review documents, track outstanding requests, and maintain a clearer record of the process.
 				</p>
-				<a href="/platform" class="btn-primary mt-8">Explore the Platform</a>
+				<a href="/solutions" class="btn-primary mt-8">Explore Solutions</a>
 			</div>
 			<div>
 				<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">

@@ -6,3 +6,9 @@
 /login/ https://app.forjyn.com/login 301
 /forgot-password https://app.forjyn.com/login 301
 /forgot-password/ https://app.forjyn.com/login 301
+
+# Retired marketing pages.
+/about / 301
+/about/ / 301
+/platform / 301
+/platform/ / 301

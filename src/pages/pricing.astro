@@ -2,25 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
-import CapabilityList from '../components/sections/CapabilityList.astro';
 
 const title = 'Forjyn Pricing | Startup and Investor Plans';
 const description =
 	'Compare Forjyn plans for startups, investors, ecosystem partners, accelerators, universities, and innovation organizations.';
-
-const pricingFactors = [
-	'User type',
-	'Membership level',
-	'Number of accounts',
-	'Administrative requirements',
-	'Compliance features',
-	'Event functionality',
-	'Communication volume',
-	'Storage requirements',
-	'Integrations',
-	'Custom configuration',
-	'Support level',
-];
 
 const startupFeatures = [
 	'Startup account',
@@ -127,18 +112,6 @@ const faqs = [
 		title="Choose the Right Forjyn Experience"
 		lede="Start with an account or speak with our team about a platform solution tailored to your organization."
 	/>
-
-	<section class="bg-graphite section-y">
-		<div class="container-page">
-			<div class="max-w-3xl">
-			<p class="text-base leading-relaxed text-slate">
-				Forjyn serves individual startups and investors as well as larger ecosystem organizations.
-			</p>
-			<p class="mt-4 text-sm font-medium text-cloud">Pricing may vary based on:</p>
-			<CapabilityList items={pricingFactors} class="mt-4" />
-			</div>
-		</div>
-	</section>
 
 	<section class="border-y border-line bg-midnight section-y">
 		<div class="container-page grid gap-6 lg:grid-cols-2">
@@ -287,7 +260,6 @@ const faqs = [
 
 	<section class="border-t border-line bg-midnight section-y">
 		<div class="container-page">
-			<div class="max-w-3xl">
 			<h2 class="section-heading">Frequently Asked Pricing Questions</h2>
 			<div class="mt-10 space-y-6">
 				{
@@ -303,7 +275,6 @@ const faqs = [
 						</details>
 					))
 				}
-			</div>
 			</div>
 		</div>
 	</section>

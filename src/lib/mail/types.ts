@@ -10,8 +10,6 @@ export interface DemoPayload {
 	jobTitle?: string;
 	organizationType: string;
 	organizationSize?: string;
-	interests?: string[];
-	expectedUsers?: string;
 	goals?: string;
 }
 

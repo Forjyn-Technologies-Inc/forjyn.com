@@ -30,13 +30,13 @@ const surfaceClass = surface === 'midnight' ? 'bg-midnight text-cloud' : 'bg-gra
 		)
 	}
 	<div class="container-page relative">
-		<div class:list={[!centered && 'max-w-3xl', centered && 'text-center']}>
+		<div class:list={[!centered && 'w-full', centered && 'text-center']}>
 			<h2 class="break-words font-display text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
 			{
 				lede && (
 					<p
 						class:list={[
-							'mt-5 max-w-2xl text-base leading-relaxed text-slate sm:text-lg',
+							'mt-5 text-base leading-relaxed text-slate sm:text-lg',
 							centered && 'mx-auto',
 						]}
 					>

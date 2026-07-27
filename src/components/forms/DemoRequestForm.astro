@@ -1,6 +1,5 @@
 ---
 import {
-	contactInterests,
 	contactOrgSizes,
 	contactOrgTypes,
 } from '../../data/contact';
@@ -57,25 +56,6 @@ import TurnstileWidget from './TurnstileWidget.astro';
 				{contactOrgSizes.map((size) => <option value={size}>{size}</option>)}
 			</select>
 		</div>
-	</div>
-
-	<fieldset class="mt-5">
-		<legend class="form-label">What are you interested in?</legend>
-		<div class="mt-2 grid gap-2 sm:grid-cols-2">
-			{
-				contactInterests.map((item) => (
-					<label class="flex items-start gap-2 text-sm text-slate">
-						<input class="form-check mt-0.5" type="checkbox" name="interests" value={item} />
-						{item}
-					</label>
-				))
-			}
-		</div>
-	</fieldset>
-
-	<div class="mt-5">
-		<label class="form-label" for="demo-users">How many users do you expect?</label>
-		<input class="form-input" id="demo-users" name="expectedUsers" type="text" />
 	</div>
 
 	<div class="mt-5">

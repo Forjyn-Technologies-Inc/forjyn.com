@@ -29,17 +29,12 @@ const { page } = Astro.props;
 
 	<section class="bg-graphite section-y">
 		<div class="container-page">
-			<div class="max-w-3xl">
 			<p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald">Highlights</p>
 			<CapabilityList items={page.highlights} class="mt-6" />
 			<p class="mt-8 text-sm leading-relaxed text-slate">
 				For a deeper walkthrough of workflows, capabilities, and role-specific tools, see the{' '}
-				<a href={`/solutions#${page.anchor}`} class="link-accent">Solutions overview</a>
-				{' '}or{' '}
-				<a href="/platform" class="link-accent">Platform</a>
-				{' '}pages.
+				<a href={`/solutions#${page.anchor}`} class="link-accent">Solutions overview</a>.
 			</p>
-			</div>
 		</div>
 	</section>
 

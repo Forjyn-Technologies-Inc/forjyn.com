@@ -18,7 +18,6 @@ const { title = 'Key Terms', lede, items } = Astro.props;
 
 <section class="bg-midnight section-y" aria-labelledby="term-definitions-heading">
 	<div class="container-page">
-		<div class="max-w-3xl">
 		<h2 id="term-definitions-heading" class="section-heading">{title}</h2>
 		{lede && <p class="section-lede">{lede}</p>}
 		<dl class="mt-10 space-y-6">
@@ -31,6 +30,5 @@ const { title = 'Key Terms', lede, items } = Astro.props;
 				))
 			}
 		</dl>
-		</div>
 	</div>
 </section>

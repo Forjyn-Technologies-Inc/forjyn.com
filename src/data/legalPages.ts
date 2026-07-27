@@ -241,6 +241,8 @@ export const legalPages: LegalPage[] = [
 					'Nothing on the platform or this website is an offer, recommendation, endorsement, solicitation, or guarantee concerning any company, security, investment, transaction, or outcome.',
 					'Users are responsible for conducting their own independent due diligence and obtaining advice from qualified professionals before making business, investment, legal, financial, or tax decisions.',
 					'Investment opportunities involve risk, including the possible loss of the entire amount invested.',
+					'Availability and implementation of verification features may vary by jurisdiction, customer configuration, service provider, and applicable law.',
+					'Security controls reduce risk but cannot eliminate every possible threat. Platform users and customers are responsible for maintaining appropriate access practices and protecting their login credentials.',
 				],
 			},
 		],

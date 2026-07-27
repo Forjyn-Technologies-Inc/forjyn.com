@@ -15,7 +15,6 @@ function row(label: string, value: string | undefined): string {
 }
 
 export function buildDemoHtml(payload: DemoPayload): string {
-	const interests = payload.interests?.length ? payload.interests.join(', ') : undefined;
 	return `
 		<div style="font-family:Inter,Arial,sans-serif;background:#0B1020;color:#F7FBF0;padding:24px;">
 			<h1 style="font-size:20px;margin:0 0 8px;">New demo request</h1>
@@ -28,8 +27,6 @@ export function buildDemoHtml(payload: DemoPayload): string {
 				${row('Job title', payload.jobTitle)}
 				${row('Organization type', payload.organizationType)}
 				${row('Organization size', payload.organizationSize)}
-				${row('Interests', interests)}
-				${row('Expected users', payload.expectedUsers)}
 				${row('Goals', payload.goals)}
 			</table>
 		</div>

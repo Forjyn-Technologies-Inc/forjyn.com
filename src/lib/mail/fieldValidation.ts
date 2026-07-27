@@ -4,7 +4,6 @@
  */
 
 import {
-	contactInterests,
 	contactOrgSizes,
 	contactOrgTypes,
 	contactRoles,
@@ -17,11 +16,9 @@ export const FIELD_LIMITS = {
 	phone: 40,
 	organization: 200,
 	jobTitle: 120,
-	expectedUsers: 80,
 	goals: 4000,
 	message: 5000,
 	subject: 200,
-	interestsMax: 20,
 } as const;
 
 /** User-facing validation failures (safe to return to the client). */
@@ -85,12 +82,6 @@ export function assertOrgType(value: string): string {
 export function assertOrgSize(value: string | undefined): string | undefined {
 	if (!value) return undefined;
 	return assertAllowed(value, contactOrgSizes, 'organization size');
-}
-
-export function filterInterests(values: string[]): string[] {
-	const allowed = new Set<string>(contactInterests);
-	const filtered = values.filter((v) => allowed.has(v)).slice(0, FIELD_LIMITS.interestsMax);
-	return filtered;
 }
 
 /** Honeypot: bots fill hidden fields; humans leave them empty. */
