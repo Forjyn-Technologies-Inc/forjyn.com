@@ -18,6 +18,9 @@ export default defineConfig({
 	redirects: {
 		'/news': '/',
 		'/partnerships': '/contact',
+		'/support': '/contact',
+		'/legal/acceptable-use': '/legal/terms',
+		'/legal/security': '/legal/privacy',
 	},
 	build: {
 		// Inline CSS into <style> to eliminate the render-blocking stylesheet round-trip.

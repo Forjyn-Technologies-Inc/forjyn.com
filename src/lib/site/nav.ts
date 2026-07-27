@@ -33,7 +33,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 		links: [
 			{ label: 'Sign Up', href: 'https://app.forjyn.com/register' },
 			{ label: 'Log In', href: 'https://app.forjyn.com/login' },
-			{ label: 'Support', href: '/support' },
 		],
 	},
 	{
@@ -42,8 +41,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 			{ label: 'Privacy Policy', href: '/legal/privacy' },
 			{ label: 'Terms of Use', href: '/legal/terms' },
 			{ label: 'Cookie Policy', href: '/legal/cookies' },
-			{ label: 'Acceptable Use Policy', href: '/legal/acceptable-use' },
-			{ label: 'Security', href: '/legal/security' },
 			{ label: 'Disclaimers', href: '/legal/investment-disclaimer' },
 			{ label: 'Accessibility', href: '/legal/accessibility' },
 		],
