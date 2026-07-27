@@ -3,15 +3,15 @@
  * Legacy audience URLs redirect to the matching section on /solutions.
  * Hash fragments are applied client-side (HTTP redirects cannot carry them).
  */
-const audienceRedirects = [
-	{ slug: 'startups', anchor: 'startups' },
-	{ slug: 'investors', anchor: 'investors' },
-	{ slug: 'ecosystem', anchor: 'ecosystem' },
-	{ slug: 'service-providers', anchor: 'service-providers' },
-	{ slug: 'enterprise', anchor: 'ecosystem' },
-] as const;
-
 export function getStaticPaths() {
+	const audienceRedirects = [
+		{ slug: 'startups', anchor: 'startups' },
+		{ slug: 'investors', anchor: 'investors' },
+		{ slug: 'ecosystem', anchor: 'ecosystem' },
+		{ slug: 'service-providers', anchor: 'service-providers' },
+		{ slug: 'enterprise', anchor: 'ecosystem' },
+	] as const;
+
 	return audienceRedirects.map(({ slug, anchor }) => ({
 		params: { audience: slug },
 		props: { anchor },
@@ -19,7 +19,7 @@ export function getStaticPaths() {
 }
 
 interface Props {
-	anchor: (typeof audienceRedirects)[number]['anchor'];
+	anchor: string;
 }
 
 const { anchor } = Astro.props;
