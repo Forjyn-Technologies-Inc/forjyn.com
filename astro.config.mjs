@@ -21,6 +21,7 @@ export default defineConfig({
 		'/support': '/contact',
 		'/legal/acceptable-use': '/legal/terms',
 		'/legal/security': '/legal/privacy',
+		'/legal/cookies': '/legal/privacy',
 	},
 	build: {
 		// Inline CSS into <style> to eliminate the render-blocking stylesheet round-trip.

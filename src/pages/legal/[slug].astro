@@ -1,41 +1,64 @@
 ---
+import type { MarkdownInstance } from 'astro';
 import InfoPage from '../../components/sections/InfoPage.astro';
 import { legalPages, getLegalPage } from '../../data/legalPages';
 
-export function getStaticPaths() {
-	return legalPages.map((page) => ({
-		params: { slug: page.slug },
-	}));
+type LegalFrontmatter = {
+	title: string;
+	seoTitle: string;
+	seoDescription: string;
+	updated: string;
+};
+
+export async function getStaticPaths() {
+	const legalModules = import.meta.glob<MarkdownInstance<LegalFrontmatter>>(
+		'../../content/legal/*.md',
+	);
+
+	return Promise.all(
+		legalPages.map(async (page) => {
+			const loader = legalModules[`../../content/legal/${page.content}.md`];
+			if (!loader) {
+				throw new Error(`Missing legal markdown: ${page.content}.md`);
+			}
+			const mod = await loader();
+			return {
+				params: { slug: page.slug },
+				props: {
+					frontmatter: mod.frontmatter,
+					Content: mod.Content,
+				},
+			};
+		}),
+	);
 }
 
-const { slug } = Astro.params;
-const page = getLegalPage(slug ?? '');
-if (!page) {
-	throw new Error(`Unknown legal page: ${slug}`);
+interface Props {
+	frontmatter: LegalFrontmatter;
+	Content: MarkdownInstance<LegalFrontmatter>['Content'];
+}
+
+const { frontmatter, Content } = Astro.props;
+
+if (!getLegalPage(Astro.params.slug ?? '')) {
+	throw new Error(`Unknown legal page: ${Astro.params.slug}`);
 }
 ---
 
 <InfoPage
-	eyebrow={page.eyebrow}
-	title={page.title}
-	lede={`Last updated: ${page.updated}`}
-	seoTitle={page.seoTitle}
-	seoDescription={page.seoDescription}
+	eyebrow="Legal"
+	title={frontmatter.title}
+	lede={`Last updated: ${frontmatter.updated}`}
+	seoTitle={frontmatter.seoTitle}
+	seoDescription={frontmatter.seoDescription}
 >
-	{
-		page.sections.map((section) => (
-			<>
-				<h2>{section.heading}</h2>
-				{section.paragraphs.map((paragraph) => (
-					<p>{paragraph}</p>
-				))}
-			</>
-		))
-	}
+	<div class="legal-doc">
+		<Content />
+	</div>
 	<p class="pt-4 text-sm text-slate">
 		Questions?{' '}
 		<a href="/contact">Contact Forjyn</a>
 		{' '}or email{' '}
-		<a href="mailto:info@forjyn.com">info@forjyn.com</a>.
+		<a href="mailto:legal@forjyn.com">legal@forjyn.com</a>.
 	</p>
 </InfoPage>

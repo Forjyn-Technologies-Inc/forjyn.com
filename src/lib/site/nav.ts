@@ -40,7 +40,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
 		links: [
 			{ label: 'Privacy Policy', href: '/legal/privacy' },
 			{ label: 'Terms of Use', href: '/legal/terms' },
-			{ label: 'Cookie Policy', href: '/legal/cookies' },
 			{ label: 'Disclaimers', href: '/legal/investment-disclaimer' },
 			{ label: 'Accessibility', href: '/legal/accessibility' },
 		],
